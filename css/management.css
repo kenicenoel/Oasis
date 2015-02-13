@@ -1,0 +1,238 @@
+body
+{
+	margin: 0px;
+	width: 100%;
+	color: #000;
+
+}
+
+
+nav
+{
+	
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1em;
+	height: 100%;
+	width: 150px;
+	display: none;
+	border:none;
+	background-color: #0D84C8;
+	position: absolute;
+}
+
+a.link, a#menu
+{ 
+	
+	padding: 15px;
+	display: block;
+	border-bottom: 1px solid #fff;
+	text-decoration: none;
+	text-transform: lowercase;
+	visibility: visible;
+	color: #fff;
+}
+
+a.link:hover
+{
+	text-decoration: none;
+	background-color: #fff;
+	color: #000;
+}
+
+a#menu
+{
+	text-transform: uppercase;
+	display: inline;
+	border:none;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #0D84C8;
+	font-size: 15px;
+}
+
+header
+{
+	font-size: 3em;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #fff;
+	
+
+
+}
+section#content
+{
+	margin-left: 0px;
+	margin-top: 0px;
+	background: url('../images/oasis_banner2.svg');
+	background-size: cover;
+	height: 300px;
+}
+
+section#content2
+{
+	height: 200px;
+}
+
+
+
+section#content header
+{
+	margin-left: 40px;
+	margin-top: 0px;
+	max-width: 600px;
+}
+
+section#content2 header
+{
+	font-size: 2em;
+	color: #000;
+	margin-left: 20px;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+span
+{
+	color: #fff;
+	float: right;
+	margin-right: 15px;
+}
+
+section#content2 img { margin-left: 500px;}
+
+p.footnote
+{
+	padding-top: 50px;
+	text-align: center;
+}
+
+input[type=button]
+{
+	height: 70px;
+	width: 200px;
+	font-size: 3em;
+	color: #fff;
+	border:none;
+	background-color: #2980b9;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: lowercase;
+	margin-left: 50px;
+	margin-top: 100px;
+}
+
+input[type=text], input[type=password]
+{
+	font-size: 1.2em;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+	color: #2980b9;
+	padding-left: 2px;
+	padding-bottom: 3px;
+	border: 0;
+	border-top, border-left, border-right: none;
+	border-bottom: 2px solid #e2e3e4;
+	box-shadow: none;
+	outline: none;
+	height: 40px;
+	width: 220px;
+}
+
+input[type=submit]:hover
+{
+	
+	color: #fff;
+	border:none;
+	background-color: #16a085;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin-left: 10px;
+}
+
+input[type=submit]
+{
+	height: 40px;
+	width: 100px;
+	font-size: 1.4em;
+	color: #fff;
+	border:none;
+	background-color: #2980b9;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: lowercase;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+form 
+{ 
+	
+	margin-left: 300px;
+	margin-top: 30px;
+
+}
+
+table
+{
+	width: 800px;
+	font-size: 1.3em;
+	color: #000;
+	margin-left: 250px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+tr:nth-of-type(even) 
+{
+	color: #fff;
+  	background-color:#0D84C8;
+}
+
+tr.head
+{
+	font-size: 1.4em;
+
+}
+
+td
+{
+	padding: 5px;
+}
+td:nth-of-type(3) 
+{
+	
+  	text-align: right;
+}
+
+/*td:nth-of-type(5) 
+{
+	
+  	background: url('../images/tag.png');
+  	background-repeat: no-repeat;
+  	background-color: #fff;
+
+} */
+
+tr.head td
+{
+	text-align: left;
+}
+
+tr:hover
+{
+	font-weight: bolder;
+}
+
+tr.head
+{
+	font-weight: normal;
+}
+
+a.toggle
+{
+	float: right;
+	color: #0D84C8;
+	margin-right: 10px;
+	text-decoration: none;
+	
+}
+.arrow 
+{
+    font-size:15px;
+    
+}
+

@@ -1,0 +1,182 @@
+body
+{
+	margin: 0px;
+	width: 100%;
+	color: #000;
+	background-color: #
+	font-family: "Segoe Ui Light";
+
+}
+
+
+nav
+{
+	
+	font-family: "Segoe Ui Light";
+	font-size: 1.2em;
+	background-color: #fff;
+	
+}
+
+nav a 
+{ 
+	padding: 10px;
+	text-decoration: none;
+	text-transform: lowercase;
+	color: #000;
+}
+
+nav a:hover
+{
+	background-color: #00ACAA;
+	color: #fff;
+	
+}
+
+nav img
+{
+	height: 150px;
+	width:150px;
+}
+
+
+header
+{
+	font-size: 3em;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 200;
+	color: #fff;
+	
+
+
+}
+section#content
+{
+	margin-left: 0px;
+	margin-top: 0px;
+	background: url('../images/oasis_banner.svg');
+	background-size: cover;
+	height: 300px;
+}
+
+section#content img { margin-left: 30px;}
+
+section#content2
+{
+	height: 300px;
+}
+
+
+img.icon {height: 80px; width: 80px; float: right; margin-right: 150px;}
+section#content header
+{
+	margin-left: 40px;
+	margin-top: 0px;
+	max-width: 600px;
+}
+
+section#content2 header
+{
+	font-size: 3em;
+	color: #000;
+	margin-left: 40px;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+section#content2 img { margin-left: 500px;}
+
+input[type=button]
+{
+	height: 70px;
+	width: 200px;
+	font-size: 3em;
+	color: #fff;
+	border:none;
+	background-color: #2980b9;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: lowercase;
+	margin-left: 50px;
+	margin-top: 100px;
+}
+
+input[type=text], input[type=password]
+{
+	font-size: 1.2em;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+	color: #2980b9;
+	padding-left: 2px;
+	padding-bottom: 3px;
+	border: 0;
+	border-top, border-left, border-right: none;
+	border-bottom: 2px solid #e2e3e4;
+	box-shadow: none;
+	outline: none;
+	height: 40px;
+	width: 220px;
+}
+
+
+input[type=submit]:hover
+{
+	
+	color: #fff;
+	border:none;
+	background-color: #16a085;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin-left: 50px;
+}
+
+input[type=submit]
+{
+	height: 40px;
+	width: 100px;
+	font-size: 1.4em;
+	color: #fff;
+	border:none;
+	background-color: #2980b9;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: lowercase;
+	margin-left: 50px;
+	margin-top: 10px;
+}
+
+label
+{
+	font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+form 
+{ 
+	
+	margin-left: 800px;
+	margin-top: 30px;
+
+}
+
+p.text
+{
+	float: left;
+	margin-left: 50px;
+	font-size: 1.3em;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 200;
+	max-width: 400px;
+	text-align: center;
+}
+
+p#errorMessage
+{
+	
+	width: 300px;
+	color: red;
+}
+
+p.footnote
+{
+	padding-top: 0px;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+}
