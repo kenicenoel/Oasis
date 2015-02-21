@@ -1,31 +1,28 @@
 <?php
 	include_once ("includes/authenticate.php");
 
-	echo '<Doctype html>';
-	echo '<html>';
-	echo	'<head>';
-	echo		'<title>Admin Center - OASIS</title>';
-	echo 		'<link rel = "stylesheet" href = "css/management_child.css" type ="text/css">';
-	echo 		'<link rel = "stylesheet" href = "../css/management_child.css" type ="text/css">';
-	echo 		'<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">';
-	echo 		'<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">';
+	echo '<Doctype html>
+				<html>
+					<head>
+						<title>Admin Center - OASIS</title>
+						<link rel = "stylesheet" href = "css/management_child.css" type ="text/css">
+						<link rel = "stylesheet" href = "../css/management_child.css" type ="text/css">
+						<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+						<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">
 
 
 
-	echo	'</head>';
-	echo 		'<a id ="menu" title="Click to toggle menu" href="#">Show Menu</a>';
-	echo 		'<a class ="toggle"href="#" title="Logged in user">Administrative Mode</a>';
-	echo '<nav id ="navigation">';
+					</head>
+					<a id ="menu" title="Click to toggle menu" href="#">&#9776; Menu</a>
+					<a class ="toggle"href="#" title="Logged in user">Administrative Mode</a>
+					<nav id ="navigation">
 
+						<img src="images/sprites/user-modify.png"/><a class ="link" href ="#" title = "Manage users of the system">Users</a>
+						<img src="images/sprites/home-loan.png"/><a class ="link" href ="#" title = "Manage or add listings in oasis">Listings</a>
+						<img src="images/sprites/business-man.png"/><a class ="link" href ="system.php" title = "Manage or add a new landlord">Landlords</a>
+						<img src="images/sprites/logout.png"/><a class ="link" href ="logout.php" title = "Exit OASIS">Leave</a>
 
-	echo 		'<a class ="link" href ="#" title = "Add, delete or change user info">User management</a>';
-	echo 		'<a class ="link" href ="#" title = "Listings you like are managed here">Listing management</a>';
-	echo 		'<a class ="link" href ="system.php" title = "Look for more listings">Landlord management</a>';
-	echo 		'<a class ="link" href ="logout.php" title = "Exit OASIS">Sign out</a>';
-
-
-
-	echo '</nav>';
+				</nav>';
 
 
 

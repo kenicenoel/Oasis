@@ -1,6 +1,6 @@
 <?php
 	include_once ("includes/authenticate.php");
-	
+
 	session_start();
 	if(!isset($_SESSION['userId']))
 	{
@@ -23,7 +23,7 @@
 
 
 	echo	'</head>';
-	echo 		'<a id ="menu" title="Click to toggle menu" href="#">Show Menu</a>';
+	echo 		'<a id ="menu" title="Click to toggle menu" href="#">&#9776; Menu</a>';
 	echo 		'<a class ="toggle"href="#" title="Logged in user">Logged in as '. $loggedInUser .'</a>';
 	echo '<nav id ="navigation">';
 

@@ -12,22 +12,33 @@ nav
 
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1em;
-	height: 100%;
+	display:none;
 	width: 200px;
-	display: none;
+	height:100%;
 	border:none;
-	background-color: #0D84C8;
+	background-color: rgba(7, 7, 7, 0.80);
 	position: absolute;
+}
+
+nav img
+{
+	max-width:60px;
+	max-height:60px;
+	float:left;
+	vertical-align:middle;
+
+	padding-right:10px;
+
 }
 
 a.link, a#menu
 {
 
-	padding: 15px;
+	padding: 30px;
 	display: block;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px dotted #fff;
 	text-decoration: none;
-	text-transform: lowercase;
+
 	visibility: visible;
 	color: #fff;
 }
@@ -35,8 +46,8 @@ a.link, a#menu
 a.link:hover
 {
 	text-decoration: none;
-	background-color: #fff;
-	color: #000;
+	background-color: rgba(161, 140, 189, 0.84);
+	color: #fff;
 }
 
 a#menu
@@ -45,8 +56,8 @@ a#menu
 	display: inline;
 	border:none;
 	font-family: 'Source Sans Pro', sans-serif;
-	color: #0D84C8;
-	font-size: 15px;
+	color: #000;
+	font-size: 15pt;
 }
 
 header
@@ -232,8 +243,9 @@ tr.head
 a.toggle
 {
 	float: right;
-	color: #0D84C8;
+	color: #000;
 	margin-right: 10px;
+	font-size:15pt;
 	text-decoration: none;
 
 }
@@ -241,4 +253,10 @@ a.toggle
 {
     font-size:15px;
 
+}
+
+#option, #option2
+{
+	max-width:90px;
+	max-height:90px;
 }
