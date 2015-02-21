@@ -9,7 +9,7 @@ body
 
 nav
 {
-	
+
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1em;
 	height: 100%;
@@ -21,8 +21,8 @@ nav
 }
 
 a.link, a#menu
-{ 
-	
+{
+
 	padding: 15px;
 	display: block;
 	border-bottom: 1px solid #fff;
@@ -54,7 +54,7 @@ header
 	font-size: 3em;
 	font-family: 'Source Sans Pro', sans-serif;
 	color: #fff;
-	
+
 
 
 }
@@ -62,7 +62,7 @@ section#content
 {
 	margin-left: 0px;
 	margin-top: 0px;
-	background: url('../images/oasis_banner.svg');
+	background: url('../images/oasis_banner3.svg');
 	background-size: cover;
 	height: 250px;
 }
@@ -145,7 +145,7 @@ input[type=text], input[type=password]
 
 input[type=submit]:hover
 {
-	
+
 	color: #fff;
 	border:none;
 	background-color: #16a085;
@@ -166,9 +166,9 @@ input[type=submit]
 	margin-left: 10px;
 	margin-top: 10px;
 }
-form 
-{ 
-	
+form
+{
+
 	margin-left: 300px;
 	margin-top: 30px;
 
@@ -183,7 +183,7 @@ table
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
-tr:nth-of-type(even) 
+tr:nth-of-type(even)
 {
 	color: #fff;
   	background-color:#0D84C8;
@@ -199,15 +199,15 @@ td
 {
 	padding: 5px;
 }
-td:nth-of-type(3) 
+td:nth-of-type(3)
 {
-	
+
   	text-align: right;
 }
 
-/*td:nth-of-type(5) 
+/*td:nth-of-type(5)
 {
-	
+
   	background: url('../images/tag.png');
   	background-repeat: no-repeat;
   	background-color: #fff;
@@ -235,11 +235,10 @@ a.toggle
 	color: #0D84C8;
 	margin-right: 10px;
 	text-decoration: none;
-	
+
 }
-.arrow 
+.arrow
 {
     font-size:15px;
-    
-}
 
+}

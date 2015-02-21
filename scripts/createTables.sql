@@ -1,3 +1,4 @@
+CREATE DATABASE oasisdb;
 CREATE TABLE users
 (
 	userId int NOT NULL PRIMARY KEY,
@@ -10,8 +11,8 @@ CREATE TABLE users
 
 );
 
-INSERT INTO users 
-VALUES(811100809, 'Kenice', 'Noel', 'kenice.noel@my.uwi.edu', '18687866586', '60 Evans Street');
+INSERT INTO users
+VALUES(811100809, '19900727','Kenice', 'Noel', 'kenice.noel@my.uwi.edu', '18687866586', '60 Evans Street');
 
 CREATE TABLE landlord
 (
