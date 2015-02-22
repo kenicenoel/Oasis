@@ -11,15 +11,15 @@ body
 
 nav
 {
-	
+
 	font-family: "Segoe Ui Light";
 	font-size: 1.2em;
 	background-color: #fff;
-	
+
 }
 
-nav a 
-{ 
+nav a
+{
 	padding: 10px;
 	text-decoration: none;
 	text-transform: lowercase;
@@ -30,7 +30,7 @@ nav a:hover
 {
 	background-color: #00ACAA;
 	color: #fff;
-	
+
 }
 
 nav img
@@ -46,7 +46,7 @@ header
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 200;
 	color: #fff;
-	
+
 
 
 }
@@ -120,7 +120,7 @@ input[type=text], input[type=password]
 
 input[type=submit]:hover
 {
-	
+
 	color: #fff;
 	border:none;
 	background-color: #16a085;
@@ -148,9 +148,9 @@ label
 
 }
 
-form 
-{ 
-	
+form
+{
+
 	margin-left: 800px;
 	margin-top: 30px;
 
@@ -169,7 +169,7 @@ p.text
 
 p#errorMessage
 {
-	
+
 	width: 300px;
 	color: red;
 }

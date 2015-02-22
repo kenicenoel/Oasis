@@ -1,30 +1,29 @@
-<?php include "../includes/admin_header.php"; 
-	include "../includes/config.php"; ?>
+<?php include "../includes/admin_header.php" ?>
 <body>
-	
+
 	<div id = "container">
 
 	<section id ="content">
-		
-		<header class = "highlight"> 
-			
+
+		<header class = "highlight">
+
 		</header>
 	</section>
 
 	<section id ="content2">
 		<header>Grant a new user access to OASIS  </header>
-		<?php 
+		<?php
 
 				echo '
 		<form method = "post" action = "?add=1">
 					<p id = "errorMessage"><?php echo $meaning; ?></p>
-					
+
 					<label for="userId">Student ID#</label>
 					<input type = "text" id = "userId" name="userId" required autofocus/> <br>
-					
+
 					<label for="userPass">Password</label>
 					<input type = "text" id = "userPass" name="password" required /> <br>
-					
+
 					<label for="firstName">First Name</label>
 					<input type = "text" id = "firstName" name="firstName" /> <br>
 
@@ -45,7 +44,7 @@
 			</form>
 			';
 
-				if (isset($GET['add'])) 
+				if (isset($GET['add']))
 				{
 					//set the variables from form values
 					$userId = $_POST['userId'];
@@ -59,14 +58,14 @@
 
 					echo $userId . $password;
 				}
-				
-				
-				
-				
-				
 
-			
-			
+
+
+
+
+
+
+
 
 /*
 			else
@@ -82,7 +81,7 @@
 				}
 
 */
-				
+
 
 		?>
 

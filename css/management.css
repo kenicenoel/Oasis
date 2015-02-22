@@ -11,23 +11,38 @@ nav
 {
 
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 1em;
-	height: 100%;
-	width: 200px;
-	display: none;
+	font-size: 12pt;
+	position:absolute;
+	margin-top:25px;
+	display:none;
+	width: 150px;
+	height:100%;
 	border:none;
-	background-color: rgba(7, 7, 7, 0.80);
-	position: absolute;
+	background-color: rgba(16, 200, 206, 0.78);
+	z-index:1;
 }
 
-a.link, a#menu
+nav img
+{
+	max-width:40px;
+	max-height:40px;
+	margin-left:10px;
+	margin-top:4px;
+	vertical-align:middle;
+
+	float:left;
+	padding-right:15px;
+
+}
+
+a.link
 {
 
-	padding: 30px;
+	padding: 5px 0px 30px 10px;
 	display: block;
-	border-bottom: 1px dotted #fff;
+	border-bottom: 1px dashed #fff;
 	text-decoration: none;
-	text-transform: lowercase;
+	text-transform:none;
 	visibility: visible;
 	color: #fff;
 }
@@ -39,13 +54,24 @@ a.link:hover
 	color: #fff;
 }
 
+span#sticky
+{
+	background-color:rgba(16, 200, 206, 1.0);
+	position:fixed;
+	display:block;
+	color:fff;
+	width:100%;
+	z-index:2;
+}
 a#menu
 {
 	text-transform: uppercase;
 	display: inline;
 	border:none;
 	font-family: 'Source Sans Pro', sans-serif;
-	color: #000;
+	color: #fff;
+	text-decoration:none;
+	margin-left:5px;
 	font-size: 15pt;
 }
 
@@ -55,16 +81,24 @@ header
 	font-family: 'Source Sans Pro', sans-serif;
 	color: #fff;
 
-
-
 }
+
+footer
+{
+	position:absolute;
+	bottom:0px;
+	margin: 0px auto;
+	width:100%;
+	text-align:center;
+}
+
 section#content
 {
 	margin-left: 0px;
 	margin-top: 0px;
 	background: url('../images/oasis_banner2.svg');
 	background-size: cover;
-	height: 300px;
+	height: 250px;
 }
 
 section#content2
@@ -225,11 +259,19 @@ tr.head
 a.toggle
 {
 	float: right;
-	color: #0D84C8;
+	color: #fff;
 	margin-right: 10px;
+	font-size:15pt;
+	font-family: 'Source Sans Pro', sans-serif;
 	text-decoration: none;
 
 }
+
+a.toggle
+{
+	cursor:default;
+}
+
 .arrow
 {
     font-size:15px;

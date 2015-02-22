@@ -14,7 +14,7 @@ $(document).ready(function()
         	else
         	{
         		$('#navigation').css("display", "none");
-        		
+
         	}
 
     	});

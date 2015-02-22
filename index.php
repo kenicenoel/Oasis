@@ -31,7 +31,7 @@ else
 		<header>Ready to get started? </header>
 
 		<p class ="text">
-			<img class = "icon" src = "images/User.svg" alt="student" />
+			<img class = "icon" src = "images/user-login.png" alt="student" />
 				Simply enter your student number and your date of birth. Need an account? See Student Advisory.
 
 					<form method = "post" action = <?php loginUser() ?>>
