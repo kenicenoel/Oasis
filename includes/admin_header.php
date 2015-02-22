@@ -21,10 +21,10 @@
 					<body>
 						<nav id ="navigation">
 
-							<img src="images/sprites/user-modify.png"/><a class ="link" href ="#" title = "Manage users of the system">Users</a>
+							<img src="images/sprites/user-05.png"/><a class ="link" href ="#" title = "Manage users of the system">Users</a>
 							<img src="images/sprites/home-loan.png"/><a class ="link" href ="#" title = "Manage or add listings in oasis">Listings</a>
-							<img src="images/sprites/business-man.png"/><a class ="link" href ="system.php" title = "Manage or add a new landlord">Landlords</a>
-							<img src="images/sprites/logout.png"/><a class ="link" href ="logout.php" title = "Exit OASIS">Leave</a>
+							<img src="images/sprites/man-03.png"/><a class ="link" href ="system.php" title = "Manage or add a new landlord">Landlords</a>
+							<img src="images/sprites/cancel.png"/><a class ="link" href ="logout.php" title = "Exit OASIS">Leave</a>
 
 					</nav>';
 

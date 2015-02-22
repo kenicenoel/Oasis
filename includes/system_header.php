@@ -32,10 +32,10 @@
 			<nav id ="navigation">
 
 
-	 		<a class ="link" href ="#" title = "Change things like your name, theme color and contact info">Update my profile</a>
-	 		<a class ="link" href ="#" title = "Listings you like are managed here">Favourites</a>
-	 		<a class ="link" href ="system.php" title = "Look for more listings">New search</a>
-	 		<a class ="link" href ="logout.php" title = "Exit OASIS">Sign out</a>
+			<img src="images/sprites/id-card.png"/><a class ="link" href ="#" title = "Change things like your name, theme color and contact info">Account</a>
+			<img src="images/sprites/favourite.png"/><a class ="link" href ="#" title = "Listings you like are managed here">Favourites</a>
+			<img src="images/sprites/search-find.png"/><a class ="link" href ="system.php" title = "Look for more listings">New search</a>
+			<img src="images/sprites/cancel.png"/><a class ="link" href ="logout.php" title = "Exit OASIS">Sign out</a>
 
 
 
