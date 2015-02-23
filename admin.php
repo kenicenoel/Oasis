@@ -1,4 +1,4 @@
-<?php include "includes/admin_header.php";  ?>
+<?php include "includes/admin_header.php"; addUser(); ?>
 
 
 	<div id = "container">
@@ -12,7 +12,7 @@
 
 	<section id ="content2">
 			<header>Quick actions</header>
-
+			<p id = "errorMessage"></p>
 			<!-- The user div containing tiles -->
 			<div id="users" class="tile-container">
 				<header class="modules"> User </header>
@@ -70,7 +70,7 @@
   <section id ="content2">
     <header>Add a new user to OASIS  </header>
 
-    <form method = "post" action = "?add=1">
+    <form method = "post" action = "admin.php">
 
           <label for="userId">Student ID#</label>
           <input type = "text" id = "userId" name="userId" required autofocus/> <br>
