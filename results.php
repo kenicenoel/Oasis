@@ -8,7 +8,15 @@
 
 		}
 
-		setUpPagination($minPrice, $maxPrice);
+		$conn       = dbConnect();
+		$limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 25;
+		$page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
+		$links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
+		$query      = "SELECT landlord.lastName AS landlord, listing.type, listing.address, lisiting.price FROM landlord, listing WHERE landlord.landlordNumber = listing.landlordNumber";
+
+		$Paginator  = new Paginator( $conn, $query);
+
+		$results    = $Paginator->getData( $limit, $page );
 
 ?>
 <div id = "container">
@@ -47,7 +55,7 @@
 
 												</tbody>
                 </table>
-								<?php echo $Paginator->createLinks( $links, 'pagination pagination-sm' ); ?> 
+								<?php echo $Paginator->createLinks( $links, 'pagination pagination-sm' ); ?>
 
 
 

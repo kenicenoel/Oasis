@@ -7,19 +7,28 @@ body
 }
 
 
+img
+{
+	user-drag: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+
+}
+
+
 nav
 {
 
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 12pt;
-	position:absolute;
-	margin-top:25px;
-	display:none;
-	width: 150px;
+	font-size: 15pt;
+	margin-top:0px;
+	color:#767375;
+	position:fixed;
+	width: 200px;
 	height:100%;
 	border:none;
-	background-color: rgba(16, 200, 206, 0.78);
-	z-index:1;
+	background-color:rgba(41, 122, 156, 0.94);
+
 }
 
 nav img
@@ -27,36 +36,42 @@ nav img
 	max-width:20px;
 	max-height:20px;
 	margin-left:10px;
-	margin-top:4px;
+	margin-top:18px;
 	vertical-align:middle;
 
 	float:left;
 	padding-right:15px;
 
 }
+#start
+{
+	padding-top:50px;
+	padding-bottom:20px;
+	text-align:center;
+	color:fff;
+}
 
 a.link
 {
-
-	padding: 5px 0px 30px 10px;
+	color:#fff;
+	padding: 15px 0px 30px 10px;
 	display: block;
-	border-bottom: 1px dashed #fff;
 	text-decoration: none;
 	text-transform:none;
 	visibility: visible;
-	color: #fff;
+
 }
 
 a.link:hover
 {
 	text-decoration: none;
-	background-color: rgba(161, 140, 189, 0.84);
+	background-color: rgba(23, 183, 66, 0.84);
 	color: #fff;
 }
 
 span#sticky
 {
-	background-color:rgba(16, 200, 206, 1.0);
+	background-color:rgba(41, 122, 156, 0.45);
 	position:fixed;
 	display:block;
 	color:fff;
@@ -71,14 +86,10 @@ a#menu
 	font-family: 'Source Sans Pro', sans-serif;
 	color: #fff;
 	text-decoration:none;
-	margin-left:5px;
+	margin-left:50px;
 	font-size: 15pt;
 }
 
-a#menu:hover
-{
-	color:#df9515;
-}
 
 header
 {
@@ -134,7 +145,7 @@ span
 	margin-right: 15px;
 }
 
-section#content2 img { margin-left: 500px;}
+
 
 p.footnote
 {
@@ -196,6 +207,7 @@ input[type=submit]
 	margin-left: 10px;
 	margin-top: 10px;
 }
+
 form
 {
 

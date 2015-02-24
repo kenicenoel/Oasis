@@ -11,8 +11,8 @@
 	{
 		$loggedInUser=$_SESSION['userId'];
 	}
-
-	echo '<Doctype html>
+?>
+	<Doctype html>
 	 <html>
 		<head>
 			<title>OASIS Apartment Finder</title>
@@ -25,13 +25,13 @@
 		</head>
 		<span id="sticky">
 			<a id ="menu" title="Click to toggle menu" href="#">&#9776; Menu</a>
-			<a class ="toggle"href="#" title="Logged in user">Logged in as '. $loggedInUser .'</a>
+			<a class ="toggle"href="#" title="Logged in user">Logged in as <?php echo $loggedInUser ?></a>
 		</span>
 
 			<body>
 			<nav id ="navigation">
 
-
+			<p id="start"></p>
 			<img src="images/sprites/id-card.png"/><a class ="link" href ="#" title = "Change things like your name, theme color and contact info">Account</a>
 			<img src="images/sprites/favourite.png"/><a class ="link" href ="#" title = "Listings you like are managed here">Favourites</a>
 			<img src="images/sprites/search-find.png"/><a class ="link" href ="system.php" title = "Look for more listings">New search</a>
@@ -39,8 +39,4 @@
 
 
 
-	 </nav>';
-
-
-
-?>
+	 </nav>

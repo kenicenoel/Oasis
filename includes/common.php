@@ -1,15 +1,7 @@
 <?php include_once("includes/authenticate.php");
-	function setUpPagination($min, $max)
+	function startPagination($min, $max)
 	{
-			$conn       = dbConnect();
-	    $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 25;
-	    $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
-	    $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
-	    $query      = "SELECT landlord.lastName AS lanlord, listing.type, listing.address, lisiting.price WHERE landlord.landlordNumber = listing.landlordNumber AND price >=".$min." AND price<=".$max;
-
-	    $Paginator  = new Paginator( $conn, $query );
-
-	    $results    = $Paginator->getData( $page, $limit );
+			
 
 	}
 
