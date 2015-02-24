@@ -11,12 +11,29 @@ $(document).ready(function()
 
         	}
 
-        	else
+          else if(state.css("display") === "inline")
         	{
         		$('#navigation').css("display", "none");
 
         	}
 
+
+
+
     	});
+
+      $('#menu').mouseout(function()
+      {
+        var state=$('#navigation');
+        if(state.css("display") === "inline")
+        {
+          $('#navigation').css("display", "none");
+
+        }
+
+
+
+    });
+
 
 });

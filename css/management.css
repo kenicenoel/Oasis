@@ -75,6 +75,11 @@ a#menu
 	font-size: 15pt;
 }
 
+a#menu:hover
+{
+	color:#df9515;
+}
+
 header
 {
 	font-size: 3em;
@@ -105,8 +110,6 @@ section#content2
 {
 	height: 200px;
 }
-
-
 
 section#content header
 {
@@ -264,16 +267,6 @@ a.toggle
 	font-size:15pt;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-decoration: none;
-
-}
-
-a.toggle
-{
 	cursor:default;
-}
-
-.arrow
-{
-    font-size:15px;
 
 }

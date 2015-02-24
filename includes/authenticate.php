@@ -149,7 +149,7 @@
               $stmt->execute();
 
               echo '<script type="text/javascript">
-                    alert("Added successfully");
+                      window.location.href="?addUser=true";
                     </script>';
 
               $stmt->close();
@@ -167,5 +167,22 @@
   }
 
 
+  function getErrorMeaning()
+  {
+    if (isset($_GET['addUser']))
+			{
+				$message = $_GET['addUser'];
+				if($message == "true")
+				{
+					$meaning = "New user created.";
+				}
 
+				else if($message == "false")
+				{
+					$meaning = "): You have tried adding a user that already exists.";
+				}
+
+
+			}
+  }
 ?>

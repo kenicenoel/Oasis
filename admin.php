@@ -1,61 +1,23 @@
-<?php include "includes/admin_header.php"; addUser(); ?>
+<?php
+			include "includes/admin_header.php";
+
+			// checks if the url has the module switch
+			if(isset ($_GET['module']))
+			{
+				$setmodule = $_GET['module']; // sets the module switch from url in a variable
+			}
+
+			else { $setmodule= "overview"; }
+
+?>
 
 
 	<div id = "container">
 
-	<section id ="content">
-
-		<header class = "highlight">
-
-		</header>
-	</section>
-
 	<section id ="content2">
-			<header>Quick actions</header>
-			<p id = "errorMessage"></p>
-			<!-- The user div containing tiles -->
-			<div id="users" class="tile-container">
-				<header class="modules"> User </header>
-				<section id="tile" class="show-popup" href="#" data-showpopup="1">
-					<p>Add new user</p>
+		<header>Administrative center</header>
 
-				</section>
-
-				<section id="tile" class="show-popup" href="#" data-showpopup="2">
-					<p>Modify user</p>
-
-				</section>
-			</div>
-
-			<!-- The listings div containing tiles -->
-			<div id="listings" class="tile-container">
-				<header class="modules"> Listings </header>
-
-				<section id="tile" class="show-popup" href="#" data-showpopup="3">
-					<p class="show-popup" href="#" data-showpopup="1">Add new Listing</a></p>
-
-				</section>
-
-				<section id="tile" class="show-popup" href="#" data-showpopup="4">
-					<p>Modify listing</p>
-
-				</section>
-			</div>
-
-			<!-- The landlords div containing tiles -->
-			<div id="landlords" class="tile-container">
-				<header class="modules"> Landlords </header>
-				<section id="tile" class="show-popup" href="#" data-showpopup="5">
-					<p>Add new landlord</p>
-
-				</section>
-
-				<section id="tile" class="show-popup" href="#" data-showpopup="6">
-					<p>Modify details</p>
-
-				</section>
-			</div>
-
+		<?php call_user_func($setmodule) // calls the appropriate function?>
 
 
 	</section>
