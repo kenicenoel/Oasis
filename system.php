@@ -1,5 +1,5 @@
 <?php include "includes/system_header.php" ?>
-	
+
 	<div id = "container">
 
 	<section id ="content">
@@ -16,8 +16,8 @@
 
 
 			<form method = "post" action = "results.php">
-				<input type = "text" placeholder = "minimum e.g. 500" required autofocus/>
-				<input type = "text" placeholder = "maximum e.g. 2500" required />
+				<input type = "text" name = "min" placeholder = "minimum e.g. 500" required autofocus/>
+				<input type = "text" name = "max" placeholder = "maximum e.g. 2500" required />
 				<input type = "submit" value="Search" />
 
 			</form>

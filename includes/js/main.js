@@ -11,7 +11,7 @@ $(document).ready(function()
 
         	}
 
-          else if(state.css("display") === "inline")
+          else
         	{
         		$('#navigation').css("display", "none");
 
@@ -22,18 +22,7 @@ $(document).ready(function()
 
     	});
 
-      $('#menu').mouseout(function()
-      {
-        var state=$('#navigation');
-        if(state.css("display") === "inline")
-        {
-          $('#navigation').css("display", "none");
 
-        }
-
-
-
-    });
 
 
 });

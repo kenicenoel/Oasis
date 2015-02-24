@@ -15,7 +15,7 @@
 	<div id = "container">
 
 	<section id ="content2">
-		<header>Administrative center</header>
+		<header>Dashboard</header>
 
 		<?php call_user_func($setmodule) // calls the appropriate function?>
 
