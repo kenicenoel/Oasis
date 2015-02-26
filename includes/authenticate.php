@@ -1,30 +1,10 @@
 <?php
-
-  //a function to establish a database connection
-  function dbConnect()
-    {
-      //Connection to the MySQL Server
-      define('DB_SERVER', 'localhost'); // Mysql hostname, usually localhost
-      define('DB_USERNAME', 'root'); // Mysql username
-      define('DB_PASSWORD', 'afrique'); // Mysql password
-      define('DB_DATABASE', 'oasisdb'); // Mysql database name
-
-      // create new mysqli object
-      $connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-      if ($connection->connect_error)
-      {
-          die("Connection failed: " . $connection->connect_error);
-      }
-
-      return $connection;
-    }
-
+  require_once("includes/common.php");
 
   //the loginUser function below will verify and login a student to the system
   function loginUser()
   {
-    $connection = dbConnect();
-
+    $connection = connect();
     // check if the username and password is set
     if(isset($_POST['userId']) && isset($_POST['password']))
     {
@@ -89,7 +69,7 @@
   {
     if(isset($_POST['userId']) && isset($_POST['password']))
     {
-      $connection = dbConnect();
+
 
       //set the username and password from form values
       $userId = $_POST['userId'];
@@ -157,12 +137,6 @@
 
       }
 
-
-
-
-
-
-
     }
   }
 
@@ -185,4 +159,5 @@
 
 			}
   }
+
 ?>

@@ -1,14 +1,16 @@
 <?php
-	include_once ("includes/authenticate.php");
-	include_once ("includes/common.php") ?>
+	require_once ("includes/authenticate.php");
+	require_once ("includes/common.php");
+?>
+
+
 
 	<Doctype html>
 				<html>
 					<head>
-						<title>Admin Center - OASIS</title>
+						<title>Oasis: Dashboard</title>
 						<link rel = "stylesheet" href = "css/management_child.css" type ="text/css">
 						<link type="text/css" rel="stylesheet" href="css/overlaypopup.css" />
-
 						<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
 						<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">
 					</head>

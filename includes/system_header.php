@@ -1,7 +1,9 @@
 <?php
-	include_once ("includes/authenticate.php");
+	require_once ("includes/authenticate.php");
+	require_once ("includes/common.php");
 
 	session_start();
+
 	if(!isset($_SESSION['userId']))
 	{
 		header("Location:index.php");
@@ -11,6 +13,7 @@
 	{
 		$loggedInUser=$_SESSION['userId'];
 	}
+
 ?>
 	<Doctype html>
 	 <html>
@@ -19,8 +22,6 @@
 	 		<link rel = "stylesheet" href = "css/management.css" type ="text/css">
 	 		<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
 	 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">
-
-
 
 		</head>
 		<span id="sticky">

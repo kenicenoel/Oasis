@@ -24,6 +24,7 @@ nav
 	margin-top:0px;
 	color:#767375;
 	position:fixed;
+	display:none;
 	width: 200px;
 	height:100%;
 	border:none;

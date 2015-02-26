@@ -99,13 +99,29 @@ header.modules
 	display:block;
 	text-align:left;
 	margin: 0px 0px 10px 20px;
+}
 
+header.modulename
+{
+	text-align:left;
+
+	font-size:25pt;
+
+}
+
+hr
+{
+	width: 400px;
+	padding-bottom:20px;
+	border-left:none;
+	border-right:none;
+	border-bottom:none;
 
 }
 
 p.summary
 {
-
+	margin:15px 0px 0px 5px;
 }
 
 section#content2
@@ -200,7 +216,6 @@ form
 {
 	margin: 50px 0px 0px 50px;
 	height: 500px;
-	background-color:rgba(180, 187, 185, 0.40);
 	width:950px;
 	border-radius:5px;
 
@@ -222,23 +237,23 @@ div.tile-container
 
 section#tile
 {
-	background-color:#1fa827;
-	height:100px;
-	width:100px;
+	background-color:#1f61a9;
+	height:150px;
+	width:150px;
 	margin-left:20px;
 	display:inline-block;
-	padding-right:50px;
+	float: left;
 }
 
 section#tile:hover
 {
-	background-color:rgba(124, 187, 72, 0.74);
+	background-color:rgba(9, 152, 213, 0.74);
 	cursor:pointer;
 }
 
 section#tile p
 {
-	width:90px;
+	width:120px;
 	color:#fff;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size:15pt;

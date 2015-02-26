@@ -1,4 +1,4 @@
-<?php include "includes/system_header.php" ?>
+<?php require_once "includes/system_header.php" ?>
 
 	<div id = "container">
 
@@ -10,7 +10,7 @@
 	</section>
 
 	<section id ="content2">
-		<header>Set your minimum and maximum price and we'll handle the rest.  </header>
+		<header>Feel free to personalize your search and we'll handle the rest. </header>
 
 		<p class ="text">
 
@@ -31,4 +31,4 @@
 	<script src="includes/js/jquery.js"></script>
 	<script src="includes/js/main.js"></script>
 </body>
-<?php include "includes/footer.php" ?>
+<?php include_once "includes/footer.php" ?>

@@ -1,20 +1,17 @@
-<?php include_once "includes/header.php";
- 			include_once "includes/authenticate.php";
-
-?>
+<?php include_once ("includes/header.php") ?>
 
 <?php
-if (isset($_GET['flagLogin']))
-	{
-		$message = $_GET['flagLogin'];
-		$meaning = "): You have entered incorrect login info";
+  if (isset($_GET['flagLogin']))
+  	{
+  		$message = $_GET['flagLogin'];
+  		$meaning = "): You have entered incorrect login info";
 
-	}
+  	}
 
-else
-{
-	$meaning = " ";
-}
+  else
+  {
+  	$meaning = " ";
+  }
 
 ?>
 <body>
@@ -55,4 +52,4 @@ else
 
 
 
-<?php include "includes/footer.php" ?>
+<?php include_once("includes/footer.php") ?>
