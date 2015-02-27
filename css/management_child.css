@@ -97,6 +97,8 @@ header.modules
 
 	font-size:16pt;
 	display:block;
+	clear:left;
+	padding-top:25px;
 	text-align:left;
 	margin: 0px 0px 10px 20px;
 }
@@ -133,12 +135,19 @@ section#content2
 	margin-top: 10px;
 }
 
+.left
+{
+	margin-left:20px;
+}
+
 
 
 p.footnote
 {
-	padding-top: 50px;
+	padding-top: 30px;
 	text-align: center;
+	font-size:10pt;
+	color:#0f547b;
 }
 
 input[type=button]
@@ -186,7 +195,7 @@ input[type=submit]:hover
 	border:none;
 	background-color: #16a085;
 	font-family: 'Source Sans Pro', sans-serif;
-	margin-left: 10px;
+
 }
 
 input[type=submit]
@@ -199,7 +208,7 @@ input[type=submit]
 	background-color: #2980b9;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-transform: lowercase;
-	margin-left: 10px;
+	margin-left: 100px;
 	margin-top: 10px;
 }
 
@@ -235,7 +244,7 @@ div.tile-container
 
 }
 
-section#tile
+section#tile, section#tile-group1, section#tile-group2
 {
 	background-color:#1f61a9;
 	height:150px;
@@ -245,13 +254,23 @@ section#tile
 	float: left;
 }
 
-section#tile:hover
+section#tile-group1
 {
-	background-color:rgba(9, 152, 213, 0.74);
-	cursor:pointer;
+	background-color:#3a9317;
 }
 
-section#tile p
+
+section#tile-group2
+{
+	background-color:#b347e9;
+}
+
+section#tile:hover
+{
+	background-color:rgba(43, 144, 233, 0.61);
+}
+
+section#tile p, section#tile-group1 p, section#tile-group2 p
 {
 	width:120px;
 	color:#fff;
@@ -260,7 +279,7 @@ section#tile p
 	margin-left:10px;
 }
 
-section#tile p a
+section.overview
 {
 	color:#fff;
 	font-family: 'Source Sans Pro', sans-serif;

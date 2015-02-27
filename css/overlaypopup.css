@@ -1,4 +1,5 @@
-* {
+*
+{
 	margin: 0;
 	padding: 0;
 	-moz-box-sizing: border-box;
@@ -6,11 +7,13 @@
 	box-sizing: border-box;
 }
 
-body {
+body
+{
 	font-family: 'Helvetica Neue','Helvetica', Arial, sans-serif;
 }
 
-.main-content {
+.main-content
+{
 	height: 1000px;
 	width: 1000px;
 	margin: 0 auto;
@@ -29,6 +32,7 @@ body {
 	background: #000; /* fallback */
 	background: rgba(0,0,0,0.75);
 }
+
 	.overlay-content
 	{
 		display: none;
@@ -61,15 +65,18 @@ body {
 		border-radius: 4px;
 		box-shadow: 0 0 4px rgba(0,0,0,0.3);
 	}
+
 	.close-btn:hover
 	{
 		background: #05abe0;
 	}
 
 /* media query for most mobile devices */
-@media only screen and (min-width: 0px) and (max-width: 480px){
+@media only screen and (min-width: 0px) and (max-width: 480px)
+{
 
-	.overlay-content {
+	.overlay-content
+	{
 		width: 96%;
 		margin: 0 2%;
 		left: 0;

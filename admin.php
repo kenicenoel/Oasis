@@ -1,6 +1,6 @@
 <?php
 			require_once ("includes/admin_header.php");
-			
+
 
 
 			// checks if the url has the module switch
@@ -10,6 +10,8 @@
 			}
 
 			else { $setmodule= "overview"; } // if no module switch is found, default to overview
+
+
 
 ?>
 
@@ -29,10 +31,10 @@
 </div>
 
 <div class="overlay-content popup1">
-  <section id ="content2">
+  <section id ="content2 class=left">
     <header>Add a new user to OASIS  </header>
 
-    <form method = "post" action = "admin.php">
+    <form method = "post" action = "<?php addUser() ?>">
 
           <label for="userId">Student ID#</label>
           <input type = "text" id = "userId" name="userId" required autofocus/> <br>
@@ -55,7 +57,8 @@
           <label for="address">Address</label>
           <input type = "text" id = "address" name="address" /> <br>
 
-          <input type = "submit" value="Create" />
+          <input type = "submit" value="Add" />
+					<p class="footnote"> Note: The student number and password are required. </p>
 
       </form>
 

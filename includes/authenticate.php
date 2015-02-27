@@ -4,7 +4,7 @@
   //the loginUser function below will verify and login a student to the system
   function loginUser()
   {
-    $connection = connect();
+    global $connection;
     // check if the username and password is set
     if(isset($_POST['userId']) && isset($_POST['password']))
     {
@@ -67,6 +67,8 @@
 
   function addUser()
   {
+
+    global $connection;
     if(isset($_POST['userId']) && isset($_POST['password']))
     {
 
