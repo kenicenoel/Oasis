@@ -1,4 +1,10 @@
-Welcome to OASIS. The University of the West Indies St Augustine has a Student Information System called OASIS that allows students to find appartments, rooms and other accomodations off campus. Nothing is wrong with the service however, as it has most definitely helped me before, but the website and implementation of the service is pretty ugly.
+<b>This section Reserved for notices</b><br />
+| <br />
+| <br />
+|<br />
+
+<b>Introduction</b><br />
+Welcome to  PROJECT OASIS. The University of the West Indies St Augustine has a Student Information System called OASIS that allows students to find appartments, rooms and other accomodations off campus. Nothing is wrong with the service however, as it has most definitely helped me before, but the website and implementation of the service is pretty ugly.
 
 I have decided to (unofficially) solve this problem and then submit my proposed new system to Student Advisory Service who maintains the service at no cost as my way of giving back, hoping that some other students will benefit from this;
 
@@ -10,5 +16,21 @@ Some of the proposed features of the system's first release are:
   <li> Central dashboard that provides an overview of the system </li>
   <li> The ability for admins of the system to upload images for the listings </li>
   <li> Current features of the OASIS system such as search, price and location filters </li>
-
+  <li> Pagination navigation for the search results </li>
 </ul>
+
+<b>Progress </b><br />
+Here you can see where the project is. <em>[C]</em> means that the feature is done. If <em>[T]</em> tag is present then that means that the particular feature is on our todo list. The <em> [W] </em> flag means that we're currently working on that feature. A <em> [P]</em> flag means that the feature is partially implemented.
+
+<ul>
+  <li> [C]: UI design </li>
+  <li> [W]: Student, landlord and listing management module </li>
+  <li> [C]: Central dashboard that provides an overview of the system </li>
+  <li> [T]: The ability for admins of the system to upload images for the listings </li>
+  <li> [P]: Current features of the OASIS system such as search, price and location filters </li>
+  <li> [T]: Pagination navigation for the search results </li>
+</ul>
+
+
+
+
