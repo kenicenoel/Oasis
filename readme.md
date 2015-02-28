@@ -5,6 +5,7 @@
 
 <b>Introduction</b><br />
 Welcome to  PROJECT OASIS. The University of the West Indies St Augustine has a Student Information System called OASIS that allows students to find appartments, rooms and other accomodations off campus. Nothing is wrong with the service however, as it has most definitely helped me before, but the website and implementation of the service is pretty ugly.
+View the current implementation <a href="http://sta.uwi.edu/oasis/login.asp" title= "Visit Current OASIS">here</a>.
 
 I have decided to (unofficially) solve this problem and then submit my proposed new system to Student Advisory Service who maintains the service at no cost as my way of giving back, hoping that some other students will benefit from this;
 
