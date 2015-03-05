@@ -1,19 +1,5 @@
 <?php include_once ("includes/header.php") ?>
 
-<?php
-  if (isset($_GET['flagLogin']))
-  	{
-  		$message = $_GET['flagLogin'];
-  		$meaning = "): You have entered incorrect login info";
-
-  	}
-
-  else
-  {
-  	$meaning = " ";
-  }
-
-?>
 <body>
 	<div id = "container">
 
@@ -25,19 +11,19 @@
 	</section>
 
 	<section id ="content2">
-		<header>Ready to get started? </header>
+		<header>Ready to get started?</header>
 
 		<p class ="text">
 			<img class = "icon" src = "images/user-login.png" alt="student" />
 				Simply enter your student number and your date of birth. Need an account? See Student Advisory.
 
-					<form method = "post" action = <?php loginUser() ?>>
-						<p id = "errorMessage"><?php echo $meaning; ?></p>
+					<form id="form" action= "includes/authenticate.php" method ="post" class ="ajax">
+						<p id = "msg"></p>
 						<label for="studentID">Student#</label>
-						<input type = "text" id = "studentID" name="userId" required autofocus/> <br><br>
+						<input type = "text" id = "userId" name="userId" required autofocus/> <br><br>
 						<label for="userPass">Password</label>
-						<input type = "password" id = "userPassword" name="password" required /> <br>
-						<input type = "submit" value="LOGIN" />
+						<input type = "password" id = "pasword" name="password" required /> <br>
+						<input id ="submit" type = "submit" value="LOGIN" />
 
 				</form>
 
@@ -51,5 +37,6 @@
 </body>
 
 
-
+<script src="includes/js/jquery.js"></script>
+<script src="includes/js/main.js"></script>
 <?php include_once("includes/footer.php") ?>

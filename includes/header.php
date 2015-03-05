@@ -1,5 +1,14 @@
 <?php
-		require_once("includes/authenticate.php") ?>
+		require_once("includes/authenticate.php");
+		session_start();
+
+		if(isset($_SESSION['userId']))
+		{
+			header("Location:system.php");
+		}
+
+
+		 ?>
 	<Doctype html>
 		<html>
 			<head>

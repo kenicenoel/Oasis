@@ -69,6 +69,11 @@ a.link:hover
 	color: #fff;
 }
 
+a.link:active
+{
+	background-color:rgba(161, 140, 189, 0.84);
+}
+
 
 header
 {

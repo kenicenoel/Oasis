@@ -1,4 +1,5 @@
 
+// Menu Toggle
 $(document).ready(function()
 {
 
@@ -17,12 +18,49 @@ $(document).ready(function()
 
         	}
 
-
-
-
     	});
 
-
-
-
 });
+
+// Ajax login
+$('form.ajax').on('submit', function()
+{
+    var that = $(this),
+        url = that.attr('action'),
+        method = that.attr('method'),
+        data = {};
+
+    that.find('[name]').each(function(index, value)
+    {
+      var that = $(this),
+          name = that.attr('name'),
+          value = that.val();
+
+          data[name] = value;
+    });
+      $.ajax
+      (
+        {
+          url:url,
+          type: method,
+          data: data,
+          success: function(response)
+          {
+            if(response == 'FAILED')
+            {
+
+              $('#msg').text("Either your student ID or password is incorrect");
+            }
+
+            else
+            {
+              window.open('system.php', '_self');
+            }
+
+          }
+        }
+      );
+      return false;
+});
+
+// Ajax replace
