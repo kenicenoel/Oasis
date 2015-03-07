@@ -38,16 +38,22 @@ body
 		display: none;
 		background: #fff;
 		padding: 1%;
-		width: 40%;
-		height: 500px;
+		width: 60%;
+		height: 680px;
 		position: absolute;
 		top: 5%;
 		left: 50%;
-		margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+		margin: 0 0 0 -30%; /* add negative left margin for half the width to center the div */
 		cursor: default;
 		z-index: 10001;
 		border-radius: 4px;
 		box-shadow: 0 0 5px rgba(0,0,0,0.9);
+	}
+
+	.overlay-content header
+	{
+		font-size:18pt;
+		
 	}
 
 	.close-btn

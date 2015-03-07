@@ -1,7 +1,8 @@
 $(document).ready(function()
 {
     // show popup when you click on the link
-    $('.show-popup').click(function(event){
+    $('.show-popup').click(function(event)
+    {
         event.preventDefault(); // disable normal link function so that it doesn't refresh the page
         var docHeight = $(document).height(); //grab the height of the page
         var scrollTop = $(window).scrollTop(); //grab the px value from the top of the page to where you're scrolling

@@ -131,6 +131,12 @@ p.summary
 	margin:15px 0px 0px 5px;
 }
 
+p#errorMessage
+{
+	color:red;
+	font-size:12pt;
+}
+
 section#content2
 {
 	height: 630px;
@@ -155,11 +161,23 @@ p.footnote
 	color:#0f547b;
 }
 
+label
+{
+	font-size:13pt;
+
+}
+
+textarea
+{
+	font-size:13pt;
+	font-family: 'Source Sans Pro', sans-serif;
+	padding-top:3px;
+}
 input[type=button]
 {
-	height: 40px;
+	height: 20px;
 	width: 200px;
-	font-size: 1.4em;
+	font-size: 12pt;
 	color: #fff;
 	border:none;
 	background-color: #2980b9;
@@ -176,14 +194,14 @@ input[type=button]:hover
 	background-color: #16a085;
 }
 
-input[type=text], input[type=password]
+input[type=text], input[type=password], input[type=file]
 {
-	font-size: 1.2em;
+	font-size: 12pt;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-align: center;
 	color: #2980b9;
 	padding-left: 2px;
-	padding-bottom: 3px;
+	padding-bottom: 0px;
 	border: 0;
 	border-top, border-left, border-right: none;
 	border-bottom: 2px solid #e2e3e4;
@@ -192,6 +210,30 @@ input[type=text], input[type=password]
 	height: 40px;
 	width: 220px;
 }
+
+input[type=file]
+{
+	padding-top:5px;
+}
+
+select
+{
+	font-size:12pt;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+	color: #2980b9;
+	background-color:#fff;
+	padding-left: 2px;
+	padding-bottom: 3px;
+	border: 0;
+	box-shadow: none;
+	outline: none;
+	height: 40px;
+	width: 220px;
+
+
+}
+
 
 input[type=submit]:hover
 {
@@ -220,7 +262,7 @@ input[type=submit]
 form
 {
 
-	margin-left: 100px;
+	margin-left: 80px;
 	margin-top: 30px;
 
 }

@@ -1,19 +1,6 @@
 <?php
 
-			//Connection to the MySQL Server
-	    define('DB_SERVER', 'localhost'); // Mysql hostname, usually localhost
-	    define('DB_USERNAME', 'root');    // Mysql username
-	    define('DB_PASSWORD', 'afrique'); // Mysql password
-	    define('DB_DATABASE', 'oasisdb'); // Mysql database name
-
-	    // create new mysqli object
-	    $connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-	    if ($connection->connect_error)
-	    {
-	      die("Connection failed: " . $connection->connect_error);
-	    }
-
-
+		require_once dirname(__FILE__) .'/config.php';
 
 		/* The countTotal, getLastAddedUser, getLastAddedLandlord functions
 			are all system overview functions that do the job their name implies
@@ -266,113 +253,6 @@
 		}
 
 
-		/* The functions here are called to do the tasks that the overlay functions
-		 	(located later in this php file) need to do
-		*/
-
-		function addUser($data)
-		{
-
-			global $connection;
-			if(isset($data['userId']) && isset($data['password']))
-			{
-
-
-				//set the username and password from form values
-				$userId = $data['userId'];
-				$password = $data['password'];
-
-				// Build the query
-				$sql = "SELECT userID FROM users WHERE userId = ?";
-
-				//prepare the sql statement
-				$stmt = $connection->prepare($sql);
-
-				// bind variables to the paramenters ? present in sql
-				$stmt->bind_param('i', $userId);
-
-				//execute the prepared statement
-				$stmt->execute();
-
-				//bind the results ($id corresponds to the items we are selecting)
-				$stmt->bind_result($id);
-
-				if($stmt->fetch())
-				{
-
-					echo '<script type="text/javascript">
-									window.location.href="?addUser=false";
-								</script>';
-
-					$stmt->close();
-					$connection->close();
-
-
-				}
-
-				else
-				{
-
-
-					$sql = "INSERT INTO users(userId, password, firstName, lastName, email, phoneNumber, address)
-								VALUES(?,?,?,?,?,?,?)";
-
-								//prepare the sql statement
-								$stmt = $connection->prepare($sql);
-
-								// bind variables to the paramenters ? present in sql
-								$stmt->bind_param('issssss', $userId, $password, $firstName, $lastName, $email, $phoneNumber, $address);
-
-								//set the variables from form values
-								$userId = $data['userId'];
-								$password = $data['password'];
-								$firstName = $data['firstName'];
-								$lastName = $data['lastName'];
-								$email = $data['email'];
-								$phoneNumber = $data['phoneNumber'];
-								$address = $data['address'];
-
-								//execute the prepared statement
-								$stmt->execute();
-
-								echo '<script type="text/javascript">
-												var p = document.getElementById("errorMessage");
-												var msg = "Great! Added new user '.$data["firstName"].'";
-												p.innerHTML=msg;
-											</script>';
-
-								$stmt->close();
-								$connection->close();
-
-				}
-
-			}
-
-			else
-			{
-				echo '
-				<script type="text/javascript">
-					var p = document.getElementById("errorMessage");
-					var msg = "Sorry, could not add user";
-					p.innerHTML=msg;
-				</script> ';
-			}
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		/* The following functions are responsible for
 			generating the content of the overlay popups that are shown
 			when clicking the tiles on the dashboard for each module */
@@ -383,9 +263,9 @@
 			<div class="overlay-content popup1">
 			  <section id ="content2 class=left">
 			    <header>Add a new user to OASIS  </header>
-					<p id="errorMessage"></p>
-			    <form method = "post" action = "'.call_user_func("addUser", $_POST).'">
 
+			    <form id="user" class="add" method = "post" action = "includes/tasks/adduser.php">
+								<p id="errorMessage"></p>
 			          <label for="userId">Student ID#</label>
 			          <input type = "text" id = "userId" name="userId" required autofocus/> <br>
 
@@ -407,8 +287,100 @@
 			          <label for="address">Address</label>
 			          <input type = "text" id = "address" name="address" /> <br>
 
-			          <input type = "submit" value="Add" />
+			          <input id="add" type = "submit" value="Add" />
 								<p class="footnote"> Note: The student number and password are required. </p>
+
+			      </form>
+
+
+
+			</div>';
+
+		}
+
+
+		function addListingOverlay()
+		{
+
+			global $connection;
+			// Build the query
+
+
+
+			/* Fetch the results and operate on them */
+
+
+			echo '
+			<div class="overlay-content popup4">
+			  <section id ="content2 class=left">
+			    <header>Add a new listing to OASIS </header>
+
+			    <form id="listing" class="add" ENCTYPE="multipart/form-data" class="add" method = "post" action = "includes/tasks/addlisting.php">
+								<p id="errorMessage"></p>
+			          <label for="landlord">Landlord</label>
+
+								<select form="listing" name="landlordNumber" required>
+									<option disabled selected>Landlords</option>';
+								$sql = "SELECT landlordNumber, firstName, lastName FROM landlord ORDER BY firstName ASC";
+
+								// prepare the sql statement
+								$stmt = $connection->prepare($sql);
+
+								// execute the prepared statement
+								$stmt->execute();
+
+								/* store result */
+								$stmt->store_result();
+
+								/* Bind the results to variables */
+								$stmt->bind_result($landlordNumber, $firstName, $lastName );
+								while ($stmt->fetch())
+									{
+
+											echo '<option value="'.$landlordNumber.'">'.$firstName." ". $lastName .'</option>';
+									}
+
+									/* Close statement */
+									$stmt ->close();
+								echo '</select><br>
+								<textarea rows="7" cols="70" form="listing" id = "description" name="description"
+											required placeholder = "Enter details for this listing here e.g Included ammenities, appliancies etc ">
+								</textarea> <br>
+
+								<label for="type">Type</label>
+								<select form="listing" name="type" required> <br>
+									<option disabled selected>Type</option>
+									<option value = "Room">Room</option>
+									<option value = "Apartment">Apartment</option>
+									<option value = "House">House</option>
+									<option value = "Studio">Studio</option>
+									<option value = "Shared Room">Shared Room</option>
+									<option value = "Dorm">Dorm</option>
+
+								</select><br>
+
+			          <label for="address">Address</label>
+			          <input type = "text" id = "address" name="address" /> <br>
+
+			          <label for="price">Price</label>
+			          <input type = "text" id = "price" name="price" /> <br>
+
+			          <label for="image1">Image 1</label>
+			          <input type = "file" id = "image1" name="image1" accept=".jpg" > <br>
+
+								<label for="image2">Image 2</label>
+			          <input type = "file" id = "image2" name="image2" accept=".jpg" > <br>
+
+								<label for="image3">Image 3</label>
+			          <input type = "file" id = "image3" name="image3" accept=".jpg" > <br>
+
+								<label for="image4">Image 4</label>
+			          <input type = "file" id = "image4" name="image4" accept=".jpg" > <br>
+
+								<label for="image5">Image 5</label>
+			          <input type = "file" id = "image5" name="image5" accept=".jpg" > <br>
+
+			          <input id="add" type = "submit" value="Add" />
 
 			      </form>
 

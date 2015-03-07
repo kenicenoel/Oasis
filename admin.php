@@ -29,7 +29,10 @@
 
 <div class="overlay-bg">
 </div>
-<?php addUserOverlay() ?>
+<?php call_user_func('addUserOverlay') ?>
+<?php call_user_func('addListingOverlay') ?>
+
+
 
 
 
