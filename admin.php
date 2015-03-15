@@ -6,10 +6,23 @@
 			// checks if the url has the module switch
 			if(isset ($_GET['module']))
 			{
-				$setmodule = $_GET['module']; // sets the module switch using the url
+				if($_GET['module'] != 'listings' && $_GET['module'] != 'user' && $_GET['module'] != 'landlords' && $_GET['module'] != 'lookup')
+				{
+					$setmodule= "overview";  // Default to overview
+				}
+				else
+				{
+					$setmodule = $_GET['module']; // sets the module switch using the url
+				}
+
 			}
 
-			else { $setmodule= "overview"; } // if no module switch is found, default to overview
+			else if(!isset ($_GET['module']))
+			{
+				$setmodule= "overview";  // Default to overview
+			}
+
+
 
 
 
@@ -21,6 +34,7 @@
 			<section id ="content2">
 					<header>Dashboard</header>
 					<?php call_user_func($setmodule) ?> <!-- calls the appropriate function  based on the set module-->
+					<?php include_once "includes/footer.php" ?>
 			</section>
 
 </div>
@@ -37,8 +51,8 @@
 
 
 	<script src="includes/js/jquery.js"></script>
+	<script type="text/javascript" src="fancybox/source/jquery.fancybox.js"></script>
 	<script src="includes/js/main.js"></script>
 	<script src="includes/js/custom.js"></script>
 
 </body>
-<?php include_once "includes/footer.php" ?>

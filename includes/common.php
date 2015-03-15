@@ -123,7 +123,7 @@
 				<!-- The overview of the system -->
 				<div id="content">
 					<header class ="modulename"> System Overview </header>
-					<hr>
+
 					<header class ="modules"> By the numbers </header>
 							<section id="tile-group1">
 							<p class="summary">
@@ -170,7 +170,7 @@
 			<!-- The user div containing tiles -->
 			<div id="content">
 				<header class ="modulename"> User Management </header>
-				<hr>
+
 				<section id="tile" class="show-popup" href="#" data-showpopup="1">
 					<p class = "summary">
 						Add new user
@@ -198,7 +198,7 @@
 			<!-- The listings div containing tiles -->
 			<div id="content">
 				<header class="modulename"> Listing Management </header>
-				<hr>
+
 				<section id="tile" class="show-popup" href="#" data-showpopup="4">
 					<p class="summary">
 						Add new Listing
@@ -225,13 +225,41 @@
 
 		}
 
+		function lookup()
+		{
+			echo '
+			<!-- The lookup div -->
+			<div id="content">
+				<header class="modulename"> Information Lookup </header>
+
+				<header class = "modules">What do you want to look for?</header>
+
+				<input id = "user" type="radio" name="lookup_choice" value="User">
+				<label class = "radio" for = "user">User data</label><br>
+				<input id = "landlord" type="radio" name="lookup_choice" value="Landlord">
+				<label class = "radio" for = "landlord">Landlord data</label><br>
+				<input id = "listing" type="radio" name="lookup_choice" value="Listing">
+				<label class = "radio" for = "listing">Listing data</label><br
+				<br>
+				<br>
+				<input id="query" type = "text" name="query" placeholder = "Your search query goes here" /><input id="lookupButton" type="submit" value="Lookup">
+
+				<div id = "data">
+
+				</div>
+
+
+
+			</div>';
+		}
+
 		function landlords()
 		{
 			echo '
 			<!-- The landlord div containing tiles -->
 			<div id="content">
 				<header class="modulename"> Landlord Management </header>
-				<hr>
+
 				<section id="tile" class="show-popup" href="#" data-showpopup="7">
 					<p class="summary">Add new Landlord</a></p>
 
@@ -287,9 +315,7 @@
 			          <label for="address">Address</label>
 			          <input type = "text" id = "address" name="address" /> <br>
 
-			          <input id="add" type = "submit" value="Add" />
-								<p class="footnote"> Note: The student number and password are required. </p>
-
+			          <input id="submit" type = "submit" value="Add" />
 			      </form>
 
 
@@ -315,7 +341,7 @@
 			  <section id ="content2 class=left">
 			    <header>Add a new listing to OASIS </header>
 
-			    <form id="listing" class="add" ENCTYPE="multipart/form-data" class="add" method = "post" action = "includes/tasks/addlisting.php">
+			    <form id="listing" enctype="multipart/form-data" method = "post" action = "includes/tasks/addlisting.php">
 								<p id="errorMessage"></p>
 			          <label for="landlord">Landlord</label>
 
@@ -341,10 +367,9 @@
 									}
 
 									/* Close statement */
-									$stmt ->close();
+								$stmt ->close();
 								echo '</select><br>
-								<textarea rows="7" cols="70" form="listing" id = "description" name="description"
-											required placeholder = "Enter details for this listing here e.g Included ammenities, appliancies etc ">
+								<textarea rows="10" cols="70" form="listing" id = "description" name="description" required placeholder = "Enter details for this listing here e.g Included ammenities, appliancies etc ">
 								</textarea> <br>
 
 								<label for="type">Type</label>
@@ -360,27 +385,14 @@
 								</select><br>
 
 			          <label for="address">Address</label>
-			          <input type = "text" id = "address" name="address" /> <br>
+			          <input type = "text" id = "address" name="address" /><br>
 
 			          <label for="price">Price</label>
 			          <input type = "text" id = "price" name="price" /> <br>
 
-			          <label for="image1">Image 1</label>
-			          <input type = "file" id = "image1" name="image1" accept=".jpg" > <br>
-
-								<label for="image2">Image 2</label>
-			          <input type = "file" id = "image2" name="image2" accept=".jpg" > <br>
-
-								<label for="image3">Image 3</label>
-			          <input type = "file" id = "image3" name="image3" accept=".jpg" > <br>
-
-								<label for="image4">Image 4</label>
-			          <input type = "file" id = "image4" name="image4" accept=".jpg" > <br>
-
-								<label for="image5">Image 5</label>
-			          <input type = "file" id = "image5" name="image5" accept=".jpg" > <br>
-
-			          <input id="add" type = "submit" value="Add" />
+			          <label for="images">Images (up to 10)</label>
+			          <input type = "file" id = "images" name="images[]" accept=".jpg" multiple> <br>
+								<input id="upload" type = "submit" value="Add" />
 
 			      </form>
 
@@ -389,7 +401,6 @@
 			</div>';
 
 		}
-
 
 
 

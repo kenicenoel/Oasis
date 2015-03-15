@@ -39,7 +39,7 @@ body
 		background: #fff;
 		padding: 1%;
 		width: 60%;
-		height: 680px;
+		height: 600px;
 		position: absolute;
 		top: 5%;
 		left: 50%;
@@ -53,7 +53,8 @@ body
 	.overlay-content header
 	{
 		font-size:18pt;
-		
+		color:#4970e7;
+
 	}
 
 	.close-btn

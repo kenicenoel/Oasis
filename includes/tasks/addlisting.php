@@ -1,20 +1,15 @@
 <?php
 include_once "../config.php";
 
-
-if(isset($_POST['landlord']) && isset($_POST['description']) && isset($_POST['type'])
-  && isset($_POST['address']) && isset($_POST['price']))
+if(isset($_POST['landlordNumber']) && isset($_POST['price']) && isset($_POST['description']))
 {
-
-
-    $sql = "INSERT INTO listing(landlordNumber, description, type, address, price, image1, image2, image3, image4, image5)
-          VALUES(?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO listing(landlordNumber, description, type, address, price) VALUES(?,?,?,?,?)";
 
           //prepare the sql statement
           $stmt = $connection->prepare($sql);
 
           // bind variables to the paramenters ? present in sql
-          $stmt->bind_param('issssbbbbb', $landlordNumber, $description, $type, $address, $price, $image1, $image2, $image3, $image4, $image5);
+          $stmt->bind_param('issss', $landlordNumber, $description, $type, $address, $price);
 
           //set the variables from form values
           $landlordNumber = $_POST['landlordNumber'];
@@ -23,62 +18,101 @@ if(isset($_POST['landlord']) && isset($_POST['description']) && isset($_POST['ty
           $address = $_POST['address'];
           $price = $_POST['price'];
 
-          /* Checks if the images are set */
-          if(isset($_POST['image1']))
-          {
-            // Image 1 properties
-            $image1 = file_get_contents($_FILES['image1']['tmp_name']);
-            $image1_name = $_FILES['image1']['name'];
-            $image1_size = getimagesize($_FILES['image1']['tmp_name']);
-          }
-          if(isset($_POST['image2']))
-          {
-            // Image 2 properties
-            $image2 = file_get_contents($_FILES['image2']['tmp_name']);
-            $image2_name = $_FILES['image2']['name'];
-            $image2_size = getimagesize($_FILES['image2']['tmp_name']);
-          }
-          if(isset($_POST['image3']))
-          {
-            // Image 3 properties
-            $image3 = file_get_contents($_FILES['image3']['tmp_name']);
-            $image3_name = $_FILES['image3']['name'];
-            $image3_size = getimagesize($_FILES['image3']['tmp_name']);
-          }
-          if(isset($_POST['image4']))
-          {
-            // Image 4 properties
-            $image4 = file_get_contents($_FILES['image4']['tmp_name']);
-            $image4_name = $_FILES['image4']['name'];
-            $image4_size = getimagesize($_FILES['image4']['tmp_name']);
-          }
-          if(isset($_POST['image5']))
-          {
-            // Image 1 properties
-            $image5 = file_get_contents($_FILES['image5']['tmp_name']);
-            $image5_name = $_FILES['image5']['name'];
-            $image5_size = getimagesize($_FILES['image5']['tmp_name']);
-          }
-
-
-
           //execute the prepared statement
-          if(!$stmt->execute() )
-          {
-            echo 'Sorry. Something went wrong. Please try again.';
-          }
+          $stmt->execute();
 
-          else
+          if(isset($_FILES['images']['name'][0]))
           {
-            echo 'New listing was successfully added';
+            $images = $_FILES['images'];
+            $i=1;
+            $last = $stmt->insert_id;
+            // echo '<br>','Listing Number: ',$last, '<br>', 'Added listing info...<br> Attempting to add image data...<br>';
+
+            foreach($images['name'] as $position => $data)
+            {
+              $target_dir = "uploads/";
+              $target_file = $target_dir . basename($_FILES["images"]["name"][$position]);
+              $uploadOk = 1;
+              $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+              // Check if image file is a actual image or fake image
+
+                  $check = getimagesize($images["tmp_name"][$position]);
+                  if($check !== false)
+                  {
+                      $uploadOk = 1;
+                  }
+                  else
+                  {
+                      // echo "File is not an image.";
+                      $uploadOk = 0;
+                  }
+                  // Check if file already exists
+                  if (file_exists($target_file))
+                  {
+                      // echo "One or more images already exist.";
+                      $uploadOk = 0;
+                  }
+                // Check file size to ensure it is not larger than 50MB
+                if ($images["size"][$position] > 50000000)
+                {
+                    // echo "Sorry, one or more images are larger than 50MB.";
+                    $uploadOk = 0;
+                }
+                // Allow certain file formats
+                if($imageFileType != "jpg" && $imageFileType != "jpeg")
+                {
+                    // echo "Sorry, only JPG, JPEG files are allowed.";
+                    $uploadOk = 0;
+                }
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0)
+                {
+                    echo "One or more images were not uploaded.";
+
+                // if everything is ok, try to upload file
+                }
+                else
+                {
+                    if (move_uploaded_file($images["tmp_name"][$position], $target_file))
+                    {
+                      $sql = "UPDATE listing SET image{$i}= ? WHERE listingNumber=?";
+
+                        //prepare the sql statement
+                        $stmt = $connection->prepare($sql);
+
+                        // bind variables to the paramenters ? present in sql
+                        $stmt->bind_param('si', ${'image'.$i}, $last);
+                        ${'image'.$i} = $target_file;
+
+                        //execute the prepared statement
+                        $stmt->execute();
+                        $i++;
+                    }
+                    else
+                    {
+                        echo "Sorry, there was an error uploading your images.";
+                    }
+                }
+
+
+
+            }
           }
 
 
 
           $stmt->close();
           $connection->close();
+          echo 'Successfully created listing!';
 
 
+
+}
+
+else
+{
+  echo 'Whoops!. Something went wrong :(';
 
 }
 

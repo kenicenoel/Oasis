@@ -22,12 +22,12 @@ nav
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 15pt;
 	margin-top:0px;
-	color:#767375;
+	color:#s;
 	position:fixed;
 	width: 200px;
 	height:100%;
 	border:none;
-	background-color: #717171;
+	background-color: #17a3cd;
 
 }
 
@@ -46,14 +46,25 @@ nav img
 #start
 {
 	padding-top:50px;
-	padding-bottom:20px;
-	text-align:center;
-	color:fff;
+	padding-bottom:40px;
+	text-align:left;
+	margin-left:20px;
+	color:#fff;
+
+}
+
+p#start img
+{
+	max-width:32px;
+	max-height:32px;
+	vertical-align:middle;
+	float:none;
+	margin-top:-5px;
 }
 
 a.link
 {
-	color:#bebebe;
+	color:#fff;
 	padding: 15px 0px 30px 10px;
 	display: block;
 	text-decoration: none;
@@ -111,8 +122,10 @@ header.modules
 header.modulename
 {
 	text-align:left;
-
-	font-size:25pt;
+	font-size:22pt;
+	color:#000;
+	font-family: 'Source Sans Pro', sans-serif;
+	padding-bottom:10px;
 
 }
 
@@ -139,7 +152,7 @@ p#errorMessage
 
 section#content2
 {
-	height: 630px;
+	height: 650px;
 	width: 1050px;
 	background-color:#fff;
 	margin-left:220px;
@@ -167,12 +180,7 @@ label
 
 }
 
-textarea
-{
-	font-size:13pt;
-	font-family: 'Source Sans Pro', sans-serif;
-	padding-top:3px;
-}
+
 input[type=button]
 {
 	height: 20px;
@@ -200,8 +208,9 @@ input[type=text], input[type=password], input[type=file]
 	font-family: 'Source Sans Pro', sans-serif;
 	text-align: center;
 	color: #2980b9;
-	padding-left: 2px;
-	padding-bottom: 0px;
+	/*padding-left: 2px;
+	padding-bottom: 0px;*/
+	padding: 0px 5px 0px 2px;
 	border: 0;
 	border-top, border-left, border-right: none;
 	border-bottom: 2px solid #e2e3e4;
@@ -214,7 +223,10 @@ input[type=text], input[type=password], input[type=file]
 input[type=file]
 {
 	padding-top:5px;
+	border:none;
 }
+
+
 
 select
 {
@@ -223,8 +235,9 @@ select
 	text-align: center;
 	color: #2980b9;
 	background-color:#fff;
-	padding-left: 2px;
-	padding-bottom: 3px;
+	padding: 0px 17px 3px 2px;
+	/*padding-left: 2px;
+	padding-bottom: 3px;*/
 	border: 0;
 	box-shadow: none;
 	outline: none;
@@ -240,7 +253,7 @@ input[type=submit]:hover
 
 	color: #fff;
 	border:none;
-	background-color: #16a085;
+	background-color:rgba(40, 138, 186, 0.5)  ;
 	font-family: 'Source Sans Pro', sans-serif;
 
 }
@@ -248,7 +261,7 @@ input[type=submit]:hover
 input[type=submit]
 {
 	height: 40px;
-	width: 100px;
+	width: 120px;
 	font-size: 1.4em;
 	color: #fff;
 	border:none;
@@ -257,6 +270,64 @@ input[type=submit]
 	text-transform: lowercase;
 	margin-left: 100px;
 	margin-top: 10px;
+}
+
+
+input[type=radio]
+{
+    display: none;
+}
+
+label.radio
+{
+
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+	color: #2980b9;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 15px;
+	font-size: 14pt;
+
+
+}
+
+label.radio:before
+{
+    content: "";
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: #2aa0f0;
+    box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, .3), 0px 3px 0px 0px rgba(255, 255, 255, .8);
+		border-radius: 8px;
+}
+
+input[type=radio]:checked + label.radio:before
+{
+    content: "\2022";
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    line-height: 11px;
+}
+
+
+textarea
+{
+	font-size:13pt;
+	color:#2980b9;
+	text-align:left;
+	font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 form
@@ -277,6 +348,20 @@ form
 
 }
 
+#container
+{
+	height:auto;
+}
+
+
+#data p
+{
+	padding: 20px 0px 0px 0px;
+	font-size:14pt;
+	font-family: 'Source Sans Pro', sans-serif;
+
+}
+
 #content section
 {
 	padding-bottom:40px;
@@ -293,7 +378,7 @@ div.tile-container
 
 section#tile, section#tile-group1, section#tile-group2
 {
-	background-color:#1f61a9;
+	background-color:#298fe9;
 	height:150px;
 	width:150px;
 	margin-left:20px;
@@ -303,7 +388,7 @@ section#tile, section#tile-group1, section#tile-group2
 
 section#tile-group1
 {
-	background-color:#3a9317;
+	background-color:#1ae572;
 }
 
 
@@ -341,8 +426,9 @@ section.overview
 footer
 {
 	position:absolute;
+
 	bottom:0px;
-	margin: 0px auto;
-	width:100%;
+	margin: 0px 0px 0px 250px;
+
 	text-align:center;
 }
