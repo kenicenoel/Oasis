@@ -24,13 +24,13 @@ if(isset($_POST['query']))
   while($stmt->fetch())
   {
       echo '
-      <p>Student ID:'.$id.'</p>
+      <p>Student ID: '.$id.'</p>
       <p>First Name:'.$fname.'</p>
       <p>Last Name:'.$lname.'</p>
       <p>Email:'.$email.'</p>
       <p>Phone #:'.$phone.'</p>
       <p>Address:'.$address.'</p>
-      <p>---------------------------</p>
+      <br>
       ';
 
   }

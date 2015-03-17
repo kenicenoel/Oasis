@@ -4,6 +4,7 @@ body
 	background-color:#D8D2DE;
 	width: 100%;
 	color: #000;
+	background-image:url("../images/backgrounds/halftone.png");
 
 }
 
@@ -31,6 +32,15 @@ nav
 
 }
 
+#tile img
+{
+	max-width:60px;
+	max-height:60px;
+	vertical-align:middle;
+	margin-left:50px;
+	padding-top:20px;
+}
+
 nav img
 {
 	max-width:38px;
@@ -38,6 +48,7 @@ nav img
 	margin-left:10px;
 	margin-top:14px;
 	vertical-align:middle;
+
 
 	float:left;
 	padding-right:15px;
@@ -157,6 +168,7 @@ section#content2
 	background-color:#fff;
 	margin-left:220px;
 	margin-top: 10px;
+
 }
 
 .left

@@ -40,7 +40,7 @@
 
 		}
 
-		function getLastAddedUser()
+		function getLastModifiedUser()
 		{
 			global $connection;
 			// Build the query
@@ -69,6 +69,43 @@
 			}
 
 		}
+
+		function getLastAddedUser()
+		{
+			global $connection;
+			// Build the query
+      $sql = "SELECT firstName, lastName FROM users";
+
+
+      // prepare the sql statement
+      $stmt = $connection->prepare($sql);
+
+      // execute the prepared statement
+      $stmt->execute();
+
+			$last = $stmt->insert_id;
+
+			$sql = "SELECT firstName, lastName FROM users WHERE ".$last."=uid";
+
+			/* store result */
+	    $stmt->store_result();
+
+			/* Bind the results to variables */
+			$stmt->bind_result($fname, $lname);
+
+			/* Fetch the results and operate on them */
+			if($stmt->fetch())
+			{
+				$name = $fname. " " . $lname;
+				return $name;
+
+				/* Close statement */
+				$stmt ->close();
+			}
+
+
+		}
+
 
 		function getLastAddedLandlord()
 		{
@@ -116,7 +153,8 @@
 			$userTotal = call_user_func('countTotal', 'users');
 			$listingTotal = call_user_func('countTotal', 'listing');
 			$landlordTotal = call_user_func('countTotal', 'landlord');
-			$lastUser = call_user_func('getLastAddedUser');
+			$lastModifiedUser = call_user_func('getLastModifiedUser');
+			$lastAddedUser = call_user_func('getLastAddedUser');
 			$lastLandlord = call_user_func('getLastAddedLandlord');
 
 				echo '
@@ -146,7 +184,13 @@
 							<header class ="modules"> Last updated </header>
 							<section id="tile-group2">
 							<p class="summary">
-									The last user modified was '. $lastUser .'.
+									The last user modified was '. $lastModifiedUser .'.
+							</p>
+							</section>
+
+							<section id="tile-group2">
+							<p class="summary">
+									The last added user is '. $lastAddedUser .'.
 							</p>
 							</section>
 
@@ -173,20 +217,27 @@
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="1">
 					<p class = "summary">
-						Add new user
+						Add new
+
 					</p>
+					<img src ="images/sprites/add.png" />
 
 				</section>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="2">
 					<p class="summary">
-						Modify user details
+						Modify
 					</p>
+					<img src ="images/sprites/edit.png" />
 
 				</section>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="3">
-					<p class="summary">Remove a user</p>
+					<p class="summary">
+						Remove
+
+					</p>
+					<img src ="images/sprites/delete.png" />
 
 				</section>
 			</div> ';
@@ -201,22 +252,25 @@
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="4">
 					<p class="summary">
-						Add new Listing
+						Add new
 					</p>
+					<img src ="images/sprites/add.png" />
 
 				</section>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="5">
 					<p class="summary">
-						Modify listing details
+						Modify
 					</p>
+					<img src ="images/sprites/edit.png" />
 
 				</section>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="6">
 					<p class="summary">
-						Remove a listing
+						Remove
 					</p>
+					<img src ="images/sprites/delete.png" />
 
 				</section>
 
@@ -234,12 +288,7 @@
 
 				<header class = "modules">What do you want to look for?</header>
 
-				<input id = "user" type="radio" name="lookup_choice" value="User">
-				<label class = "radio" for = "user">User data</label><br>
-				<input id = "landlord" type="radio" name="lookup_choice" value="Landlord">
-				<label class = "radio" for = "landlord">Landlord data</label><br>
-				<input id = "listing" type="radio" name="lookup_choice" value="Listing">
-				<label class = "radio" for = "listing">Listing data</label><br
+
 				<br>
 				<br>
 				<input id="query" type = "text" name="query" placeholder = "Your search query goes here" /><input id="lookupButton" type="submit" value="Lookup">
@@ -261,17 +310,26 @@
 				<header class="modulename"> Landlord Management </header>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="7">
-					<p class="summary">Add new Landlord</a></p>
+					<p class="summary">
+						Add new
+					</p>
+					<img src ="images/sprites/add.png" />
 
 				</section>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="8">
-					<p class="summary">Modify landlord details</p>
+					<p class="summary">
+						Modify
+					</p>
+					<img src ="images/sprites/edit.png" />
 
 				</section>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="9">
-					<p class="summary">Remove a landlord</p>
+					<p class="summary">
+						Remove
+					</p>
+					<img src ="images/sprites/delete.png" />
 
 				</section>
 

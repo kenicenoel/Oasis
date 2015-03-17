@@ -3,7 +3,7 @@
 $(document).ready(function()
 {
 
-        $('#menu').click(function()
+        $('.menu').click(function()
         {
         	var state=$('#navigation');
         	if(state.css("display") === "none")
@@ -20,47 +20,13 @@ $(document).ready(function()
 
     	});
 
+
 });
 
 //Load FancyBox
 jQuery(function( $ )
 {
   $(".fancybox").fancybox();
-});
-
-// Get results
-$('body').on('click', '#get_results', function(e)
-{
-      e.preventDefault();
-      var min = $('#min').val();
-      var max = $('#max').val();
-      var data =
-      {
-        min:min,
-        max:max
-      };
-
-      $('#get_results').val("Finding...");
-
-      $.ajax({
-          url: 'results.php',
-          type: 'POST',
-          xhr: function()
-          {
-              var myXhr = $.ajaxSettings.xhr();
-              return myXhr;
-          },
-          success: function (response)
-          {
-            $('#results').css('display', 'block');
-            $('.info').html(response);
-
-            $('#get_results').val("Search");
-          },
-          data: data,
-
-      });
-      return false;
 });
 
 
@@ -186,35 +152,48 @@ $('form.add').on('submit', function()
 });
 
 
-// What to do if the radio buttons are checked
-
-$('body').on('click', '#lookupButton', function(e)
-{
-      e.preventDefault();
-      var value = $('#query').val();
-      var data =
-      {
-        query:value
-      };
-
-      $('#lookupButton').val("Looking...");
-
-      $.ajax({
-          url: 'includes/tasks/lookup/userLookup.php',
-          type: 'POST',
-          xhr: function()
-          {
-              var myXhr = $.ajaxSettings.xhr();
-              return myXhr;
-          },
-          success: function (response)
-          {
-            $('#data').html(response);
-
-            $('#lookupButton').val("Lookup");
-          },
-          data: data,
-
-      });
-      return false;
-});
+// function requestPage(pageNumber, limitPerPage, lastPage)
+// {
+//   var min = <?php echo $minPrice ?>;
+//   var max = <?php echo $maxPrice ?>;
+//   var pn = pageNumber;
+//   var limit = limitPerPage;
+//   var lp = lastPage;
+//   var tbody = document.getElementById("info");
+//   var paginationHolder = document.getElementById("pagination-holder");
+//
+//   tbody.innerHTML = "<img src='images/sprites/ajax_loader.gif' />";
+//
+//   var httpRequest = new XMLHttpRequest();
+//   httpRequest.open("POST", "includes/tasks/fetch_pages.php", true);
+//   httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//   httpRequest.onreadystatechange=function()
+//   {
+//     if(httpRequest.readyState == 4 && httpRequest.status==200)
+//     {
+//         var data = httpRequest.responseText;
+//         tbody.innerHTML = data;
+//
+//     }
+//   }
+//   httpRequest.send("limitPerPage="+limit+"&lastPage="+lp+"&pageNumber="+pn+"&minPrice="+min+"&maxPrice="+max);
+//
+//   // Change the pagination controls
+//   var paginationCon
+//   if(lastPage !=1)
+//   {
+//     if (pageNumber >1)
+//     {
+//
+//     }
+//   }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// }

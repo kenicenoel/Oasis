@@ -32,7 +32,7 @@
 	<div id = "container">
 
 			<section id ="content2">
-					<header>Dashboard</header>
+					<header>Control Center</header>
 					<?php call_user_func($setmodule) ?> <!-- calls the appropriate function  based on the set module-->
 					<?php include_once "includes/footer.php" ?>
 			</section>
