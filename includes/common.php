@@ -208,6 +208,7 @@
 
 		}
 
+		// Shows the user management options
 		function user()
 		{
 			echo '
@@ -243,6 +244,7 @@
 			</div> ';
 		}
 
+		// Shows the listing management options
 		function listings()
 		{
 			echo '
@@ -279,6 +281,7 @@
 
 		}
 
+		// Shows the lookup management options
 		function lookup()
 		{
 			echo '
@@ -302,6 +305,7 @@
 			</div>';
 		}
 
+		// Shows the landlord management options
 		function landlords()
 		{
 			echo '
@@ -376,8 +380,6 @@
 			          <input id="submit" type = "submit" value="Add" />
 			      </form>
 
-
-
 			</div>';
 
 		}
@@ -387,12 +389,6 @@
 		{
 
 			global $connection;
-			// Build the query
-
-
-
-			/* Fetch the results and operate on them */
-
 
 			echo '
 			<div class="overlay-content popup4">
@@ -400,11 +396,11 @@
 			    <header>Add a new listing to OASIS </header>
 
 			    <form id="listing" enctype="multipart/form-data" method = "post" action = "includes/tasks/addlisting.php">
+								<br>
 								<p id="errorMessage"></p>
 			          <label for="landlord">Landlord</label>
-
 								<select form="listing" name="landlordNumber" required>
-									<option disabled selected>Landlords</option>';
+									<option disabled selected>Pick landlord</option>';
 								$sql = "SELECT landlordNumber, firstName, lastName FROM landlord ORDER BY firstName ASC";
 
 								// prepare the sql statement
@@ -426,13 +422,14 @@
 
 									/* Close statement */
 								$stmt ->close();
-								echo '</select><br>
-								<textarea rows="10" cols="70" form="listing" id = "description" name="description" required placeholder = "Enter details for this listing here e.g Included ammenities, appliancies etc ">
+								echo '</select><br><br>
+								<textarea rows="10" cols="70" form="listing" id = "description" name="description"
+								required placeholder = "Enter details for this listing" wrap="hard">
 								</textarea> <br>
 
 								<label for="type">Type</label>
 								<select form="listing" name="type" required> <br>
-									<option disabled selected>Type</option>
+									<option disabled selected>Pick listing type</option>
 									<option value = "Room">Room</option>
 									<option value = "Apartment">Apartment</option>
 									<option value = "House">House</option>
@@ -458,6 +455,38 @@
 
 			</div>';
 
+		}
+
+		function addLandlordOverlay()
+		{
+
+			echo '
+			<div class="overlay-content popup7">
+			  <section id ="content2 class=left">
+			    <header>Add a new landlord to OASIS  </header>
+
+			    <form id="landlord" class="add" method = "post" action = "includes/tasks/addLandlord.php">
+								<p id="errorMessage"></p>
+
+			          <label for="firstName">First Name</label>
+			          <input type = "text" id = "firstName" name="firstName" /> <br>
+
+			          <label for="lastName">Last Name</label>
+			          <input type = "text" id = "lastName" name="lastName" /> <br>
+
+			          <label for="email">Email address</label>
+			          <input type = "text" id = "email" name="email" /> <br>
+
+			          <label for="phoneNumber">Phone Number</label>
+			          <input type = "text" id = "phoneNumber" name="phoneNumber" /> <br>
+
+			          <label for="address">Address</label>
+			          <input type = "text" id = "address" name="address" /> <br>
+
+			          <input id="submit" type = "submit" value="Add" />
+			      </form>
+
+			</div>';
 		}
 
 

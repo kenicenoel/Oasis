@@ -39,7 +39,8 @@ $('form.ajax').on('submit', function()
         url = that.attr('action'),
         method = that.attr('method'),
         data = {};
-        $('#submit').val("Checking...");
+
+        $('#submit').replaceWith("<img id='loader' src='images/sprites/flip-flop.gif' />");
 
     that.find('[name]').each(function(index, value)
     {
@@ -63,7 +64,7 @@ $('form.ajax').on('submit', function()
               if(response == '0')
               {
                 $('#msg').text('Either your student ID or password is incorrect');
-                $('#submit').val("Login");
+                $('#loader').replaceWith('<input id ="submit" type = "submit" value="LOGIN" />');
               }
               else
               {
@@ -77,11 +78,11 @@ $('form.ajax').on('submit', function()
       return false;
 });
 
-// Ajax Add
+// Ajax Add user and landlord
 
 $('form.add').on('submit', function()
 {
-  $('#submit').val("Processing...");
+  $('#submit').replaceWith("<img id='loader' src='images/sprites/slug.gif' />");
     var that = $(this),
         url = that.attr('action'),
         method = that.attr('method'),
@@ -107,9 +108,9 @@ $('form.add').on('submit', function()
           data: data,
           success: function(response)
           {
-
+              temp.innerHTML = form;
               $('#errorMessage').text(response);
-              $('#submit').val("Add");
+              $('#loader').replaceWith('<input id ="submit" type = "submit" value="LOGIN" />');
 
 
           }
