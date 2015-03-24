@@ -216,29 +216,30 @@
 			<div id="content">
 				<header class ="modulename"> User Management </header>
 
-				<section id="tile" class="show-popup" href="#" data-showpopup="1">
+				<section id="tile" class="addUser">
 					<p class = "summary">
-						Add new
-
+					Add new
+						<i class="icon-file-3 on-right-more"></i>
 					</p>
-					<img src ="images/sprites/add.png" />
+
 
 				</section>
 
-				<section id="tile" class="show-popup" href="#" data-showpopup="2">
+				<section id="tile">
 					<p class="summary">
 						Modify
+						<i class="icon-pencil on-right-more"></i>
 					</p>
-					<img src ="images/sprites/edit.png" />
+
 
 				</section>
 
 				<section id="tile" class="show-popup" href="#" data-showpopup="3">
 					<p class="summary">
 						Remove
-
+						<i class="icon-remove on-right-more"></i>
 					</p>
-					<img src ="images/sprites/delete.png" />
+
 
 				</section>
 			</div> ';
@@ -252,27 +253,30 @@
 			<div id="content">
 				<header class="modulename"> Listing Management </header>
 
-				<section id="tile" class="show-popup" href="#" data-showpopup="4">
+				<section id="tile" class="addListing">
 					<p class="summary">
 						Add new
+						<i class="icon-file-3 on-right-more"></i>
 					</p>
-					<img src ="images/sprites/add.png" />
+
 
 				</section>
 
-				<section id="tile" class="show-popup" href="#" data-showpopup="5">
+				<section id="tile" class="modifyLandlord">
 					<p class="summary">
 						Modify
+						<i class="icon-pencil on-right-more"></i>
 					</p>
-					<img src ="images/sprites/edit.png" />
+
 
 				</section>
 
-				<section id="tile" class="show-popup" href="#" data-showpopup="6">
+				<section id="tile" class="deleteLandlord">
 					<p class="summary">
 						Remove
+						<i class="icon-remove on-right-more"></i>
 					</p>
-					<img src ="images/sprites/delete.png" />
+
 
 				</section>
 
@@ -344,10 +348,10 @@
 
 
 		/* The following functions are responsible for
-			generating the content of the overlay popups that are shown
+			generating the content that are shown
 			when clicking the tiles on the dashboard for each module */
 
-		function addUserOverlay()
+		function addUserContent()
 		{
 			echo '
 			<div class="overlay-content popup1">

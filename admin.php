@@ -23,36 +23,28 @@
 			}
 
 
-
-
-
 ?>
 
 
-	<div id = "container">
+	<div class = "container">
 
 			<section id ="content2">
-					<header>Control Center</header>
-					<?php call_user_func($setmodule) ?> <!-- calls the appropriate function  based on the set module-->
-					<?php include_once "includes/footer.php" ?>
+					<header><i class="icon-equalizer on-left"></i>	Control Center</header>
+					<div id="data">
+						<?php call_user_func($setmodule) ?> <!-- calls the appropriate function  based on the set module-->
+					</div>
+
 			</section>
 
 </div>
 
-<!-- CODE FOR THE POPUP PAGES GO HERE -->
 
-<div class="overlay-bg">
-</div>
-<?php call_user_func('addUserOverlay') ?>
-<?php call_user_func('addListingOverlay') ?>
-
+<script src="includes/js/jquery.js"></script>
+<script src="fancybox/source/jquery.fancybox.js"></script>
+<script src="includes/js/main.js"></script>
+<script src="includes/js/custom.js"></script>
 
 
 
-
-	<script src="includes/js/jquery.js"></script>
-	<script type="text/javascript" src="fancybox/source/jquery.fancybox.js"></script>
-	<script src="includes/js/main.js"></script>
-	<script src="includes/js/custom.js"></script>
-
+<?php include_once "includes/footer.php" ?>
 </body>

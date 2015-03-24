@@ -1,7 +1,6 @@
 <?php
 include_once "../config.php";
 
-
 if(isset($_POST['userId']) && isset($_POST['password']))
 {
 
@@ -28,7 +27,7 @@ if(isset($_POST['userId']) && isset($_POST['password']))
   if($stmt->fetch())
   {
 
-    echo 'Sorry. User not added. Maybe you are adding the same user twice?';
+    echo 'Sorry. User not added. You may be trying to add a user that exists.';
 
     $stmt->close();
     $connection->close();
@@ -70,6 +69,38 @@ if(isset($_POST['userId']) && isset($_POST['password']))
 
 }
 
+else
+{
+  echo '
 
+      <header>Add a new user to OASIS  </header>
+
+      <form id="user" class="add" method = "post" action = "includes/tasks/adduser.php">
+            <p id="errorMessage"></p>
+            <label for="userId">Student ID#</label>
+            <input type = "text" id = "userId" name="userId" required autofocus/> <br>
+
+            <label for="userPass">Password</label>
+            <input type = "text" id = "userPass" name="password" required /> <br>
+
+            <label for="firstName">First Name</label>
+            <input type = "text" id = "firstName" name="firstName" /> <br>
+
+            <label for="lastName">Last Name</label>
+            <input type = "text" id = "lastName" name="lastName" /> <br>
+
+            <label for="email">Email address</label>
+            <input type = "text" id = "email" name="email" /> <br>
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type = "text" id = "phoneNumber" name="phoneNumber" /> <br>
+
+            <label for="address">Address</label>
+            <input type = "text" id = "address" name="address" /> <br>
+
+            <input id="submit" type = "submit" value="Add" />
+        </form> ';
+
+}
 
 ?>

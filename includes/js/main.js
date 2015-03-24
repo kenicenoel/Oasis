@@ -82,7 +82,7 @@ $('form.ajax').on('submit', function()
 
 $('form.add').on('submit', function()
 {
-  $('#submit').replaceWith("<img id='loader' src='images/sprites/slug.gif' />");
+  $('#submit').val("Saving...");
     var that = $(this),
         url = that.attr('action'),
         method = that.attr('method'),
@@ -98,22 +98,25 @@ $('form.add').on('submit', function()
 
     });
 
-
-      $.ajax
-      (
+    $.ajax({
+        url: url,
+        type: method,
+        xhr: function()
         {
+            var myXhr = $.ajaxSettings.xhr();
+            return myXhr;
+        },
+        success: function (response)
+        {
+          console.log(response);
+          var p = document.getElementById('errorMessage');
+          p.innerHTML = response;
+          $('#submit').val("Add");
+        },
+        data: data,
 
-          url:url,
-          type: method,
-          data: data,
-          success: function(response)
-          {
-              temp.innerHTML = form;
-              $('#errorMessage').text(response);
-              $('#loader').replaceWith('<input id ="submit" type = "submit" value="LOGIN" />');
 
 
-          }
         });
       return false;
 });
@@ -152,49 +155,56 @@ $('form.add').on('submit', function()
         return false;
 });
 
+// Data-Tables go here
+$(document).ready( function ()
+{
+    $('#results').DataTable(
+      {
+        paging: false,
+        searching: false,
+        autoWidth: false,
+        info: false
+      }
 
-// function requestPage(pageNumber, limitPerPage, lastPage)
-// {
-//   var min = <?php echo $minPrice ?>;
-//   var max = <?php echo $maxPrice ?>;
-//   var pn = pageNumber;
-//   var limit = limitPerPage;
-//   var lp = lastPage;
-//   var tbody = document.getElementById("info");
-//   var paginationHolder = document.getElementById("pagination-holder");
-//
-//   tbody.innerHTML = "<img src='images/sprites/ajax_loader.gif' />";
-//
-//   var httpRequest = new XMLHttpRequest();
-//   httpRequest.open("POST", "includes/tasks/fetch_pages.php", true);
-//   httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//   httpRequest.onreadystatechange=function()
-//   {
-//     if(httpRequest.readyState == 4 && httpRequest.status==200)
-//     {
-//         var data = httpRequest.responseText;
-//         tbody.innerHTML = data;
-//
-//     }
-//   }
-//   httpRequest.send("limitPerPage="+limit+"&lastPage="+lp+"&pageNumber="+pn+"&minPrice="+min+"&maxPrice="+max);
-//
-//   // Change the pagination controls
-//   var paginationCon
-//   if(lastPage !=1)
-//   {
-//     if (pageNumber >1)
-//     {
-//
-//     }
-//   }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// }
+    );
+} );
+
+
+
+  // When user clicks on a tile
+        $('#tile').click(function()
+        {
+        	var task = $('#tile').attr('class');
+        	if(task == "addUser")
+        	{
+
+            var url='includes/tasks/adduser.php';
+        	}
+          else if(task == "addListing")
+          {
+            var url='includes/tasks/addlisting.php';
+          }
+          else if(task == "addLandlord")
+          {
+            var url='includes/tasks/addLandlord.php';
+          }
+
+
+          $.ajax
+          (
+            {
+
+              url:url,
+              success: function(response)
+              {
+                $('#data').html(response);
+
+
+
+              }
+            });
+
+});
+
+
+// Rich Text Editor

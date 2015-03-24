@@ -8,8 +8,21 @@
 
 			$minPrice=$_POST['min'];
 			$maxPrice=$_POST['max'];
+
 			$_SESSION['min'] = $minPrice;
 			$_SESSION['max'] = $maxPrice;
+			if(isset($_POST['location']))
+			{
+				$location='%'.$_POST['location'];
+				$_SESSION['location'] = $location;
+			}
+			else
+			{
+
+				$location="%";
+				$_SESSION['location'] = $location;
+			}
+
 
 
 		}
@@ -18,6 +31,7 @@
 			{
 				$minPrice=$_SESSION['min'];
 				$maxPrice=$_SESSION['max'];
+				$location=$_SESSION['location'];
 
 
 			}
@@ -27,10 +41,10 @@
 
 			// Get the total rows from the database matching criteria
 			$sql = "SELECT * FROM listing, landlord WHERE listing.price >= ? AND listing.price <= ? AND
-		landlord.landlordNumber = listing.landlordNumber";
+		landlord.landlordNumber = listing.landlordNumber AND location LIKE ?";
 
 		$stmt = $connection->prepare($sql);
-		$stmt->bind_param('ii', $minPrice, $maxPrice);
+		$stmt->bind_param('iis', $minPrice, $maxPrice, $location);
 		$stmt->execute();
 		$stmt->store_result();
 
@@ -74,13 +88,13 @@
 		// Grab one row of data
 			$sql = "SELECT listing.type, listing.address, listing.location, listing.description, listing.price, landlord.firstName, landlord.lastName,
 			 				image1, image2, image3 FROM listing, landlord WHERE listing.price >= ? AND listing.price <= ? AND
-							landlord.landlordNumber = listing.landlordNumber ORDER BY listing.price ASC $limit";
+							landlord.landlordNumber = listing.landlordNumber AND location LIKE ? ORDER BY listing.price ASC $limit";
 
 		  // prepare the sql statement
 		  $stmt = $connection->prepare($sql);
 
 		  // bind variables to the paramenters ? present in sql
-		  $stmt->bind_param('ii',$minPrice, $maxPrice);
+		  $stmt->bind_param('iis',$minPrice, $maxPrice, $location);
 
 		  // execute the prepared statement
 		  $stmt->execute();
@@ -92,7 +106,7 @@
 		  $stmt->bind_result($type, $address, $location, $desc, $price, $fname, $lname, $image1, $image2, $image3);
 			$i = 0;
 
-			$textline = "Found $total listings matching your filters. You are on page $pagenum of $lastPage.";
+			$textline = "Found $total listings matching your filters (Min: $$minPrice | Max:$$maxPrice | Location: $location). You are on page $pagenum of $lastPage.";
 
 			// Establish the paginationCtrls variable
 			$navigation = '';
@@ -176,7 +190,7 @@
 </section>
 
 <section id ="content2">
-	<header>Found the following listings between $<?php echo $minPrice ?> and $<?php echo $maxPrice ?>. </header>
+	<header> </header>
 
 		<div id="table-results">
 
@@ -217,8 +231,11 @@
 <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
 <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js"></script>
 <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-<script type="text/javascript" src="includes/js/jquery.bootpag.js"></script>
 <script type= "text/javascript" src="includes/js/main.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="datatables/media/js/jquery.dataTables.js"></script>
+
 
 </body>
 <?php include_once "includes/footer.php" ?>

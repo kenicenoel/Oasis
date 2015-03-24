@@ -77,6 +77,7 @@ span#sticky
 	background-color:rgba(41, 157, 56, 0.75);
 	position:fixed;
 	display:block;
+	height:30px;
 	color:fff;
 	width:100%;
 	z-index:2;
@@ -98,7 +99,8 @@ margin-left:20px;
 	color: #fff;
 	cursor:pointer;
 	text-decoration:none;
-	font-size: 20pt;
+	font-size: 15pt;
+	margin-left:20px;
 }
 
 
@@ -289,8 +291,8 @@ span#menu
 
 table
 {
-	width: 800px;
-	font-size: 1.3em;
+	width: 400px;
+	font-size: 15pt;
 
 	color: #000;
 	margin-left: 250px;
@@ -319,6 +321,8 @@ thead
 div#table-results
 {
 	height:auto;
+	width:900px;
+	margin-left:250px;
 
 }
 
@@ -374,7 +378,7 @@ p.toggle
 
 #pagination-holder
 {
-	margin-left: 400px;
+	margin-left: 50px;
 	padding-top:5px;
 }
 
