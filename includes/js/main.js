@@ -78,46 +78,73 @@ $('form.ajax').on('submit', function()
       return false;
 });
 
-// Ajax Add user and landlord
+// Ajax Add landlord
+$('body').on('click', '#submitLandlord', function(e)
 
-$('form.add').on('submit', function()
 {
+
+
+  e.preventDefault();
+  var formData = new FormData($(this).parents('form')[0]);
+
   $('#submit').val("Saving...");
-    var that = $(this),
-        url = that.attr('action'),
-        method = that.attr('method'),
-        data = {};
 
-    that.find('[name]').each(function(index, value)
-    {
-      var that = $(this),
-          name = that.attr('name'),
-          value = that.val();
+  $.ajax({
+      url: 'includes/tasks/addLandlord.php',
+      type: 'POST',
+      xhr: function()
+      {
+          var myXhr = $.ajaxSettings.xhr();
+          return myXhr;
+      },
+      success: function (response)
+      {
+        console.log(response);
+        var p = document.getElementById('errorMessage');
+        p.innerHTML = response;
+        $('#submit').val("Add");
+      },
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false
+  });
 
-          data[name] = value;
-
-    });
-
-    $.ajax({
-        url: url,
-        type: method,
-        xhr: function()
-        {
-            var myXhr = $.ajaxSettings.xhr();
-            return myXhr;
-        },
-        success: function (response)
-        {
-          console.log(response);
-          var p = document.getElementById('errorMessage');
-          p.innerHTML = response;
-          $('#submit').val("Add");
-        },
-        data: data,
+      return false;
+});
 
 
+// Ajax Add user
+$('body').on('click', '#submitUser', function(e)
 
-        });
+{
+
+  e.preventDefault();
+  var formData = new FormData($(this).parents('form')[0]);
+
+  $('#submit2').val("Saving...");
+
+  $.ajax({
+      url: 'includes/tasks/addUser.php',
+      type: 'POST',
+      xhr: function()
+      {
+          var myXhr = $.ajaxSettings.xhr();
+          return myXhr;
+      },
+      success: function (response)
+      {
+        console.log(response);
+        var p = document.getElementById('errorMessage');
+        p.innerHTML = response;
+        $('#submit').val("Add");
+      },
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false
+  });
+
       return false;
 });
 

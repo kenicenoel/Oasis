@@ -164,8 +164,7 @@ else
               /* Close statement */
             $stmt ->close();
             echo '</select><br>
-            <textarea rows="8" cols="70" form="listing" id = "description" name="description"
-            required placeholder = "Enter details for this listing" wrap="hard">
+            <textarea rows="8" cols="70" form="listing" id = "description" name="description" required>
             </textarea> <br>
 
             <label for="type">Type</label>

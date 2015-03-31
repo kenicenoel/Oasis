@@ -262,7 +262,7 @@
 
 				</section>
 
-				<section id="tile" class="modifyLandlord">
+				<section id="tile" class="modifyListing">
 					<p class="summary">
 						Modify
 						<i class="icon-pencil on-right-more"></i>
@@ -271,7 +271,7 @@
 
 				</section>
 
-				<section id="tile" class="deleteLandlord">
+				<section id="tile" class="deleteListing">
 					<p class="summary">
 						Remove
 						<i class="icon-remove on-right-more"></i>
@@ -316,28 +316,30 @@
 			<!-- The landlord div containing tiles -->
 			<div id="content">
 				<header class="modulename"> Landlord Management </header>
-
-				<section id="tile" class="show-popup" href="#" data-showpopup="7">
+				<section id="tile" class="addLandlord">
 					<p class="summary">
 						Add new
+						<i class="icon-file-3 on-right-more"></i>
 					</p>
-					<img src ="images/sprites/add.png" />
+
 
 				</section>
 
-				<section id="tile" class="show-popup" href="#" data-showpopup="8">
+				<section id="tile" class="modifyLandlord">
 					<p class="summary">
 						Modify
+						<i class="icon-pencil on-right-more"></i>
 					</p>
-					<img src ="images/sprites/edit.png" />
+
 
 				</section>
 
-				<section id="tile" class="show-popup" href="#" data-showpopup="9">
+				<section id="tile" class="deleteLandlord">
 					<p class="summary">
 						Remove
+						<i class="icon-remove on-right-more"></i>
 					</p>
-					<img src ="images/sprites/delete.png" />
+
 
 				</section>
 
@@ -465,7 +467,7 @@
 		{
 
 			echo '
-			<div class="overlay-content popup7">
+			<div class="overlay-content">
 			  <section id ="content2 class=left">
 			    <header>Add a new landlord to OASIS  </header>
 

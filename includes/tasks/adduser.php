@@ -75,7 +75,7 @@ else
 
       <header>Add a new user to OASIS  </header>
 
-      <form id="user" class="add" method = "post" action = "includes/tasks/adduser.php">
+      <form id="user" class="user" method = "post" action = "includes/tasks/adduser.php">
             <p id="errorMessage"></p>
             <label for="userId">Student ID#</label>
             <input type = "text" id = "userId" name="userId" required autofocus/> <br>
@@ -98,7 +98,7 @@ else
             <label for="address">Address</label>
             <input type = "text" id = "address" name="address" /> <br>
 
-            <input id="submit" type = "submit" value="Add" />
+            <input id="submitUser" type = "submit" value="Add" />
         </form> ';
 
 }

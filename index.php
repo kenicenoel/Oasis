@@ -11,7 +11,7 @@
 	</section>
 
 	<section id ="content2">
-		<header>Ready to get started?</header>
+		<header>Welcome to OASIS by Student Advisory Services</header>
 
 		<p class ="text">
 			<img class = "icon" src = "images/user-login.png" alt="student" />
