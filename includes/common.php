@@ -1,6 +1,7 @@
 <?php
 
 		require_once dirname(__FILE__) .'/config.php';
+		require_once('classes/PasswordGenerator.php');
 
 		/* The countTotal, getLastAddedUser, getLastAddedLandlord functions
 			are all system overview functions that do the job their name implies
@@ -494,6 +495,18 @@
 
 			</div>';
 		}
+
+
+
+		// Calls the password generator class to create secure password
+		   	function generateSecurePassword($length)
+				{
+					$ascii = PasswordGenerator::getASCIIPassword($length);
+					return $ascii;
+				}
+
+
+
 
 
 

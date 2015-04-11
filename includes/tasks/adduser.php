@@ -1,5 +1,6 @@
 <?php
 include_once "../config.php";
+include_once "../common.php";
 
 if(isset($_POST['userId']) && isset($_POST['password']))
 {
@@ -71,6 +72,7 @@ if(isset($_POST['userId']) && isset($_POST['password']))
 
 else
 {
+  $password = generateSecurePassword(20);
   echo '
 
       <header>Add a new user to OASIS  </header>
@@ -81,7 +83,7 @@ else
             <input type = "text" id = "userId" name="userId" required autofocus/> <br>
 
             <label for="userPass">Password</label>
-            <input type = "text" id = "userPass" name="password" required /> <br>
+            <input type = "text" id = "userPass" name="password" value="'.$password.'" readonly /> <br>
 
             <label for="firstName">First Name</label>
             <input type = "text" id = "firstName" name="firstName" /> <br>
