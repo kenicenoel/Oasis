@@ -1,29 +1,6 @@
 
-// Menu Toggle
-$(document).ready(function()
-{
-
-        $('.menu').click(function()
-        {
-        	var state=$('#navigation');
-        	if(state.css("display") === "none")
-        	{
-        		$('#navigation').css("display", "inline");
-
-        	}
-
-          else
-        	{
-        		$('#navigation').css("display", "none");
-
-        	}
-
-    	});
-
-
-});
-
 //Load FancyBox
+
 jQuery(function( $ )
 {
   $(".fancybox").fancybox();
@@ -68,7 +45,7 @@ $('form.ajax').on('submit', function()
               }
               else
               {
-                window.open('system.php', '_self');
+                window.open('system/oasis.php', '_self');
                 // $('body').html(response);
               }
 
@@ -78,7 +55,12 @@ $('form.ajax').on('submit', function()
       return false;
 });
 
+
+
+
+
 // Ajax Add landlord
+
 $('body').on('click', '#submitLandlord', function(e)
 
 {
@@ -90,7 +72,7 @@ $('body').on('click', '#submitLandlord', function(e)
   $('#submit').val("Saving...");
 
   $.ajax({
-      url: 'includes/tasks/addLandlord.php',
+      url: '../includes/tasks/addLandlord.php',
       type: 'POST',
       xhr: function()
       {
@@ -114,7 +96,11 @@ $('body').on('click', '#submitLandlord', function(e)
 });
 
 
+
+
+
 // Ajax Add user
+
 $('body').on('click', '#submitUser', function(e)
 
 {
@@ -125,7 +111,7 @@ $('body').on('click', '#submitUser', function(e)
   $('#submit2').val("Saving...");
 
   $.ajax({
-      url: 'includes/tasks/addUser.php',
+      url: '../includes/tasks/addUser.php',
       type: 'POST',
       xhr: function()
       {
@@ -152,6 +138,7 @@ $('body').on('click', '#submitUser', function(e)
 
 
   //Ajax add listing
+
   $('body').on('click', '#upload', function(e)
   {
         e.preventDefault();
@@ -160,7 +147,7 @@ $('body').on('click', '#submitUser', function(e)
         $('#upload').val("Saving...");
 
         $.ajax({
-            url: 'includes/tasks/addListing.php',
+            url: '../includes/tasks/addListing.php',
             type: 'POST',
             xhr: function()
             {
@@ -182,7 +169,11 @@ $('body').on('click', '#submitUser', function(e)
         return false;
 });
 
+
+
+
 // Data-Tables go here
+
 $(document).ready( function ()
 {
     $('#results').DataTable(
@@ -198,22 +189,23 @@ $(document).ready( function ()
 
 
 
-  // When user clicks on a tile
+  // When user clicks on a tile, run the appropriate task
+
         $('#tile').click(function()
         {
         	var task = $('#tile').attr('class');
         	if(task == "addUser")
         	{
 
-            var url='includes/tasks/adduser.php';
+            var url='../includes/tasks/adduser.php';
         	}
           else if(task == "addListing")
           {
-            var url='includes/tasks/addlisting.php';
+            var url='../includes/tasks/addlisting.php';
           }
           else if(task == "addLandlord")
           {
-            var url='includes/tasks/addLandlord.php';
+            var url='../includes/tasks/addLandlord.php';
           }
 
 

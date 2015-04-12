@@ -24,14 +24,14 @@ nav
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 15pt;
 	margin-top:0px;
-	color:#767375;
 	position:fixed;
-	display:none;
-	width: 200px;
-	height:100%;
+	color:#767375;
+	width: 100%;
+	height:25px;
 	border:none;
-	background-color:#17a3cd;
-	-webkit-transition: visibility 0.2s linear, opacity 0.2s linear;
+
+	background-color:#4a86f0;
+
 
 }
 
@@ -49,27 +49,25 @@ nav img
 #start
 {
 	padding-top:50px;
-	padding-bottom:20px;
 	text-align:center;
-	color:fff;
+	display:inline;
+	color:#000;
 }
 
 a.link
 {
 	color:#fff;
-	padding: 15px 0px 30px 10px;
-	display: block;
+	padding: 0px 3px 0px 20px;
 	text-decoration: none;
 	text-transform:none;
-	visibility: visible;
 
 }
 
 a.link:hover
 {
-	text-decoration: none;
-	background-color: rgba(161, 140, 189, 1.0);
+	background-color: rgba(130, 169, 189, 0.73);
 	color: #fff;
+
 }
 
 span#sticky
@@ -82,6 +80,7 @@ span#sticky
 	width:100%;
 	z-index:2;
 }
+
 #menu
 {
 max-width:40px;
@@ -175,7 +174,8 @@ section#content2 header
 
 div#container
 {
-	clear:both;
+	/*clear:both;*/
+
 }
 
 span
@@ -313,8 +313,9 @@ a[data-view="hide"]
 
 thead
 {
-	background-color:rgba(139, 15, 158, 0.69);
-	color:#fff;
+	/*background-color:rgba(139, 15, 158, 0.69);*/
+	color:#000;
+	text-align:left;
 
 }
 
@@ -334,7 +335,7 @@ td
 
 td
 {
-	border-bottom: 1px dotted rgba(139, 15, 158, 0.69);
+	border-bottom: 2px dashed	 rgba(139, 15, 158, 0.69);
 }
 td:nth-of-type(3)
 {

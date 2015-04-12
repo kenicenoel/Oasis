@@ -2,9 +2,9 @@
 		require_once("includes/authenticate.php");
 		session_start();
 
-		if(isset($_SESSION['userId']))
+		if(isset($_SESSION['studentNumber']))
 		{
-			header("Location:system.php");
+			header("Location:system/oasis.php");
 		}
 
 
