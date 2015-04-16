@@ -22,7 +22,7 @@
 	 <html>
 		<head>
 			<title>OASIS - Accomodation Finder</title>
-	 		<link rel = "stylesheet" href = "../css/management.css" type ="text/css">
+	 		<link rel = "stylesheet" href = "../css/oasis_styles.css" type ="text/css">
 			<link rel="stylesheet" href="../fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
 	 		<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
 	 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">
