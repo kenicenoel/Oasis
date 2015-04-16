@@ -20,9 +20,9 @@
 					<form id="form" action= "includes/authenticate.php" method ="post" class ="ajax">
 						<p id = "msg"></p>
 						<label for="studentID">Student#</label>
-						<input type = "text" id = "userId" name="userId" required autofocus/> <br><br>
-						<label for="userPass">Password</label>
-						<input type = "password" id = "pasword" name="password" required /> <br>
+						<input type = "text" id = "studentNumber" name="studentNumber" required autofocus/> <br><br>
+						<label for="password">Password</label>
+						<input type = "password" id = "password" name="password" required /> <br>
 						<input id ="submit" type = "submit" value="LOGIN" />
 
 				</form>

@@ -1,5 +1,5 @@
 <?php
-			require_once ("includes/admin_header.php");
+			require_once ("../includes/dashboard_header.php");
 
 
 
@@ -29,7 +29,7 @@
 	<div class = "container">
 
 			<section id ="content2">
-					<header><i class="icon-equalizer on-left"></i>	Control Center</header>
+					<header><i class="icon-equalizer on-left"></i>	Admin Dashboard</header>
 					<div id="data">
 						<?php call_user_func($setmodule) ?> <!-- calls the appropriate function  based on the set module-->
 					</div>
@@ -39,12 +39,12 @@
 </div>
 
 
-<script src="includes/js/jquery.js"></script>
-<script src="fancybox/source/jquery.fancybox.js"></script>
-<script src="includes/js/main.js"></script>
-<script src="includes/js/custom.js"></script>
+<script src="../includes/js/jquery.js"></script>
+<script src="../fancybox/source/jquery.fancybox.js"></script>
+<script src="../includes/js/main.js"></script>
+<script src="../includes/js/custom.js"></script>
 
 
 
-<?php include_once "includes/footer.php" ?>
+<?php include_once "../includes/footer.php" ?>
 </body>

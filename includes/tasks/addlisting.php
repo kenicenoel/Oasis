@@ -31,7 +31,7 @@ if(isset($_POST['landlordNumber']) && isset($_POST['price']) && isset($_POST['de
 
             foreach($images['name'] as $position => $data)
             {
-              $target_dir = "uploads/";
+              $target_dir = "../uploads/";
               $target_file = $target_dir . basename($_FILES["images"]["name"][$position]);
               $uploadOk = 1;
               $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -136,7 +136,7 @@ else
 
       <header>Add a new listing to OASIS </header>
 
-      <form id="listing" enctype="multipart/form-data" method = "post" action = "includes/tasks/addlisting.php">
+      <form id="listing" enctype="multipart/form-data" method = "post" action = "../includes/tasks/addlisting.php">
             <br>
             <p id="errorMessage"></p>
             <label for="landlord">Landlord</label>

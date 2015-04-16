@@ -77,7 +77,7 @@ else
   echo '
   <header>Add a new landlord to OASIS</header>
 
-  <form id="landlord" class="landlord" method = "post" action = "includes/tasks/addLandlord.php">
+  <form id="landlord" class="landlord" method = "post" action = "../includes/tasks/addLandlord.php">
         <p id="errorMessage"></p>
 
         <label for="firstName">First Name</label>

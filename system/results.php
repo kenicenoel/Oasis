@@ -1,6 +1,6 @@
 <?php
 
-		require_once ('includes/system_header.php');
+		require_once ('../includes/oasis_header.php');
 
 
 		if(isset($_POST['min']) && isset($_POST['max'])  )
@@ -157,12 +157,13 @@
 			while($stmt->fetch())
 			{
 			  $i++;
+				$full_address = $address.", ".$location;
+				$desc_snippet = substr($desc, 0, 20);
 			  $td.= '
 			  <tr>
 			    <td>'.$type.'</td>
-			    <td>'.$address.'</td>
-					<td>'.$location.'</td>
-			    <td>'.$desc.'</td>
+			    <td>'.$full_address.'</td>
+					 <td>'.$desc_snippet.'...</td>
 			    <td>$'.$price.'</td>
 			    <td>'.$fname ." ".$lname.'</td>
 			    <td><a class="fancybox" rel="'.$i.'" href="includes/tasks/'.$image1.'""><img src="includes/tasks/'.$image1.'" alt="" /></a></td>
@@ -199,7 +200,6 @@
 									<tr>
 										<th>Type</th>
 										<th>Address</th>
-										<th>Location</th>
 										<th>Description</th>
 										<th>Price</th>
 										<th>Landlord</th>
@@ -226,16 +226,16 @@
 
 
 
-<script type= "text/javascript" src="includes/js/jquery.js"></script>
-<script type="text/javascript" src="fancybox/source/jquery.fancybox.js"></script>
-<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js"></script>
-<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-<script type= "text/javascript" src="includes/js/main.js"></script>
+<script type= "text/javascript" src="../includes/js/jquery.js"></script>
+<script type="text/javascript" src="../fancybox/source/jquery.fancybox.js"></script>
+<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-media.js"></script>
+<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+<script type= "text/javascript" src="../includes/js/main.js"></script>
 
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="datatables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="../datatables/media/js/jquery.dataTables.js"></script>
 
 
 </body>
-<?php include_once "includes/footer.php" ?>
+<?php include_once "../includes/footer.php" ?>

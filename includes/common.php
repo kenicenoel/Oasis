@@ -1,11 +1,14 @@
 <?php
 
 		require_once dirname(__FILE__) .'/config.php';
+		require_once('classes/PasswordGenerator.php');
+
 
 		/* The countTotal, getLastAddedUser, getLastAddedLandlord functions
 			are all system overview functions that do the job their name implies
 		*/
 
+		// Count the number of users, landlords and listings in OASIS
 		function countTotal($tableName)
 		{
 			global $connection;
@@ -40,6 +43,7 @@
 
 		}
 
+		// Get the user whose details were last modified
 		function getLastModifiedUser()
 		{
 			global $connection;
@@ -70,6 +74,7 @@
 
 		}
 
+		// Get the  last new user that was added to OASIS
 		function getLastAddedUser()
 		{
 			global $connection;
@@ -106,7 +111,7 @@
 
 		}
 
-
+		// Get the last new landlord that was added to OASIS
 		function getLastAddedLandlord()
 		{
 			global $connection;
@@ -148,6 +153,7 @@
 			the content for each individual module e.g User Module or listing module.
 		*/
 
+		// The overview function creates the data shown in the admin dashboard
 		function overview()
 		{
 			$userTotal = call_user_func('countTotal', 'users');
@@ -494,6 +500,18 @@
 
 			</div>';
 		}
+
+
+
+		// Calls the password generator class to create secure password
+		   	function generateSecurePassword($length)
+				{
+					$ascii = PasswordGenerator::getASCIIPassword($length);
+					return $ascii;
+				}
+
+
+
 
 
 

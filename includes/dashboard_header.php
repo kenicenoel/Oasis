@@ -1,6 +1,6 @@
 <?php
-	require_once ("includes/authenticate.php");
-	require_once ("includes/common.php");
+	require_once ("../includes/authenticate.php");
+	require_once ("../includes/common.php");
 ?>
 
 
@@ -9,11 +9,11 @@
 				<html>
 					<head>
 						<title>Oasis: Dashboard</title>
-						<link rel = "stylesheet" href = "css/management_child.css" type ="text/css">
-						<link type="text/css" rel="stylesheet" href="css/overlaypopup.css" />
+						<link rel = "stylesheet" href = "../css/admin_styles.css" type ="text/css">
+						<link type="text/css" rel="stylesheet" href="../css/overlaypopup.css" />
 						<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
 						<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">
-						<link href="css/iconFont.min.css" rel="stylesheet">
+						<link href="../css/iconFont.min.css" rel="stylesheet">
 
 
 
@@ -22,7 +22,7 @@
 
 					<body>
 						<nav id ="navigation">
-							<p id="start"><img src="images/sprites/house-08.png"/>SAS OASIS</p>
+							<p id="start"><img src="../images/sprites/house-08.png"/>SAS OASIS</p>
 							<a class ="link" href ="?module=overview" title = "View an overview of the system"><i class="icon-stats on-left"></i> Overview</a>
 							<a class ="link" href ="?module=lookup" title = "Search for any user data"><i class="icon-search on-left"></i> Lookup</a>
 							<a class ="link" href ="?module=user" title = "Manage users of the system"><i class="icon-user-2 on-left"></i> Users</a>

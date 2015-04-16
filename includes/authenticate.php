@@ -3,20 +3,20 @@
 
     global $connection;
     // check if the username and password is set
-    if(isset($_POST['userId']) && isset($_POST['password']))
+    if(isset($_POST['studentNumber']) && isset($_POST['password']))
     {
       //set the username and password from form values
-      $userId = $_POST['userId'];
+      $studentNumber = $_POST['studentNumber'];
       $password = $_POST['password'];
 
       // Build the query
-      $sql = "SELECT userID, firstName, lastName FROM users WHERE userId = ? AND password=?";
+      $sql = "SELECT studentNumber, firstName, lastName FROM users WHERE studentNumber = ? AND password=?";
 
       //prepare the sql statement
       $stmt = $connection->prepare($sql);
 
       // bind variables to the paramenters ? present in sql
-      $stmt->bind_param('is', $userId, $password);
+      $stmt->bind_param('is', $studentNumber, $password);
 
       //execute the prepared statement
       $stmt->execute();
@@ -29,13 +29,13 @@
         /* set the cache limiter to 'private' */
 
         session_cache_limiter('private');
-        // $update = "UPDATE users SET lastLogin=? WHERE userId=?";
+        // $update = "UPDATE users SET lastLogin=? WHERE studentNumber=?";
         //
         // //prepare the sql statement
         // $stmt = $connection->prepare($update);
         //
         // // bind variables to the paramenters ? present in sql
-        // $stmt->bind_param('si', current_timestamp,$userId);
+        // $stmt->bind_param('si', current_timestamp,$studentNumber);
         //
         // //execute the prepared statement
         // $stmt->execute();
@@ -48,9 +48,10 @@
         // create a new session
         session_start();
 
-        $_SESSION['userId'] = $userId;
+        $_SESSION['studentNumber'] = $studentNumber;
         $_SESSION['fullName'] = $fname." ".$lname;
-        header("Location:../system.php");
+        header("Location:../system/oasis.php");
+        
 
 
       }
