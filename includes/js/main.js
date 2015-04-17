@@ -17,7 +17,7 @@ $('form.ajax').on('submit', function()
         method = that.attr('method'),
         data = {};
 
-        $('#submit').replaceWith("<img id='loader' src='images/sprites/flip-flop.gif' />");
+        $('#submit').replaceWith("<i class='fa fa-refresh fa-spin'></i>");
 
     that.find('[name]').each(function(index, value)
     {
@@ -108,7 +108,7 @@ $('body').on('click', '#submitUser', function(e)
   e.preventDefault();
   var formData = new FormData($(this).parents('form')[0]);
 
-  $('#submit2').val("Saving...");
+  $('#submit2').val("Adding user...");
 
   $.ajax({
       url: '../includes/tasks/addUser.php',
@@ -144,7 +144,7 @@ $('body').on('click', '#submitUser', function(e)
         e.preventDefault();
         var formData = new FormData($(this).parents('form')[0]);
 
-        $('#upload').val("Saving...");
+        $('#upload').val("Adding listing...");
 
         $.ajax({
             url: '../includes/tasks/addListing.php',
@@ -171,21 +171,42 @@ $('body').on('click', '#submitUser', function(e)
 
 
 
+// Ajax update user profile
 
-// Data-Tables go here
+$('body').on('click', '#save_profile', function(e)
 
-$(document).ready( function ()
 {
-    $('#results').DataTable(
-      {
-        paging: false,
-        searching: false,
-        autoWidth: false,
-        info: false
-      }
 
-    );
-} );
+  e.preventDefault();
+  var formData = new FormData($(this).parents('form')[0]);
+
+  $('#save_profile').replaceWith("<i id='loader' class='fa fa-refresh fa-spin'></i>");
+
+  $.ajax({
+      url: '../system/profile_edit.php',
+      type: 'POST',
+      xhr: function()
+      {
+          var myXhr = $.ajaxSettings.xhr();
+          return myXhr;
+      },
+      success: function (response)
+      {
+        console.log(response);
+        var p = document.getElementById('errorMessage');
+        p.innerHTML = response;
+        $('#loader').replaceWith('<button id="save_profile" type = "submit"><i class="fa fa-floppy-o fa-fw"></i> Update</button>');
+      },
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false
+  });
+
+      return false;
+});
+
+
 
 
 

@@ -28,7 +28,7 @@ nav
 	width: 200px;
 	height:100%;
 	border:none;
-	background-color: #17a3cd;
+	background-color: #1a1a1b;
 
 }
 
@@ -75,7 +75,8 @@ p#start img
 
 a.link
 {
-	color:#fff;
+	/*color:#fff;*/
+	color:#b9b8b1;
 	padding: 15px 0px 30px 10px;
 	display: block;
 	text-decoration: none;
@@ -125,6 +126,7 @@ header.modules
 {
 
 	font-size:16pt;
+	color:#5c6866;
 	display:block;
 	clear:left;
 	padding-top:25px;
@@ -399,9 +401,9 @@ div.tile-container
 
 section#tile, section#tile-group1, section#tile-group2
 {
-	background-color:#298fe9;
-	height:150px;
-	width:150px;
+
+	height:120px;
+	width:200px;
 	margin-left:20px;
 	display:inline-block;
 	float: left;
@@ -409,15 +411,15 @@ section#tile, section#tile-group1, section#tile-group2
 
 section#tile-group1
 {
-	background-color:#1ae572;
+	background-color:rgba(79, 10, 113, 0.94);
 }
 
 
 section#tile-group2
 {
-	background-color:#b347e9;
+	background-color:rgba(114, 27, 172, 0.92);
 }
-
+#fff;
 section#tile:hover
 {
 	background-color:rgba(43, 144, 233, 0.61);
@@ -425,11 +427,25 @@ section#tile:hover
 
 section#tile p, section#tile-group1 p, section#tile-group2 p
 {
-	width:120px;
+	width:185px;
 	color:#fff;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size:15pt;
 	margin-left:10px;
+}
+
+section#tile:hover, section#tile-group1:hover, section#tile-group2:hover
+{
+	background-color:rgba(83, 20, 131, 0.59);
+	color:#fff;
+}
+
+
+section#tile-group1 p span, section#tile-group2 p span
+{
+		font-weight:bold;
+
+
 }
 
 section.overview

@@ -168,41 +168,41 @@
 				<div id="content">
 					<header class ="modulename"> System Overview </header>
 
-					<header class ="modules"> By the numbers </header>
+					<header class ="modules"> <i class="fa fa-calculator fa-fw"></i> By the numbers </header>
 							<section id="tile-group1">
 							<p class="summary">
-									There are a total of '. $userTotal .' users in Oasis.
-							</p>
-							</section>
-
-							<section id="tile-group1">
-							<p class="summary">
-									There are a total of '. $listingTotal .' listings in Oasis.
+							<span>'. $userTotal .'</span>	user(s) in Oasis.
 							</p>
 							</section>
 
 							<section id="tile-group1">
 							<p class="summary">
-									There are a total of '. $landlordTotal .' landords in Oasis.
+								<span>'. $listingTotal .'</span> listings in Oasis.
 							</p>
 							</section>
 
-							<header class ="modules"> Last updated </header>
+							<section id="tile-group1">
+							<p class="summary">
+								<span>'. $landlordTotal .'</span> landords in Oasis.
+							</p>
+							</section>
+
+							<header class ="modules"><i class="fa fa-tasks fa-fw"></i> Last updated </header>
 							<section id="tile-group2">
 							<p class="summary">
-									The last user modified was '. $lastModifiedUser .'.
+								<span>'. $lastModifiedUser .'</span>: last modified user.
 							</p>
 							</section>
 
 							<section id="tile-group2">
 							<p class="summary">
-									The last added user is '. $lastAddedUser .'.
+									<span> '. $lastAddedUser .'</span>: last created user.
 							</p>
 							</section>
 
 							<section id="tile-group2">
 							<p class="summary">
-									The last added landlord is '. $lastLandlord .'.
+									<span>'. $lastLandlord .'</span>: last created landlord.
 							</p>
 							</section>
 

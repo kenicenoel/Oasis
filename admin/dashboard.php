@@ -29,7 +29,7 @@
 	<div class = "container">
 
 			<section id ="content2">
-					<header><i class="icon-equalizer on-left"></i>	Admin Dashboard</header>
+					<header><i class="fa fa-toggle-on fa-fw"></i>	Admin Dashboard</header>
 					<div id="data">
 						<?php call_user_func($setmodule) ?> <!-- calls the appropriate function  based on the set module-->
 					</div>
