@@ -32,3 +32,5 @@ Here you can see where the project is. <em>[D]</em> means that the feature is do
   <li> [D]: Current features of the OASIS system such as search, price and location filters </li>
   <li> [D]: Pagination navigation for the search results </li>
 </ul>
+
+After meeting with Campus IT and noting their requested changes, I am in the process of implementing them and as such, though the core is done, some code changes need to be made and those do not fall under any of the major feature categories highlighted here.
