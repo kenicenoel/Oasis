@@ -2,25 +2,21 @@
 
 	<div id = "container">
 
-	<section id ="content">
 
-		<header class = "highlight">
-
-		</header>
-	</section>
 
 	<section id ="content2">
-		<header>Set a price range and narrow down by location. We'll handle the rest. </header>
+		<header><span class="fa fa-map-marker fa-fw"></span> Accomodation locator</header>
 
 			<form id="filter" method = "post" action = "results.php">
-				<label>Price: </label>
-				<input id="min" type = "text" name = "min" placeholder = "minimum e.g. 500" required autofocus/>
-				<input id="max" type = "text" name = "max" placeholder = "maximum e.g. 2500" required /><br><br>
+				<p class="subheading"><span class="fa fa-globe fa-fw"></span>Location &amp; Price</p>
+				<label for = "min">Minimum: </label>
+				<input class="group" id="min" type = "text" name = "min" placeholder = "e.g. 500" required autofocus/>
+				<label for = "max">Maximum: </label>
+				<input  class="group" id="max" type = "text" name = "max" placeholder = "e.g. 2500" required />
 				<label>Location: </label>
-				<select form="filter" name="location" required>
-					<option disabled selected>Filter by location</option>
+				<select  class="group" form="filter" name="location">
+					<option disabled selected>All</option>
 
-						<option value="All">All</option>
 						<option value="Curepe">Curepe</option>
 						<option value="Mt Hope">Mt Hope</option>
 						<option value="St Augustine">Saint Augustine</option>
@@ -29,8 +25,9 @@
 						<option value="Port of Spain">Port of Spain</option>
 						<option value="Tunapuna">Tunapuna</option>
 
-				</select><br>
-				<input id="get_results" type = "submit" value="Filter" />
+				</select><br><br>
+				<p class="subheading"><span class="fa fa-building fa-fw"></span>Listing Details</p>
+				<button id="get_results">Find<span class="fa fa-search fa-fw"></span></button>
 			</form>
 
 			<div id="table-results">

@@ -225,7 +225,7 @@
 				<section id="tile" class="addUser">
 					<p class = "summary">
 					Add new
-						<i class="icon-file-3 on-right-more"></i>
+						<i class="fa fa-plus-square-o fa-fw"></i>
 					</p>
 
 
@@ -234,7 +234,7 @@
 				<section id="tile">
 					<p class="summary">
 						Modify
-						<i class="icon-pencil on-right-more"></i>
+						<i class="fa fa-pencil-square-o fa-fw"></i>
 					</p>
 
 
@@ -243,7 +243,7 @@
 				<section id="tile" class="show-popup" href="#" data-showpopup="3">
 					<p class="summary">
 						Remove
-						<i class="icon-remove on-right-more"></i>
+						<i class="fa fa-minus-square-o fa-fw"></i>
 					</p>
 
 
@@ -262,7 +262,7 @@
 				<section id="tile" class="addListing">
 					<p class="summary">
 						Add new
-						<i class="icon-file-3 on-right-more"></i>
+						<i class="fa fa-plus-square-o fa-fw"></i>
 					</p>
 
 
@@ -271,7 +271,7 @@
 				<section id="tile" class="modifyListing">
 					<p class="summary">
 						Modify
-						<i class="icon-pencil on-right-more"></i>
+						<i class="fa fa-pencil-square-o fa-fw"></i>
 					</p>
 
 
@@ -280,7 +280,7 @@
 				<section id="tile" class="deleteListing">
 					<p class="summary">
 						Remove
-						<i class="icon-remove on-right-more"></i>
+						<i class="fa fa-minus-square-o fa-fw"></i>
 					</p>
 
 
@@ -325,7 +325,7 @@
 				<section id="tile" class="addLandlord">
 					<p class="summary">
 						Add new
-						<i class="icon-file-3 on-right-more"></i>
+						<i class="fa fa-plus-square-o fa-fw"></i>
 					</p>
 
 
@@ -334,7 +334,7 @@
 				<section id="tile" class="modifyLandlord">
 					<p class="summary">
 						Modify
-						<i class="icon-pencil on-right-more"></i>
+						<i class="fa fa-pencil-square-o fa-fw"></i>
 					</p>
 
 
@@ -343,7 +343,7 @@
 				<section id="tile" class="deleteLandlord">
 					<p class="summary">
 						Remove
-						<i class="icon-remove on-right-more"></i>
+						<i class="fa fa-minus-square-o fa-fw"></i>
 					</p>
 
 

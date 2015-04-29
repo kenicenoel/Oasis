@@ -10,30 +10,63 @@ if
 	{
 
 
+			if(!empty($val))
+			{
+				$value = $val;
+				$sql = "UPDATE users SET {$key} = ?  WHERE studentNumber = ?";
 
-			$value = $val;
-			$sql = "UPDATE users SET {$key} = ?  WHERE studentNumber = ?";
+					//prepare the sql statement
+					$stmt = $connection->prepare($sql);
 
-				//prepare the sql statement
-				$stmt = $connection->prepare($sql);
+					// bind variables to the paramenters ? present in sql
+					$stmt->bind_param('si', $val, $sid);
 
-				// bind variables to the paramenters ? present in sql
-				$stmt->bind_param('si', $val, $sid);
-
-				//set the variables from form values
-				$row = $key;
-				$sid = $studentNumber;
-
-
-				//execute the prepared statement
-				$stmt->execute();
+					//set the variables from form values
+					$row = $key;
+					$sid = $studentNumber; // $studentNumber value is stored in the $_SESSION['studentNumber'] variable
 
 
+					//execute the prepared statement
+					$stmt->execute();
 			}
+
+
+
+		}
 			echo 'Successfully updated your profile';
 
-			$stmt->close();
-			$connection->close();
+			// Update the session name with the latest inserted one
+
+			// Build the query
+      $sql = "SELECT firstName, lastName FROM users WHERE uid = ?";
+
+      // prepare the sql statement
+      $stmt = $connection->prepare($sql);
+
+			// bind variables to the paramenters ? present in sql
+			$stmt->bind_param('i', $studentNumber);
+
+      // execute the prepared statement
+      $stmt->execute();
+
+			/* store result */
+	    $stmt->store_result();
+
+			/* Bind the results to variables */
+			$stmt->bind_result($fname, $lname);
+
+			/* Fetch the results and operate on them */
+			if($stmt->fetch())
+			{
+				$name = $fname. " " . $lname;
+				$_SESSION['fullName'] = $name;
+
+				/* Close statement */
+				$stmt ->close();
+
+				$stmt->close();
+				$connection->close();
+			}
 
 
 

@@ -6,6 +6,15 @@ jQuery(function( $ )
   $(".fancybox").fancybox();
 });
 
+// Responsive Menu
+$(document).ready(function()
+{
+    $('#menu-wrap').prepend('<div id="trigger"><span class="fa fa-list fa-fw"></span> Menu</div>');
+    $('#trigger').on('click', function()
+    {
+        $('#menu').slideToggle();
+    });
+});
 
 
 
