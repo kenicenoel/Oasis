@@ -88,18 +88,25 @@ header
 }
 
 
-p.footnote
-{
-	padding-top: 50px;
-	text-align: center;
-}
 
+/* The float left style will float all labels and align the input
+		boxes horizontally */
 label
 {
 	font-size:13pt;
 	padding-right: 2px;
+	float: left;
+
+	width:120px;
 	font-family: 'Source Sans Pro', sans-serif;
 
+}
+
+/* For the form that shows the listing filters, we don't want the input boxes
+ 		aligned horizontally or the labels will all float to the left of them*/
+#filter label
+{
+	float:none;
 }
 
 select
@@ -107,11 +114,9 @@ select
 	font-size:12pt;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-align: center;
-	color: #2980b9;
+	color: #31a0cd;
 	background-color:#fff;
 	padding: 0px 17px 3px 2px;
-	/*padding-left: 2px;
-	padding-bottom: 3px;*/
 	border: 0;
 	box-shadow: none;
 	outline: none;
@@ -151,7 +156,7 @@ input[type=text], input[type=password], input[type=email]
 	font-size: 15px;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-align: center;
-	color: #2980b9;
+	color: #31a0cd;
 	padding-left: 2px;
 	padding-bottom: 3px;
 	border: 0;
@@ -174,7 +179,7 @@ input[type=submit], button
 	font-weight: bold;
 	color: #fff;
 	border:none;
-	background-color: #2980b9;
+	background-color: #217690;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-transform: uppercase;
 
@@ -186,7 +191,7 @@ input[type=submit]:hover, button:hover
 
 	color: #fff;
 	border:none;
-	background-color: #16a085;
+	background-color: #;
 	font-family: 'Source Sans Pro', sans-serif;
 
 }
@@ -306,9 +311,13 @@ a.paginate:hover
 
 footer
 {
-	/*position:absolute;*/
-	bottom:0px;
-	margin: 0px auto;
+	/*position:static;*/
+	/*background-color: #31a0cd;*/
+	padding:0px 0px;
+	height: 40px;
 	width:100%;
+	bottom: 0px;
+	color: #000;
+
 	text-align:center;
 }

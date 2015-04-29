@@ -9,11 +9,11 @@
 
 			<form id="filter" method = "post" action = "results.php">
 				<p class="subheading"><span class="fa fa-globe fa-fw"></span>Location &amp; Price</p>
-				<label for = "min">Minimum: </label>
+				<label for = "min">Minimum </label>
 				<input class="group" id="min" type = "text" name = "min" placeholder = "e.g. 500" required autofocus/>
-				<label for = "max">Maximum: </label>
+				<label for = "max">Maximum </label>
 				<input  class="group" id="max" type = "text" name = "max" placeholder = "e.g. 2500" required />
-				<label>Location: </label>
+				<label>Location </label>
 				<select  class="group" form="filter" name="location">
 					<option disabled selected>All</option>
 

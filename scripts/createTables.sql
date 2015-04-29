@@ -1,5 +1,5 @@
-CREATE DATABASE oasisdb;
-
+CREATE DATABASE IF NOT EXISTS oasisdb;
+use oasisdb;
 CREATE TABLE users
 (
 	uid int(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
