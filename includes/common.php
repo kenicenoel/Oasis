@@ -93,7 +93,7 @@
 			$sql = "SELECT firstName, lastName FROM users WHERE ".$last."=uid";
 
 			/* store result */
-	    $stmt->store_result();
+	    	$stmt->store_result();
 
 			/* Bind the results to variables */
 			$stmt->bind_result($fname, $lname);
@@ -130,7 +130,7 @@
 			$sql = "SELECT firstName, lastName FROM landlord WHERE ".$last."=landlordNumber";
 
 			/* store result */
-	    $stmt->store_result();
+	    	$stmt->store_result();
 
 			/* Bind the results to variables */
 			$stmt->bind_result($fname, $lname);
