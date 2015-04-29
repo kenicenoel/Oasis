@@ -406,6 +406,7 @@ section#tile, section#tile-group1, section#tile-group2
 	width:200px;
 	margin-left:20px;
 	display:inline-block;
+	background-color:rgba(79, 10, 113, 0.94);
 	float: left;
 }
 
