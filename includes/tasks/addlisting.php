@@ -31,7 +31,7 @@ if(isset($_POST['landlordNumber']) && isset($_POST['price']) && isset($_POST['de
 
             foreach($images['name'] as $position => $data)
             {
-              $target_dir = "../uploads/";
+              $target_dir = "uploads/";
               $target_file = $target_dir . basename($_FILES["images"]["name"][$position]);
               $uploadOk = 1;
               $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -105,7 +105,25 @@ if(isset($_POST['landlordNumber']) && isset($_POST['price']) && isset($_POST['de
                         $stmt->execute();
                         $i++;
                     }
+                    
+                    else
+                    {
+                      $sql = "DELETE from listing WHERE listingNumber=?";
 
+                    //prepare the sql statement
+                    $stmt = $connection->prepare($sql);
+
+                    // bind variables to the paramenters ? present in sql
+                    $stmt->bind_param('i', $last);
+
+                    //execute the prepared statement
+                    $stmt->execute();
+
+
+                    goto end;
+
+                    }
+                     
 
 
 
@@ -164,7 +182,8 @@ else
               /* Close statement */
             $stmt ->close();
             echo '</select><br>
-            <textarea rows="8" cols="70" form="listing" id = "description" name="description" required>
+            <label for = "description">Description</label>
+            <textarea rows="5" cols="70" form="listing" id = "description" name="description" required>
             </textarea> <br>
 
             <label for="type">Type</label>
@@ -200,7 +219,7 @@ else
             <label for="price">Price</label>
             <input type = "text" id = "price" name="price" /> <br>
 
-            <label for="images">Images (up to 10)</label>
+            <label for="images">Images (max: 10)</label>
             <input type = "file" id = "images" name="images[]" accept=".jpg" multiple> <br>
             <input id="upload" type = "submit" value="Add" />
 

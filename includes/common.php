@@ -116,14 +116,14 @@
 		{
 			global $connection;
 			// Build the query
-      $sql = "SELECT firstName, lastName FROM landlord";
-
-
-      // prepare the sql statement
-      $stmt = $connection->prepare($sql);
-
-      // execute the prepared statement
-      $stmt->execute();
+	      $sql = "SELECT firstName, lastName FROM landlord";
+	
+	
+	      // prepare the sql statement
+	      $stmt = $connection->prepare($sql);
+	
+	      // execute the prepared statement
+	      $stmt->execute();
 
 			$last = $stmt->insert_id;
 

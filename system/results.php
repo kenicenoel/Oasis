@@ -27,14 +27,14 @@
 
 		}
 
-			else
-			{
-				$minPrice=$_SESSION['min'];
-				$maxPrice=$_SESSION['max'];
-				$location=$_SESSION['location'];
+		else
+		{
+			$minPrice=$_SESSION['min'];
+			$maxPrice=$_SESSION['max'];
+			$location=$_SESSION['location'];
 
 
-			}
+		}
 
 
 
@@ -86,7 +86,7 @@
 		$limit = 'LIMIT ' .($pagenum - 1) * $pageRows . ',' . $pageRows;
 
 		// Grab one row of data
-			$sql = "SELECT listing.type, listing.address, listing.location, listing.description, listing.price, landlord.firstName, landlord.lastName,
+			$sql = "SELECT listing.listingNumber, listing.type, listing.address, listing.location, listing.description, listing.price, landlord.firstName, landlord.lastName,
 			 				image1, image2, image3 FROM listing, landlord WHERE listing.price >= ? AND listing.price <= ? AND
 							landlord.landlordNumber = listing.landlordNumber AND location LIKE ? ORDER BY listing.price ASC $limit";
 
@@ -103,10 +103,11 @@
 		  $stmt->store_result();
 
 		  /* Bind the results to variables */
-		  $stmt->bind_result($type, $address, $location, $desc, $price, $fname, $lname, $image1, $image2, $image3);
+		  $stmt->bind_result($number, $type, $address, $location, $desc, $price, $fname, $lname, $image1, $image2, $image3);
 			$i = 0;
 
-			$textline = "Found $total listings matching your filters (Min: $$minPrice | Max:$$maxPrice | Location: $location). You are on page $pagenum of $lastPage.";
+			$textline = "Found $total listings matching your filters (Min: $$minPrice | Max:$$maxPrice | Location: $location). 
+						You are on page $pagenum of $lastPage.";
 
 			// Establish the paginationCtrls variable
 			$navigation = '';
@@ -157,8 +158,8 @@
 			while($stmt->fetch())
 			{
 			  $i++;
-				$full_address = $address.", ".$location;
-				$desc_snippet = substr($desc, 0, 20);
+				$full_address = $address.", ".$location; // merge the address and the location into a single string
+				$desc_snippet = substr($desc, 0, 30); // a 30 character substring of the description
 			  $td.= '
 			  <tr>
 			    <td>'.$type.'</td>
@@ -166,9 +167,7 @@
 					 <td>'.$desc_snippet.'...</td>
 			    <td>$'.$price.'</td>
 			    <td>'.$fname ." ".$lname.'</td>
-			    <td><a class="fancybox" rel="'.$i.'" href="includes/tasks/'.$image1.'""><img src="includes/tasks/'.$image1.'" alt="" /></a></td>
-			    <td><a data-view="hide" class="fancybox" rel="'.$i.'" href="includes/tasks/'.$image2.'""><img src="includes/tasks/'.$image2.'" alt="" /></a></td>
-			    <td><a data-view="hide" class="fancybox" rel="'.$i.'" href="includes/tasks/'.$image3.'""><img src="includes/tasks/'.$image3.'" alt="" /></a></td>
+			    <td><a href="expandlisting.php?l='.$number.'" title="Expand listing"><span class="fa fa-external-link-square fa-fw"></span> View</a></td>
 			  </tr>
 
 			  ';
@@ -203,7 +202,8 @@
 										<th>Description</th>
 										<th>Price</th>
 										<th>Landlord</th>
-										<th>Images</th>
+										
+										
 									</tr>
 								</thead>
 

@@ -6,6 +6,8 @@ jQuery(function( $ )
   $(".fancybox").fancybox();
 });
 
+
+
 // Responsive Menu
 $(document).ready(function()
 {

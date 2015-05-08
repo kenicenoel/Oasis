@@ -17,6 +17,7 @@
 }
 
 
+
 #menu img
 {
   vertical-align: middle;
@@ -46,11 +47,18 @@
 
 }
 
+#menu li a:hover
+{
+  font-weight: bold;
+
+}
+
 
 #menu a
 {
   float:left;
   padding: 10px 30px;
+ 
   color: #fff;
   text-decoration:none;
   text-transform:none;
@@ -62,6 +70,7 @@
 #menu ul
 {
   margin:20px 0 0 0;
+  width:170px;
   color: #fff;
   opacity:0;
   visibility:hidden;
@@ -95,16 +104,8 @@
   color: #fff;
   font-size: 18px;
   font-weight: bold;
-  float: right;
-  width:auto;
-  height: 35px;
-  margin: 0px auto;
-  padding-top:10px;
-  background-color: #1fa4b9;
   text-transform: uppercase;
-  cursor: pointer;
-  position: relative;
-  margin-left: 550px;
+  
 
 
 }

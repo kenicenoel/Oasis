@@ -92,7 +92,7 @@ else
             <input type = "text" id = "lastName" name="lastName" /> <br>
 
             <label for="email">Email address</label>
-            <input type = "text" id = "email" name="email" /> <br>
+            <input type = "text" id = "email" name="email" required /> <br>
 
             <label for="phoneNumber">Phone Number</label>
             <input type = "text" id = "phoneNumber" name="phoneNumber" /> <br>
@@ -100,7 +100,7 @@ else
             <label for="address">Address</label>
             <input type = "text" id = "address" name="address" /> <br>
 
-            <input id="submitUser" type = "submit" value="Add" />
+            <button id="submitUser" type = "submit">Add</button>
         </form> ';
 
 }

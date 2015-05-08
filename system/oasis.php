@@ -4,7 +4,7 @@
 
 
 	<section id ="content2">
-		<header><span class="fa fa-map-marker fa-fw"></span> Accomodation locator</header>
+		<header><span class="fa fa-filter fa-fw"></span> Accomodation locator</header>
 
 			<form id="filter" method = "post" action = "results.php">
 				<p class="subheading"><span class="fa fa-globe fa-fw"></span>Location &amp; Price</p>
@@ -14,7 +14,7 @@
 					<input  class="group" id="max" type = "text" name = "max" placeholder = "e.g. 2500" required />
 				<label>Location </label>
 					<select  class="group" form="filter" name="location">
-						<option disabled selected>All</option>
+						<option selected disabled>Doesn't matter</option>
 	
 							<option value="Curepe">Curepe</option>
 							<option value="Mt Hope">Mt Hope</option>
@@ -26,13 +26,39 @@
 	
 					</select><br><br>
 				<p class="subheading"><span class="fa fa-building fa-fw"></span>Listing Details</p>
-				<label for = "num-occupants">Number of Occupants</label>
+				<label for = "num-occupants">Occupants</label>
 					<select  class="group" form="filter" name="num-occupants">
-						<option disabled selected>Choose</option>
+						<option disabled selected>Doesn't matter</option>
 	
 							<option value="1">1</option>
 							<option value="2">2</option>
-					</select><br><br>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6+">6+</option>
+					</select>
+						
+					<label for = "furnished">Furnished?</label>
+					<select class="group" form="filter" name="furnished">
+						<option disabled selected>Doesn't matter</option>
+	
+							<option value="full">Fully furnished</option>
+							<option value="semi">Semi-furnished</option>
+							<option value="no">Unfurnished</option>
+							
+					</select>
+					
+					<label for="type">Type</label>
+		            <select form="filter" name="type" required> <br>
+		              <option disabled selected>Doesn't matter</option>
+		              <option value = "Room">Room</option>
+		              <option value = "Apartment">Apartment</option>
+		              <option value = "House">House</option>
+		              <option value = "Studio">Studio</option>
+		              <option value = "Shared Room">Shared Room</option>
+		              <option value = "Dorm">Dorm</option>
+		
+		            </select><br>
 				
 				<button id="get_results">Find<span class="fa fa-search fa-fw"></span></button>
 			</form>
@@ -55,6 +81,6 @@
 <script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-media.js"></script>
 <script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
 <script type= "text/javascript" src="../includes/js/main.js"></script>
-
+<script type = "text/javascript" src="../datatables/media/js/jquery.dataTables.min"></script>
 </body>
 <?php include_once "../includes/footer.php" ?>

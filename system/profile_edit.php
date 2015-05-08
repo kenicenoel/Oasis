@@ -5,7 +5,7 @@ if
 		|| isset($_POST['phoneNumber']) || isset($_POST['password'])
 )
 {
-
+	// Check each set key and index from the form and update appropriate field in table
 	foreach ($_POST as $key => $val)
 	{
 
@@ -34,6 +34,7 @@ if
 
 		}
 			echo 'Successfully updated your profile';
+			
 
 			// Update the session name with the latest inserted one
 
@@ -60,10 +61,10 @@ if
 			{
 				$name = $fname. " " . $lname;
 				$_SESSION['fullName'] = $name;
+				
 
 				/* Close statement */
-				$stmt ->close();
-
+				
 				$stmt->close();
 				$connection->close();
 			}
@@ -109,7 +110,7 @@ else
 				<label for="address">Address</label>
 				<input type = "text" id = "address" name="address" placeholder="Curepe" /> <br>
 
-				<button id="save_profile" type = "submit">Update <span class="fa fa-floppy-o fa-fw"></span></button>
+				<button id="save_profile" type = "submit">Update</button>
 			</form>
 
 
