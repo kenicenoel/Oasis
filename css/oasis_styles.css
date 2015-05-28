@@ -217,11 +217,7 @@ a[data-view="hide"]
 	display:none;
 }
 
-/*tr:nth-of-type(even)
-{
-	color: #fff;
-  background-color:#0D84C8;
-}*/
+
 
 thead
 {
@@ -239,7 +235,56 @@ div#table-results
 	height:auto;
 	width:auto;
 	margin-left:210px;
+	display: none;
 
+}
+
+div#result-cards
+{
+	margin-left:150px;
+	display: block;
+}
+
+.card
+{
+	border-right : 2px solid #e2e3e4;
+	display:inline-block;
+	margin:0px 15px;
+	padding: 0px 5px;
+	font-family: 'Source Sans Pro', sans-serif;
+	width:300px;
+	height: 270px;
+	box-shadow: 2px 2px 4px #aaa;
+	position: relative;
+  	vertical-align: top;
+	
+}
+
+.card:hover
+{
+	background-color: #CECECE;
+}
+
+div#toggle-view
+{
+/*	float: right;*/
+	display: block;
+	padding-bottom: 10px;
+	margin-left: 80%;
+	
+}
+
+div#toggle-view p
+{
+	display: inline;
+	padding:5px;
+	margin: 2px;
+}
+
+div#toggle-view p.view:hover
+{
+	background-color: #CECECE;
+	cursor: pointer;
 }
 
 #result-container, #image-container

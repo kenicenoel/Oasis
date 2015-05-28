@@ -36,48 +36,15 @@ if
 			echo 'Successfully updated your profile';
 			
 
-			// Update the session name with the latest inserted one
-
-			// Build the query
-      $sql = "SELECT firstName, lastName FROM users WHERE uid = ?";
-
-      // prepare the sql statement
-      $stmt = $connection->prepare($sql);
-
-			// bind variables to the paramenters ? present in sql
-			$stmt->bind_param('i', $studentNumber);
-
-      // execute the prepared statement
-      $stmt->execute();
-
-			/* store result */
-	    $stmt->store_result();
-
-			/* Bind the results to variables */
-			$stmt->bind_result($fname, $lname);
-
-			/* Fetch the results and operate on them */
-			if($stmt->fetch())
-			{
-				$name = $fname. " " . $lname;
-				$_SESSION['fullName'] = $name;
-				
-
-				/* Close statement */
-				
-				$stmt->close();
-				$connection->close();
-			}
+	
 
 
 
 }
 
+?>
 
 
-else
-{
-	echo '
 	<div id = "container">
 
 	<section id ="content">
@@ -119,7 +86,10 @@ else
 
 </div>
 
-	';
-}
 
-?>
+
+</body>
+
+
+<?php include_once "../includes/footer.php" ?>
+

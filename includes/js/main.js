@@ -28,7 +28,7 @@ $('form.ajax').on('submit', function()
         method = that.attr('method'),
         data = {};
 
-        $('#submit').replaceWith("<i class='fa fa-refresh fa-spin'></i>");
+        $('#submit').replaceWith("<span class='fa fa-refresh fa-spin'></span>");
 
     that.find('[name]').each(function(index, value)
     {
@@ -189,29 +189,26 @@ $('body').on('click', '#save_profile', function(e)
 {
 
   e.preventDefault();
-  var formData = new FormData($(this).parents('form')[0]);
+  
 
-  $('#save_profile').replaceWith("<i id='loader' class='fa fa-refresh fa-spin'></i>");
+  $('button').replaceWith("<span id='loader' class='fa fa-refresh fa-spin'></span>");
 
-  $.ajax({
+  $.ajax
+  ({
       url: '../system/profile_edit.php',
       type: 'POST',
-      xhr: function()
-      {
-          var myXhr = $.ajaxSettings.xhr();
-          return myXhr;
-      },
+      data: $('form').serialize(),
+      datatype: 'text',
       success: function (response)
       {
         console.log(response);
-        var p = document.getElementById('errorMessage');
-        p.innerHTML = response;
-        $('#loader').replaceWith('<button id="save_profile" type = "submit"><i class="fa fa-floppy-o fa-fw"></i> Update</button>');
+        $('#loader').replaceWith('<button id="save_profile" type = "submit">Update</button>');
+        alert("Updated profile successfully", "OASIS Info" );
+        
+        
+        
       },
-      data: formData,
-      cache: false,
-      contentType: false,
-      processData: false
+     
   });
 
       return false;
@@ -258,4 +255,14 @@ $('body').on('click', '#save_profile', function(e)
 });
 
 
-// Rich Text Editor
+    $('#list').click(function()
+    {
+      $('#result-cards').css('display', 'none');
+      $('#table-results').css('display', 'block');
+    });
+    
+      $('#grid').click(function()
+    {
+      $('#result-cards').css('display', 'block');
+      $('#table-results').css('display', 'none');
+    });

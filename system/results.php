@@ -106,7 +106,7 @@
 		  $stmt->bind_result($number, $type, $address, $location, $desc, $price, $fname, $lname, $image1, $image2, $image3);
 			$i = 0;
 
-			$textline = "Found $total listings matching your filters (Min: $$minPrice | Max:$$maxPrice | Location: $location). 
+			$textline = "Found $total listings that match your selected filters. 
 						You are on page $pagenum of $lastPage.";
 
 			// Establish the paginationCtrls variable
@@ -154,20 +154,35 @@
 				}
 			} // end if lastpage !=1
 
-			$td = "";
+			$grid = "";
+			$list = "";
 			while($stmt->fetch())
 			{
 			  $i++;
 				$full_address = $address.", ".$location; // merge the address and the location into a single string
 				$desc_snippet = substr($desc, 0, 30); // a 30 character substring of the description
-			  $td.= '
+			  
+			  // Generate the grid view
+			  $grid.= '
+			  <div class="card">
+				    <p>Type: '.$type.'</p>
+				    <p>Address: '.$full_address.'</p>
+					<p>Description: '.$desc_snippet.'...</p>
+				    <p>Price: $'.$price.'</p>
+				    <p>Landlord: '.$fname ." ".$lname.'</p>
+				    <p><a href="expandlisting.php?l='.$number.'" title="Expand listing"><span class="fa fa-external-link-square fa-fw"></span> View</a></p>
+			  </div>
+
+			  ';
+			  // Generate the list view
+			  $list.= '
 			  <tr>
-			    <td>'.$type.'</td>
-			    <td>'.$full_address.'</td>
-					 <td>'.$desc_snippet.'...</td>
-			    <td>$'.$price.'</td>
-			    <td>'.$fname ." ".$lname.'</td>
-			    <td><a href="expandlisting.php?l='.$number.'" title="Expand listing"><span class="fa fa-external-link-square fa-fw"></span> View</a></td>
+				    <td>'.$type.'</td>
+				    <td>'.$full_address.'</td>
+					<td>'.$desc_snippet.'...</td>
+				    <td>$'.$price.'</td>
+				    <td>'.$fname ." ".$lname.'</td>
+				    <td><a href="expandlisting.php?l='.$number.'" title="Expand listing"><span class="fa fa-external-link-square fa-fw"></span> View</a></td>
 			  </tr>
 
 			  ';
@@ -191,10 +206,19 @@
 
 <section id ="content2">
 	<header> </header>
+	<div id = "toggle-view">
+		<p>view as:<p>
+		<p id="list" class="view"><span class="fa fa-list"> List</span><p>
+		<p id="grid" class="view"><span class="fa fa-th-large"> Grid</span><p>
+	</div>
+
+		<div id="result-cards">
+			<?php echo $grid ?>
+		</div>
 
 		<div id="table-results">
 
-						<table id="results">
+					<table id="results">
 								<thead>
 									<tr>
 										<th>Type</th>
@@ -208,16 +232,11 @@
 								</thead>
 
 								<tbody id="info">
-									<?php echo $td ?>
-
+									<?php echo $list ?>
 								</tbody>
-
-
-						</table>
-
-					<div id="pagination-holder"> <?php echo $textline."<br><br>".$navigation ?> </div>
-
+				</table>
 		</div>
+		<div id="pagination-holder"> <?php echo $textline."<br><br>".$navigation ?> </div>
 
 </section>
 
