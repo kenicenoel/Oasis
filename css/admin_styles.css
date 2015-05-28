@@ -246,7 +246,6 @@ select
 	color: #2980b9;
 	background-color:#fff;
 	padding: 0px 17px 3px 2px;
-	
 	border: 0;
 	box-shadow: none;
 	outline: none;
@@ -379,7 +378,7 @@ section#tile-group2
 {
 	background-color:rgba(114, 27, 172, 0.92);
 }
-#fff;
+
 section#tile:hover
 {
 	background-color:rgba(43, 144, 233, 0.61);
@@ -422,9 +421,6 @@ section.overview
 	color:#fff;
 
 }
-
-
-
 
 
 footer

@@ -165,12 +165,13 @@
 			  // Generate the grid view
 			  $grid.= '
 			  <div class="card">
-				    <p>Type: '.$type.'</p>
-				    <p>Address: '.$full_address.'</p>
-					<p>Description: '.$desc_snippet.'...</p>
-				    <p>Price: $'.$price.'</p>
-				    <p>Landlord: '.$fname ." ".$lname.'</p>
-				    <p><a href="expandlisting.php?l='.$number.'" title="Expand listing"><span class="fa fa-external-link-square fa-fw"></span> View</a></p>
+				    <header class="subheading"><span class="fa fa-building-o"> </span> '.$type.'</header>
+					<p><img src="../includes/tasks/'.$image1.'"alt="listingImage" /></p>
+				    <p><span class="fa fa-map-marker"> </span> '.$full_address.'</p>
+				    <p><span class="fa fa-dollar"> </span> '.$price.'</p>
+				    <p><span class="fa fa-male"> </span> '.$fname ." ".$lname.'</p>
+					<p>'.$desc_snippet.'...</p>
+				    <p><a class="full-listing" href="expandlisting.php?l='.$number.'" title="Full listing details"><span class="fa fa-check-circle fa-fw"></span> Full details</a></p>
 			  </div>
 
 			  ';
@@ -207,35 +208,34 @@
 <section id ="content2">
 	<header> </header>
 	<div id = "toggle-view">
-		<p>view as:<p>
+		<p>VIEW:<p>
 		<p id="list" class="view"><span class="fa fa-list"> List</span><p>
-		<p id="grid" class="view"><span class="fa fa-th-large"> Grid</span><p>
+		<p id="grid" class="view"><span class="fa fa-th"> Grid</span><p>
 	</div>
-
+	<!--Show the results as a grid (the default view -->
 		<div id="result-cards">
 			<?php echo $grid ?>
 		</div>
 
+	<!--	Show the results as a list (table)-->
 		<div id="table-results">
-
 					<table id="results">
-								<thead>
-									<tr>
-										<th>Type</th>
-										<th>Address</th>
-										<th>Description</th>
-										<th>Price</th>
-										<th>Landlord</th>
-										
-										
-									</tr>
-								</thead>
+						<thead>
+							<tr>
+								<th>Type</th>
+								<th>Address</th>
+								<th>Description</th>
+								<th>Price</th>
+								<th>Landlord</th>							
+							</tr>
+						</thead>
 
-								<tbody id="info">
-									<?php echo $list ?>
-								</tbody>
-				</table>
+						<tbody id="info">
+							<?php echo $list ?>
+						</tbody>
+					</table>
 		</div>
+	<!--Display the Pagination links and information-->
 		<div id="pagination-holder"> <?php echo $textline."<br><br>".$navigation ?> </div>
 
 </section>
