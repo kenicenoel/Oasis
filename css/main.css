@@ -3,41 +3,11 @@ body
 	margin: 0px;
 	width: 100%;
 	color: #000;
-	background-color: #
-	font-family: "Segoe Ui Light";
-
-}
-
-
-nav
-{
-
-	font-family: "Segoe Ui Light";
-	font-size: 1.2em;
 	background-color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
 
 }
 
-nav a
-{
-	padding: 10px;
-	text-decoration: none;
-	text-transform: lowercase;
-	color: #000;
-}
-
-nav a:hover
-{
-	background-color: #00ACAA;
-	color: #fff;
-
-}
-
-nav img
-{
-	height: 150px;
-	width:150px;
-}
 
 
 header
@@ -48,10 +18,9 @@ header
 	padding-bottom:12px;
 	color: #fff;
 
-
-
 }
-section#content
+
+div#content
 {
 	margin-left: 0px;
 	margin-top: 0px;
@@ -60,10 +29,23 @@ section#content
 	height: 300px;
 }
 
-section#content img { margin-left: 30px;}
-
-section#content2
+div#left-sidebar
 {
+	width:40%;
+	height: 100%;
+	
+	float: left;
+	background-color: #16a085;
+	background: url('../images/oasis3.png');
+	background-size: fit;
+	
+}
+
+
+div#right-sidebar
+{
+	float:right;
+	width:60%;
 	height: 300px;
 }
 
@@ -76,36 +58,38 @@ img.icon
 	display:block;
 	vertical-align:middle;
 }
-section#content header
+div#content header
 {
 	margin-left: 40px;
 	margin-top: 0px;
 	max-width: 600px;
 }
 
-section#content2 header
+div#right-sidebar header
 {
-	font-size: 3em;
-	color: #000;
+	font-size: 1.4em;
+	color: #2980b9;
+	font-family: 'Source Sans Pro', sans-serif;
 	margin-left: 40px;
-	text-align: center;
+	margin-top:20px;
+	text-align: left;
 	padding-bottom: 15px;
 }
 
-/*section#content2 img { margin-left: 500px;}*/
 
-input[type=button]
+
+input[type=button], input[type=submit]
 {
 	height: 70px;
-	width: 200px;
-	font-size: 3em;
-	color: #fff;
-	border:none;
-	background-color: #2980b9;
+	width: 100px;
+	font-size: 20px;
+	color: #2980b9;
+	border:1px solid #000;
+	background-color: #fff;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-transform: lowercase;
 	margin-left: 50px;
-	margin-top: 100px;
+	margin-top: 30px;
 }
 
 input[type=text], input[type=password], input[type=email]
@@ -117,11 +101,13 @@ input[type=text], input[type=password], input[type=email]
 	padding-left: 2px;
 	padding-bottom: 3px;
 	border: 0;
-	border-top, border-left, border-right: none;
-	border-bottom: 2px solid #e2e3e4;
+	border-top:1px solid #BBBBBB;;
+	border-left:1px solid #BBBBBB;
+	border-right: 1px solid #BBBBBB;
+	border-bottom: 1px solid #BBBBBB;
 	box-shadow: none;
 	outline: none;
-	height: 40px;
+	height: 30px;
 	width: 220px;
 }
 
@@ -136,7 +122,7 @@ input[type=submit]:hover
 	margin-left: 50px;
 }
 
-input[type=submit]
+/*input[type=submit]
 {
 	height: 40px;
 	width: 100px;
@@ -148,19 +134,23 @@ input[type=submit]
 	text-transform: lowercase;
 	margin-left: 50px;
 	margin-top: 10px;
-}
+}*/
 
 label
 {
 	font-family: 'Source Sans Pro', sans-serif;
+	display: inline-block;
+	width:110px;
+	margin-left:5px;
+	text-align: left;
 
 }
 
 form
 {
 
-	margin-left: 800px;
-	margin-top: 30px;
+	margin-left: 50px;
+	margin-top: 100px;
 
 }
 
@@ -175,13 +165,12 @@ form img
 
 p.text
 {
-	float: left;
+	
 	margin-left: 50px;
-	font-size: 1.3em;
+	font-size: 17px;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 200;
-	max-width: 400px;
-	text-align: center;
+	max-width: 700px;
+	text-align: left;
 }
 
 p#msg
@@ -193,9 +182,20 @@ p#msg
 
 }
 
-p.footnote
+/*p.footnote
 {
 	padding-top: 0px;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-align: center;
+}*/
+
+footer
+{
+
+	display: block;
+/*	float:right;*/
+	bottom:0px;
+	font-size: 14px;
+	margin: 100px 0px 0px 50px;
+	text-align:left;
 }

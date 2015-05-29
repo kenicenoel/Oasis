@@ -3,20 +3,21 @@
 
     global $connection;
     // check if the username and password is set
-    if(isset($_POST['studentNumber']) && isset($_POST['password']))
+    if(isset($_POST['emailAddress']) && isset($_POST['password']))
     {
       //set the username and password from form values
       $studentNumber = $_POST['studentNumber'];
+      $emailAddress = $_POST['emailAddress'];
       $password = $_POST['password'];
 
       // Build the query
-      $sql = "SELECT studentNumber, firstName, lastName FROM users WHERE studentNumber = ? AND password=?";
+      $sql = "SELECT studentNumber, firstName, lastName FROM users WHERE emailAddress = ? AND password=?";
 
       //prepare the sql statement
       $stmt = $connection->prepare($sql);
 
       // bind variables to the paramenters ? present in sql
-      $stmt->bind_param('is', $studentNumber, $password);
+      $stmt->bind_param('is', $emailAddress, $password);
 
       //execute the prepared statement
       $stmt->execute();
@@ -49,6 +50,7 @@
         session_start();
 
         $_SESSION['studentNumber'] = $studentNumber;
+        $_SESSION['emailAddress'] = $emailAddress;
         $_SESSION['fullName'] = $fname." ".$lname;
         header("Location:../system/oasis.php");
         

@@ -3,40 +3,41 @@
 <body>
 	<div id = "container">
 
-	<section id ="content">
-
-		<header class = "highlight">
-
-		</header>
-	</section>
-
-	<section id ="content2">
-		<header>Welcome to OASIS by Student Advisory Services</header>
-
-		<p class ="text">
-			<img class = "icon" src = "images/user-login.png" alt="student" />
-				Simply enter your student number and your date of birth. Need an account? See Student Advisory.
-
+		<div id ="left-sidebar">
+	
+			<header class = "highlight">
+	
+			</header>
+		</div>
+	
+		<div id ="right-sidebar">
+			<header>Welcome to OASIS by Student Advisory Services</header>
+	
+					
+					<p class="text">To login, enter your student email and your password. For help, visit Student Advisory Services.</p>
+	
 					<form id="form" action= "includes/authenticate.php" method ="post" class ="ajax">
-						<p id = "msg"></p>
-						<label for="studentID">Student#</label>
-						<input type = "text" id = "studentNumber" name="studentNumber" required autofocus/> <br><br>
-						<label for="password">Password</label>
-						<input type = "password" id = "password" name="password" required /> <br>
-						<input id ="submit" type = "submit" value="LOGIN" />
-
-				</form>
-
-
-		</p>
-
-
-	</section>
+							<p id = "msg"></p>
+							<span class="fa fa-envelope-o fa-fw"> </span><label for="emailAddress"> Email address</label>
+							<input type = "text" id = "emailAddress" name="emailAddress" required autofocus/> <br><br>
+							
+							<span class="fa fa-keyboard-o fa-fw"> </span><label for="password"> Password</label>
+							<input type = "password" id = "password" name="password" required /> <br>
+							
+							<input id ="submit" type = "submit" value="LOGIN" />
+	
+					</form>
+	
+	
+				<?php include_once("includes/footer.php") ?>
+		</div>
+		
 	</div>
+	
 
 </body>
 
 
 <script src="includes/js/jquery.js"></script>
 <script src="includes/js/main.js"></script>
-<?php include_once("includes/footer.php") ?>
+
