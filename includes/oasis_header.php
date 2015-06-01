@@ -29,7 +29,7 @@
 	 		<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
 	 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">
 			<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-			<link rel = "stylesheet" href = "../datatables/media/css/jquery.dataTables.min.css" type="text/css">
+			
 
 
 			<!-- Optionally add helpers - button, thumbnail and/or media -->
@@ -37,6 +37,11 @@
 			<link rel="stylesheet" href="../fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
 
 			<meta name = "viewport" content ="width=device-width, initial-scale=1">
+			
+			<script type="text/javascript" src="../fancybox/source/jquery.fancybox.js"></script>
+			<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+			<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-media.js"></script>
+			<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
 
 
 

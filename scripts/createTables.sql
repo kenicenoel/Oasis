@@ -1,3 +1,4 @@
+
 CREATE DATABASE IF NOT EXISTS oasisdb;
 use oasisdb;
 CREATE TABLE users

@@ -1,81 +1,17 @@
+/* global $ */
 
 //Load FancyBox
 
-jQuery(function( $ )
-{
-  $(".fancybox").fancybox();
-});
-
-
-
-// Responsive Menu
 $(document).ready(function()
-{
-    $('#menu-wrap').prepend('<div id="trigger"><span class="fa fa-list fa-fw"></span> Menu</div>');
-    $('#trigger').on('click', function()
-    {
-        $('#menu').slideToggle();
-    });
-});
-
-
-
-// Ajax login
-$('form.ajax').on('submit', function()
-{
-    var that = $(this),
-        url = that.attr('action'),
-        method = that.attr('method'),
-        data = {};
-
-        $('#submit').replaceWith("<span class='fa fa-refresh fa-spin'></span>");
-
-    that.find('[name]').each(function(index, value)
-    {
-      var that = $(this),
-          name = that.attr('name'),
-          value = that.val();
-
-          data[name] = value;
-    });
-      $.ajax
-      (
-        {
-          url:url,
-          type: method,
-          data: data,
-          success: function(response)
-          {
-
-
-              console.log(response);
-              if(response == '0')
-              {
-                $('#msg').text('Either your student ID or password is incorrect');
-                $('#loader').replaceWith('<input id ="submit" type = "submit" value="LOGIN" />');
-              }
-              else
-              {
-                window.open('system/oasis.php', '_self');
-                // $('body').html(response);
-              }
-
-          }
-        }
-      );
-      return false;
-});
-
-
-
-
-
+{  
+  $(".fancybox").fancybox();
+  
+  
 // Ajax Add landlord
 
 $('body').on('click', '#submitLandlord', function(e)
 
 {
-
 
   e.preventDefault();
   var formData = new FormData($(this).parents('form')[0]);
@@ -266,3 +202,12 @@ $('body').on('click', '#save_profile', function(e)
       $('#result-cards').css('display', 'block');
       $('#table-results').css('display', 'none');
     });
+
+  
+  
+});
+
+
+
+
+

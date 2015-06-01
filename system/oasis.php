@@ -75,12 +75,10 @@
 
 
 
-<script type= "text/javascript" src="../includes/js/jquery.js"></script>
+
 <script type="text/javascript" src="../fancybox/source/jquery.fancybox.js"></script>
 <script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
 <script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-media.js"></script>
 <script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-<script type= "text/javascript" src="../includes/js/main.js"></script>
-<script type = "text/javascript" src="../datatables/media/js/jquery.dataTables.min"></script>
 </body>
 <?php include_once "../includes/footer.php" ?>

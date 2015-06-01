@@ -2,22 +2,22 @@
   require_once("config.php");
 
     global $connection;
-    // check if the username and password is set
-    if(isset($_POST['emailAddress']) && isset($_POST['password']))
+    // check if the email and password is set
+    if(isset($_POST['email']) && isset($_POST['password']))
     {
       //set the username and password from form values
-      $studentNumber = $_POST['studentNumber'];
-      $emailAddress = $_POST['emailAddress'];
+//      $studentNumber = $_POST['studentNumber'];
+      $email = $_POST['email'];
       $password = $_POST['password'];
 
       // Build the query
-      $sql = "SELECT studentNumber, firstName, lastName FROM users WHERE emailAddress = ? AND password=?";
+      $sql = "SELECT studentNumber, firstName, lastName FROM users WHERE email = ? AND password=?";
 
       //prepare the sql statement
       $stmt = $connection->prepare($sql);
 
       // bind variables to the paramenters ? present in sql
-      $stmt->bind_param('is', $emailAddress, $password);
+      $stmt->bind_param('ss', $email, $password);
 
       //execute the prepared statement
       $stmt->execute();
@@ -27,41 +27,21 @@
 
       if($stmt->fetch())
       {
-        /* set the cache limiter to 'private' */
-
-        session_cache_limiter('private');
-        // $update = "UPDATE users SET lastLogin=? WHERE studentNumber=?";
-        //
-        // //prepare the sql statement
-        // $stmt = $connection->prepare($update);
-        //
-        // // bind variables to the paramenters ? present in sql
-        // $stmt->bind_param('si', current_timestamp,$studentNumber);
-        //
-        // //execute the prepared statement
-        // $stmt->execute();
-
-        $cache_limiter = session_cache_limiter();
-
-        /* set the cache expire to 15 minutes */
-        session_cache_expire(15);
-        $cache_expire = session_cache_expire();
-        // create a new session
         session_start();
-
-        $_SESSION['studentNumber'] = $studentNumber;
-        $_SESSION['emailAddress'] = $emailAddress;
-        $_SESSION['fullName'] = $fname." ".$lname;
-        header("Location:../system/oasis.php");
+        echo 'true';
+            
+        // create a new session
         
-
-
+        $_SESSION['studentNumber'] = $id;
+        $_SESSION['email'] = $email;
+        $_SESSION['fullName'] = $fname." ".$lname;
+        
+     
       }
 
-      else if(!($stmt->fetch()))
+      else
       {
-        echo
-        '0';
+        echo 'false';
 
       }
 

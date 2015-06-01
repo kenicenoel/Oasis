@@ -3,7 +3,7 @@
 //Connection to the MySQL Server
 define('DB_SERVER', 'localhost'); // Mysql hostname, usually localhost
 define('DB_USERNAME', 'root');    // Mysql username
-define('DB_PASSWORD', 'afrique'); // Mysql password
+define('DB_PASSWORD', 'afrique90'); // Mysql password
 define('DB_DATABASE', 'oasisdb'); // Mysql database name
 
 // create new mysqli object

@@ -2,14 +2,13 @@
 		require_once("includes/authenticate.php");
 		session_start();
 
-		if(isset($_SESSION['studentNumber']))
+		if(isset($_SESSION['email']))
 		{
 			header("Location:system/oasis.php");
 		}
 
-
 		 ?>
-	<Doctype html>
+	<!Doctype html>
 		<html>
 			<head>
 				<title>Welcome to OASIS</title>
@@ -18,3 +17,4 @@
 		 		<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
 		 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css">
 			</head>
+			<body>
