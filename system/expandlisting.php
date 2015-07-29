@@ -7,22 +7,50 @@
 		{
 
 			$listingNumber = $_GET['l'];
-			// Get the total rows from the database matching criteria
-			$sql = "SELECT listing.type, listing.address, listing.location, listing.description, listing.price, landlord.firstName, landlord.lastName,
-			 				image1, image2, image3, image4, image5 FROM listing, landlord WHERE listingNumber = ? AND landlord.landlordNumber = listing.landlordNumber";
 			
-		  // prepare the sql statement
-		  $stmt = $connection->prepare($sql);
+			// Get the details for the listing
+			$sql = "SELECT listing.type, listing.address, listing.location, listing.description, listing.price, listing.image1, landlord.firstName, landlord.lastName
+			 		FROM listing, landlord 
+					WHERE listingNumber = ? AND landlord.landlordNumber = listing.landlordNumber";
 			
-			$stmt = $connection->prepare($sql);
+		 
+		  	$stmt = $connection->prepare($sql);
 			$stmt->bind_param('i', $listingNumber);
 			$stmt->execute();
-			$stmt->bind_result($type, $address, $location, $desc, $price, $fname, $lname, $image1, $image2, $image3, $image4, $image5);
-			/* store result */
-		  	$stmt->fetch();
+			$stmt->bind_result($type, $address, $location, $desc, $price, $image1, $fname, $lname);
+			$stmt->fetch();
+			$stmt->close();
 			
 			
-		}
+			// Get the images for the listing
+			$imageCollection = array();
+			for($i = 1; $i <= 10; $i++)
+			{
+				$sql = "SELECT listing.image{$i} FROM listing WHERE listingNumber = ?";
+			
+		  
+			  	$stmt = $connection->prepare($sql);
+				$stmt->bind_param('i', $listingNumber);
+				$stmt->execute();
+				$stmt->bind_result($image);
+				if($image)
+				{
+					$imageCollection[] = $image;
+				}
+				
+				/* store result */
+			  	$stmt->fetch();
+				$stmt->close();
+			}
+			
+			
+						
+				
+				
+				
+			}
+			
+		
 
 		 // end if isset
 
@@ -41,30 +69,32 @@
 					echo '<p>'.$type.' </p>';
 					echo '<p>'.$price.' </p>';
 					echo '<p>'.$location.' </p>';
+					echo '<p>'.$fname. " ".$lname.' </p>';
 					echo '<p>'.$desc.' </p>';
 					
 				 ?>
+				 
 							
+				</div>
+				
+				<div id = "listing-images">
+					<div id="image-container">
+						<header class="subheading"><span class="fa fa-photo fa-fw"></span> Images</header>
+						<?php
+							
+							// This for loop goes through the image collection array and creates thumbnails of them surrounded by a paragraph tag using fancybox
+								for($i = 0; $i < count($imageCollection); $i++)
+								{
+									echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$imageCollection[$i].'"><img src="../includes/tasks/'.$imageCollection[$i].'" alt="" /></a></p>';
+								}
+								
+			
+						?>
+					</div>
 				</div>
 		
 		</section>
-		<section id = "listing-images">
-			<div id="image-container">
-			<?php
-				echo '<header class="subheading"><span class="fa fa-photo fa-fw"></span> Images</header>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image1.'"><img src="../includes/tasks/'.$image1.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image2.'"><img src="../includes/tasks/'.$image2.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image3.'"><img src="../includes/tasks/'.$image3.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image4.'"><img src="../includes/tasks/'.$image4.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image5.'"><img src="../includes/tasks/'.$image5.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image6.'"><img src="../includes/tasks/'.$image6.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image7.'"><img src="../includes/tasks/'.$image7.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image8.'"><img src="../includes/tasks/'.$image8.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image9.'"><img src="../includes/tasks/'.$image9.'" alt="" /></a></p>';
-				echo '<p><a class="fancybox" rel="image" href="../includes/tasks/'.$image10.'"><img src="../includes/tasks/'.$image10.'" alt="" /></a></p>';
-			?>
-			</div>
-		</section>
+		
 		
 		
 		</div>
@@ -83,4 +113,4 @@
 
 
 </body>
-<?php include_once "../includes/footer.php" ?>
+<?php include_once "../includes/oasis_footer.php" ?>

@@ -11,7 +11,7 @@
       $password = $_POST['password'];
 
       // Build the query
-      $sql = "SELECT studentNumber, firstName, lastName FROM users WHERE email = ? AND password=?";
+      $sql = "SELECT studentNumber, firstName, lastName, accent FROM users WHERE email = ? AND password=?";
 
       //prepare the sql statement
       $stmt = $connection->prepare($sql);
@@ -23,7 +23,7 @@
       $stmt->execute();
 
       //bind the results ($id corresponds to the items we are selecting)
-      $stmt->bind_result($id, $fname, $lname);
+      $stmt->bind_result($id, $fname, $lname, $accent);
 
       if($stmt->fetch())
       {
@@ -35,6 +35,7 @@
         $_SESSION['studentNumber'] = $id;
         $_SESSION['email'] = $email;
         $_SESSION['fullName'] = $fname." ".$lname;
+        $_SESSION['accent'] = $accent;
         
      
       }

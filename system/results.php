@@ -257,4 +257,4 @@
 
 
 </body>
-<?php include_once "../includes/footer.php" ?>
+<?php include_once "../includes/oasis_footer.php" ?>

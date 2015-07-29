@@ -1,0 +1,2 @@
+Options -Indexes
+ErrorDocument 403 "Whoops! You discovered a black hole... You shouldn't be here.<br /><h2>Please visit our <a href='/'>Home Page</a></h2>"

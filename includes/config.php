@@ -8,9 +8,11 @@ define('DB_DATABASE', 'oasisdb'); // Mysql database name
 
 // create new mysqli object
 $connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-if ($connection->connect_error)
+/* check connection */
+if (mysqli_connect_errno()) 
 {
-  die("Connection failed: " . $connection->connect_error);
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
 }
 
 

@@ -5,10 +5,10 @@
 
 
 
-	<Doctype html>
+	<!Doctype html>
 				<html>
 					<head>
-						<title>Oasis: Dashboard</title>
+						<title>OASIS: Dashboard</title>
 						<link rel = "stylesheet" href = "../css/admin_styles.css" type ="text/css">
 						<link type="text/css" rel="stylesheet" href="../css/overlaypopup.css" />
 						<link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
@@ -27,6 +27,6 @@
 							<a class ="link" href ="?module=user" title = "Manage users of the system"><i class="fa fa-user fa-fw"></i> Users</a>
 							<a class ="link" href ="?module=listings" title = "Manage or add listings in oasis"><i class="fa fa-building fa-fw"></i> Listings</a>
 							<a class ="link" href ="?module=landlords" title = "Manage or add a new landlord"><i class="fa fa-male fa-fw"></i> Landlords</a>
-							<a class ="link" href ="logout.php" title = "Exit OASIS"><i class="fa fa-sign-out fa-fw"></i> Leave</a>
+							<a class ="link" href ="logout.php" title = "Exit OASIS"><i class="fa fa-sign-out fa-fw"></i> Exit</a>
 
 						</nav>

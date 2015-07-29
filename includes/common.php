@@ -15,24 +15,29 @@
 			$table = $tableName;
 
 			// Build the query
-      $sql = "SELECT * FROM ".$table;
+      	$sql = "SELECT * FROM ".$table;
 
-      //prepare the sql statement
-      $stmt = $connection->prepare($sql);
+	      //prepare the sql statement
+	      $stmt = $connection->prepare($sql);
 
-      //execute the prepared statement
-      $stmt->execute();
+	      //execute the prepared statement
+	      $stmt->execute();
 
 			/* store result */
 	    $stmt->store_result();
 
 			$total = $stmt->num_rows;
 
-			if($total == 0) { return 0;}
+			if($total == 0)
+			{
+				return 0;
+
+			}
 
 			else
 			{
-				return $total;}
+				return $total;
+			}
 
 
 			/* Close statement */
@@ -47,6 +52,7 @@
 		function getLastModifiedUser()
 		{
 			global $connection;
+
 			// Build the query
       $sql = "SELECT firstName, lastName FROM users ORDER BY modified DESC LIMIT 1";
 
@@ -111,17 +117,18 @@
 
 		}
 
+
 		// Get the last new landlord that was added to OASIS
 		function getLastAddedLandlord()
 		{
 			global $connection;
 			// Build the query
 	      $sql = "SELECT firstName, lastName FROM landlord";
-	
-	
+
+
 	      // prepare the sql statement
 	      $stmt = $connection->prepare($sql);
-	
+
 	      // execute the prepared statement
 	      $stmt->execute();
 
@@ -153,7 +160,9 @@
 			the content for each individual module e.g User Module or listing module.
 		*/
 
-		// The overview function creates the data shown in the admin dashboard
+		// The overview function creates the data shown in the admin dashboard by calling the various
+		// functions and passing the correct parameter
+
 		function overview()
 		{
 			$userTotal = call_user_func('countTotal', 'users');
@@ -163,47 +172,56 @@
 			$lastAddedUser = call_user_func('getLastAddedUser');
 			$lastLandlord = call_user_func('getLastAddedLandlord');
 
+			$moduleName = "System Overview";
+
 				echo '
 				<!-- The overview of the system -->
+
 				<div id="content">
-					<header class ="modulename"> System Overview </header>
 
-					<header class ="modules"> <i class="fa fa-calculator fa-fw"></i> By the numbers </header>
-							<section id="tile-group1">
-							<p class="summary">
-							<span>'. $userTotal .'</span>	user(s) in Oasis.
-							</p>
+
+					<header class ="modules"> <i class="fa fa-calculator fa-fw"></i> Statistics </header>
+							<section class="card">
+								<p class="card-title">Total Users in Oasis</p>
+								<p class="summary">
+									<span>'. $userTotal .'</span>
+								</p>
 							</section>
 
-							<section id="tile-group1">
-							<p class="summary">
-								<span>'. $listingTotal .'</span> listings in Oasis.
-							</p>
+							<section class="card">
+								<p class="card-title">Total Listings in Oasis</p>
+								<p class="summary">
+									<span>'. $listingTotal .'</span>
+								</p>
 							</section>
 
-							<section id="tile-group1">
-							<p class="summary">
-								<span>'. $landlordTotal .'</span> landords in Oasis.
-							</p>
+							<section class="card">
+								<p class="card-title">Total Landlords in Oasis</p>
+								<p class="summary">
+									<span>'. $landlordTotal .'</span>
+								</p>
 							</section>
 
 							<header class ="modules"><i class="fa fa-tasks fa-fw"></i> Last updated </header>
-							<section id="tile-group2">
-							<p class="summary">
-								<span>'. $lastModifiedUser .'</span>: last modified user.
-							</p>
+							<section class="card">
+								<p class="card-title">Last modified user</p>
+								<p class="summary">
+									<span>'. $lastModifiedUser .'</span>
+								</p>
 							</section>
 
-							<section id="tile-group2">
-							<p class="summary">
-									<span> '. $lastAddedUser .'</span>: last created user.
-							</p>
+							<section class="card">
+								<p class="card-title">Newest user created</p>
+								<p class="summary">
+										<span> '. $lastAddedUser .'</span>
+								</p>
 							</section>
 
-							<section id="tile-group2">
-							<p class="summary">
-									<span>'. $lastLandlord .'</span>: last created landlord.
-							</p>
+							<section class="card">
+								<p class="card-title">Newest landlord created</p>
+								<p class="summary">
+										<span>'. $lastLandlord .'</span>
+								</p>
 							</section>
 
 
@@ -217,133 +235,153 @@
 		// Shows the user management options
 		function user()
 		{
+
 			echo '
-			<!-- The user div containing tiles -->
+			<!-- The user div containing cards. Each section is an individual tile/card -->
+
 			<div id="content">
-				<header class ="modulename"> User Management </header>
-
-				<section id="tile" class="addUser">
-					<p class = "summary">
-					Add new
-						<i class="fa fa-plus-square-o fa-fw"></i>
-					</p>
 
 
-				</section>
+					<section id="cards" class="card" data-function="addUser">
+						<p class = "card-title">
+							Add new
 
-				<section id="tile">
-					<p class="summary">
-						Modify
-						<i class="fa fa-pencil-square-o fa-fw"></i>
-					</p>
+						</p>
 
-
-				</section>
-
-				<section id="tile" class="show-popup" href="#" data-showpopup="3">
-					<p class="summary">
-						Remove
-						<i class="fa fa-minus-square-o fa-fw"></i>
-					</p>
+						<p>
+							<i class="fa fa-plus fa-fw"></i>
+						</p>
 
 
-				</section>
+					</section>
+
+					<section id="cards" class="card" data-function="modifyUser">
+						<p class="card-title">
+							Modify
+						</p>
+						<p>
+							<i class="fa fa-pencil fa-fw"></i>
+						</p>
+
+
+					</section>
+
+					<section id="cards" class="card" data-function="deleteUser">
+						<p class="card-title">
+							Remove
+						</p>
+						<p>
+							<i class="fa fa-minus fa-fw"></i>
+						</p>
+
+
+					</section>
 			</div> ';
 		}
 
 		// Shows the listing management options
 		function listings()
 		{
+
 			echo '
 			<!-- The listings div containing tiles -->
 			<div id="content">
-				<header class="modulename"> Listing Management </header>
-
-				<section id="tile" class="addListing">
-					<p class="summary">
-						Add new
-						<i class="fa fa-plus-square-o fa-fw"></i>
-					</p>
 
 
-				</section>
+					<section id="cards" class="card" data-function="addListing">
+						<p class="card-title">
+							Add new
+						</p>
 
-				<section id="tile" class="modifyListing">
-					<p class="summary">
-						Modify
-						<i class="fa fa-pencil-square-o fa-fw"></i>
-					</p>
-
-
-				</section>
-
-				<section id="tile" class="deleteListing">
-					<p class="summary">
-						Remove
-						<i class="fa fa-minus-square-o fa-fw"></i>
-					</p>
+						<p>
+							<span class="fa fa-plus fa-fw"></span>
+						</p>
 
 
-				</section>
+					</section>
+
+					<section id="cards" class="card" data-function="modifyListing">
+						<p class="card-title">
+							Modify
+
+						</p>
+						<p>
+							<i class="fa fa-pencil fa-fw"></i>
+						</p>
+
+
+					</section>
+
+					<section id="cards" class="card" data-function="deleteListing">
+						<p class="card-title">
+							Remove
+
+						</p>
+						<p>
+							<i class="fa fa-minus fa-fw"></i>
+						</p>
+
+
+					</section>
+
+					<section id="cards" class="card" data-function="viewListings">
+						<p class="card-title">
+							View listings
+						</p>
+
+						<p>
+							<span class="fa fa-eye fa-fw"></span>
+						</p>
+
+
+					</section>
 
 			</div>';
 
 
 		}
 
-		// Shows the lookup management options
-		function lookup()
-		{
-			echo '
-			<!-- The lookup div -->
-			<div id="content">
-				<header class="modulename"> Information Lookup </header>
 
-				<header class = "modules">What do you want to look for?</header>
-
-
-				<br>
-				<br>
-				<input id="query" type = "text" name="query" placeholder = "Your search query goes here" /><input id="lookupButton" type="submit" value="Lookup">
-
-				<div id = "data">
-
-				</div>
-
-
-
-			</div>';
-		}
 
 		// Shows the landlord management options
 		function landlords()
 		{
+
 			echo '
 			<!-- The landlord div containing tiles -->
 			<div id="content">
-				<header class="modulename"> Landlord Management </header>
-				<section id="tile" class="addLandlord">
-					<p class="summary">
+
+				<section id="cards" class="card" data-function="addLandlord">
+					<p class="card-title">
 						Add new
-						<i class="fa fa-plus-square-o fa-fw"></i>
+
+					</p>
+					<p>
+						<i class="fa fa-plus fa-fw"></i>
 					</p>
 
 
 				</section>
 
-				<section id="tile" class="modifyLandlord">
-					<p class="summary">
+				<section id="cards" class="card" data-function="modifyLandlord">
+					<p class="card-title">
 						Modify
-						<i class="fa fa-pencil-square-o fa-fw"></i>
+
+					</p>
+					<p>
+						<i class="fa fa-pencil fa-fw"></i>
 					</p>
 
 
 				</section>
 
-				<section id="tile" class="deleteLandlord">
-					<p class="summary">
+				<section id="cards" class="card" data-function="deleteLandlord">
+					<p class="card-title">
 						Remove
-						<i class="fa fa-minus-square-o fa-fw"></i>
+
+					</p>
+					<p>
+						<i class="fa fa-minus fa-fw"></i>
 					</p>
 
 
@@ -352,6 +390,36 @@
 			</div>';
 
 
+		}
+
+
+		// Shows the lookup management options
+		function lookup()
+		{
+
+			echo '
+			<!-- The lookup div -->
+			<div id="content">
+
+				<form class="card">
+					<header class = "subheading"><span class=" fa fa-search"></span> Information Lookup</header>
+					<p>Enter a name, listing number or student id to find students, landlords or listings.</p>
+
+					<input id="queryField" type = "text" name="query" placeholder = "Enter a name or ID" /><br>
+					<input type="radio" name="type" value="user" />User<br>
+          <input type="radio" name="type" value="landlord" />Landlord<br>
+          <input type="radio" name="type" value="listing" />Listing<br>
+
+					<input id="lookupButton" type="submit" value="Lookup">
+				</form>
+
+				<section id = "lookupResults">
+
+				</section>
+
+
+
+			</div>';
 		}
 
 
@@ -364,9 +432,10 @@
 			echo '
 			<div class="overlay-content popup1">
 			  <section id ="content2 class=left">
-			    <header>Add a new user to OASIS  </header>
 
-			    <form id="user" class="add" method = "post" action = "includes/tasks/adduser.php">
+
+			    <form id="user" class="card" method = "post" action = "includes/tasks/adduser.php">
+					 <header class="subheading">Add a new user to OASIS  </header>
 								<p id="errorMessage"></p>
 			          <label for="userId">Student ID#</label>
 			          <input type = "text" id = "userId" name="userId" required autofocus/> <br>
@@ -407,7 +476,7 @@
 			  <section id ="content2 class=left">
 			    <header>Add a new listing to OASIS </header>
 
-			    <form id="listing" enctype="multipart/form-data" method = "post" action = "includes/tasks/addlisting.php">
+			    <form class="card" id="listing" enctype="multipart/form-data" method = "post" action = "includes/tasks/addlisting.php">
 								<br>
 								<p id="errorMessage"></p>
 			          <label for="landlord">Landlord</label>
@@ -509,6 +578,7 @@
 					$ascii = PasswordGenerator::getASCIIPassword($length);
 					return $ascii;
 				}
+
 
 
 

@@ -75,9 +75,10 @@ if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['phon
 else
 {
   echo '
-  <header>Add a new landlord to OASIS</header>
+ 
 
-  <form id="landlord" class="landlord" method = "post" action = "../includes/tasks/addLandlord.php">
+  <form id="landlord" class="card" method = "post" action = "../includes/tasks/addLandlord.php">
+   <header class="subheading"><span class="fa fa-plus-circle"></span> Add a new landlord to OASIS</header>
         <p id="errorMessage"></p>
 
         <label for="firstName">First Name</label>

@@ -152,10 +152,10 @@ else
 {
   echo '
 
-      <header>Add a new listing to OASIS </header>
+      
 
-      <form id="listing" enctype="multipart/form-data" method = "post" action = "../includes/tasks/addlisting.php">
-            <br>
+      <form id="listing" class="card" enctype="multipart/form-data" method = "post" action = "../includes/tasks/addlisting.php">
+            <header class="subheading"><span class="fa fa-plus-circle"></span> Add a new listing to OASIS </header>
             <p id="errorMessage"></p>
             <label for="landlord">Landlord</label>
             <select form="listing" name="landlordNumber" required>

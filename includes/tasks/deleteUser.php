@@ -11,7 +11,7 @@ if(isset($_POST['studentNumber']) && isset($_POST['password']))
   $password = $_POST['password'];
 
   // Build the query
-  $sql = "SELECT studentNumber FROM users WHERE studentNumber = ?";
+  $sql = "DELETE FROM users WHERE studentNumber = ?";
 
   //prepare the sql statement
   $stmt = $connection->prepare($sql);
@@ -19,16 +19,10 @@ if(isset($_POST['studentNumber']) && isset($_POST['password']))
   // bind variables to the paramenters ? present in sql
   $stmt->bind_param('i', $studentNumber);
 
-  //execute the prepared statement
-  $stmt->execute();
-
-  //bind the results ($id corresponds to the items we are selecting)
-  $stmt->bind_result($id);
-
-  if($stmt->fetch())
+  if($stmt->execute())
   {
 
-    echo 'Sorry. User not added. You may be trying to add a user that exists.';
+    echo 'All details have been removed successfully.';
 
     $stmt->close();
     $connection->close();
@@ -39,36 +33,11 @@ if(isset($_POST['studentNumber']) && isset($_POST['password']))
   else
   {
 
-
-    $sql = "INSERT INTO users(studentNumber, password, firstName, lastName, email, phoneNumber, address)
-          VALUES(?,?,?,?,?,?,?)";
-
-          //prepare the sql statement
-          $stmt = $connection->prepare($sql);
-
-          // bind variables to the paramenters ? present in sql
-          $stmt->bind_param('issssss', $studentNumber, $password, $firstName, $lastName, $email, $phoneNumber, $address);
-
-          //set the variables from form values
-          $studentNumber = $_POST['studentNumber'];
-          $password = $_POST['password'];
-          $firstName = $_POST['firstName'];
-          $lastName = $_POST['lastName'];
-          $email = $_POST['email'];
-          $phoneNumber = $_POST['phoneNumber'];
-          $address = $_POST['address'];
-
-          //execute the prepared statement
-          $stmt->execute();
-
-          echo 'New user added succesfully';
-
-          $stmt->close();
-          $connection->close();
+          echo 'Something happened and we could not delete the user.';
 
   }
 
-}
+} // End If isset
 
 else
 {

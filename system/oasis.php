@@ -4,15 +4,19 @@
 
 
 	<section id ="content2">
-		<header><span class="fa fa-filter fa-fw"></span> Accomodation locator</header>
-
-			<form id="filter" method = "post" action = "results.php">
+		
+			<form id="filter" class="card" method = "post" action = "results.php">
+				<header class="subheading"><span class="fa fa-search fa-fw"></span> Find a listing</header>
+				<p>Customize your search with filters and then click find to filter listings.</p>
 				<p class="subheading"><span class="fa fa-globe fa-fw"></span>Location &amp; Price</p>
+				
 				<label for = "min">Minimum </label>
-					<input class="group" id="min" type = "text" name = "min" placeholder = "e.g. 500" required autofocus/>
+					<input class="group" id="min" type = "text" name = "min" placeholder = "e.g. 500" required autofocus/><br>
+					
 				<label for = "max">Maximum </label>
-					<input  class="group" id="max" type = "text" name = "max" placeholder = "e.g. 2500" required />
-				<label>Location </label>
+					<input  class="group" id="max" type = "text" name = "max" placeholder = "e.g. 2500" required /><br>
+					
+				<label for ="location">Location </label>
 					<select  class="group" form="filter" name="location">
 						<option selected disabled>Doesn't matter</option>
 	
@@ -36,7 +40,7 @@
 							<option value="4">4</option>
 							<option value="5">5</option>
 							<option value="6+">6+</option>
-					</select>
+					</select><br>
 						
 					<label for = "furnished">Furnished?</label>
 					<select class="group" form="filter" name="furnished">
@@ -46,10 +50,10 @@
 							<option value="semi">Semi-furnished</option>
 							<option value="no">Unfurnished</option>
 							
-					</select>
+					</select><br>
 					
 					<label for="type">Type</label>
-		            <select form="filter" name="type" required> <br>
+		            <select form="filter" name="type"> <br>
 		              <option disabled selected>Doesn't matter</option>
 		              <option value = "Room">Room</option>
 		              <option value = "Apartment">Apartment</option>
@@ -81,4 +85,4 @@
 <script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-media.js"></script>
 <script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
 </body>
-<?php include_once "../includes/footer.php" ?>
+<?php include_once "../includes/oasis_footer.php" ?>
