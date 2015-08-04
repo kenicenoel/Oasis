@@ -29,7 +29,7 @@ nav
 	width: 200px;
 	height:100%;
 	border:none;
-	background-color: #1a1a1b;
+	background-color: #16a085;
 
 }
 
@@ -66,6 +66,12 @@ nav img
 
 }
 
+span.highlight
+{
+	color:#1abc9c;
+	
+}
+
 p#start img
 {
 	max-width:32px;
@@ -78,7 +84,7 @@ p#start img
 a.link
 {
 	/*color:#fff;*/
-	color:#b9b8b1;
+	color:#ecf0f1;
 	padding: 15px 0px 30px 10px;
 	display: block;
 	text-decoration: none;
@@ -90,7 +96,7 @@ a.link
 a.link:hover
 {
 	text-decoration: none;
-	background-color: #16a085;
+	background-color: #1abc9c;
 	color: #fff;
 }
 
@@ -133,7 +139,7 @@ header.modules
 	clear:left;
 	padding-top:25px;
 	text-align:left;
-	margin: 0px 0px 10px 20px;
+	margin: 0px 0px 10px 0px;
 }
 
 header.modulename

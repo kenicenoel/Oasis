@@ -21,11 +21,18 @@ div#container
 header
 {
 	font-size: 3em;
+	/*height: 20px;*/
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 200;
 	padding-bottom:12px;
-	color: #fff;
+	
 
+}
+
+header.highlight
+{
+	background-color: #fff;
+	
 }
 
 div#content

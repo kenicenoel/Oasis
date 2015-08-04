@@ -11,6 +11,7 @@ CREATE TABLE users
 	email varchar(50),
 	phoneNumber varchar(11),
 	address varchar(30),
+	accent varchar(7),
 
 	lastLogin timestamp NULL DEFAULT NULL,
   modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

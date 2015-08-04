@@ -2,11 +2,12 @@
   require_once("config.php");
 
     global $connection;
+    
     // check if the email and password is set
     if(isset($_POST['email']) && isset($_POST['password']))
     {
       //set the username and password from form values
-//      $studentNumber = $_POST['studentNumber'];
+      // $studentNumber = $_POST['studentNumber'];
       $email = $_POST['email'];
       $password = $_POST['password'];
 

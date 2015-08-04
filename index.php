@@ -4,8 +4,8 @@
 		
 				<div id ="left-sidebar">
 			
-<!--					<header class = "highlight"></header>-->
-						<img src = 'images/oasisblue.svg' alt = "lt banner" />
+					<header class = "highlight"></header>
+					<img src = 'images/oasisblue.svg' alt = "lt banner" />
 				</div>
 			
 				<div id ="right-sidebar">

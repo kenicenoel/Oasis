@@ -6,10 +6,12 @@
 			// checks if the url has the module switch
 			if(isset ($_GET['module']))
 			{
+				$moduleNameSpanOpen = "<span class='highlight'>";
+				$moduleNameSpanClose = "</span>";
 				if($_GET['module'] != 'listings' && $_GET['module'] != 'user' && $_GET['module'] != 'landlords' && $_GET['module'] != 'lookup')
 				{
 					$setmodule= "overview";  // Default to overview
-					$moduleName = "System Overview";
+					$moduleName = $moduleNameSpanOpen."System Overview".$moduleNameSpanClose;
 				}
 				else
 				{
@@ -18,12 +20,12 @@
 					$area = $_GET['module'];
 					if($area == "lookup")
 					{
-						$moduleName = "Information Lookup";
+						$moduleName = $moduleNameSpanOpen."Information Lookup".$moduleNameSpanClose;
 					}
 
 					else
 					{
-						$moduleName = ucwords($area)." Management";
+						$moduleName = $moduleNameSpanOpen.ucwords($area)." Management".$moduleNameSpanClose;
 					}
 				}
 
