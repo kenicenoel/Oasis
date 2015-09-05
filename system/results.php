@@ -8,20 +8,47 @@
 
 			$minPrice=$_POST['min'];
 			$maxPrice=$_POST['max'];
+			$location="%";
+			$occupants = 100;
+			$furnished = "%";
+			$type = "%";
+
 
 			$_SESSION['min'] = $minPrice;
 			$_SESSION['max'] = $maxPrice;
+			$_SESSION['location'] = $location;
+			$_SESSION['num-occupants'] = $occupants;
+			$_SESSION['furnished'] = $furnished;
+			$_SESSION['type'] = $type;
+
+
 			if(isset($_POST['location']))
 			{
 				$location='%'.$_POST['location'];
 				$_SESSION['location'] = $location;
 			}
-			else
-			{
 
-				$location="%";
-				$_SESSION['location'] = $location;
+			if(isset($_POST['num-occupants']))
+			{
+				$occupants = $_POST['num-occupants'];
 			}
+
+			if(isset($_POST['furnished']))
+			{
+				$furnished = '%'.$_POST['furnished'];
+				$_SESSION['furnished'] = $furnished;
+			}
+
+			if(isset($_POST['num-occupants']))
+			{
+				$occupants = $_POST['num-occupants'];
+			}
+
+			if(isset($_POST['type']))
+			{
+				$type = '%'.$_POST['type'];
+			}
+
 
 
 
@@ -32,6 +59,9 @@
 			$minPrice=$_SESSION['min'];
 			$maxPrice=$_SESSION['max'];
 			$location=$_SESSION['location'];
+			$occupants = $_SESSION['num-occupants'];
+			$furnished= $_SESSION['furnished'] ;
+			$type = $_SESSION['type'];
 
 
 		}
@@ -41,10 +71,10 @@
 
 			// Get the total rows from the database matching criteria
 			$sql = "SELECT * FROM listing, landlord WHERE listing.price >= ? AND listing.price <= ? AND
-		landlord.landlordNumber = listing.landlordNumber AND location LIKE ?";
+		landlord.landlordNumber = listing.landlordNumber AND location LIKE ? AND occupants <=? AND furnished LIKE ? AND type LIKE ? ";
 
 		$stmt = $connection->prepare($sql);
-		$stmt->bind_param('iis', $minPrice, $maxPrice, $location);
+		$stmt->bind_param('iisiss', $minPrice, $maxPrice, $location, $occupants, $furnished, $type);
 		$stmt->execute();
 		$stmt->store_result();
 
@@ -88,13 +118,13 @@
 		// Grab one row of data
 			$sql = "SELECT listing.listingNumber, listing.type, listing.address, listing.location, listing.description, listing.price, landlord.firstName, landlord.lastName,
 			 				image1, image2, image3 FROM listing, landlord WHERE listing.price >= ? AND listing.price <= ? AND
-							landlord.landlordNumber = listing.landlordNumber AND location LIKE ? ORDER BY listing.price ASC $limit";
+							landlord.landlordNumber = listing.landlordNumber AND location LIKE ? AND occupants <=? AND furnished LIKE ? AND type LIKE ? ORDER BY listing.price ASC $limit";
 
 		  // prepare the sql statement
 		  $stmt = $connection->prepare($sql);
 
 		  // bind variables to the paramenters ? present in sql
-		  $stmt->bind_param('iis',$minPrice, $maxPrice, $location);
+		  $stmt->bind_param('iisiss',$minPrice, $maxPrice, $location, $occupants, $furnished, $type);
 
 		  // execute the prepared statement
 		  $stmt->execute();
@@ -106,7 +136,7 @@
 		  $stmt->bind_result($number, $type, $address, $location, $desc, $price, $fname, $lname, $image1, $image2, $image3);
 			$i = 0;
 
-			$textline = "Found $total listings that match your selected filters. 
+			$textline = "Found $total listings that match your selected filters.
 						You are on page $pagenum of $lastPage.";
 
 			// Establish the paginationCtrls variable
@@ -161,7 +191,7 @@
 			  $i++;
 				$full_address = $address.", ".$location; // merge the address and the location into a single string
 				$desc_snippet = substr($desc, 0, 30); // a 30 character substring of the description
-			  
+
 			  // Generate the grid view
 			  $grid.= '
 			  <div class="card">
@@ -226,7 +256,7 @@
 								<th>Address</th>
 								<th>Description</th>
 								<th>Price</th>
-								<th>Landlord</th>							
+								<th>Landlord</th>
 							</tr>
 						</thead>
 

@@ -183,7 +183,7 @@ else
             $stmt ->close();
             echo '</select><br>
             <label for = "description">Description</label>
-            <textarea rows="5" cols="70" form="listing" id = "description" name="description" required>
+            <textarea rows="5" cols="40" form="listing" id = "description" name="description" required>
             </textarea> <br>
 
             <label for="type">Type</label>

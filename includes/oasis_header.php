@@ -14,7 +14,7 @@
 
 			$_SESSION['fullName'];
 			$studentNumber=$_SESSION['studentNumber'];
-			$accent = $_SESSION['accent'];
+			//$accent = $_SESSION['accent'];
 
 
 
@@ -59,7 +59,7 @@
 			<li style="float:right"><a href="#" id="loggedInUser"><span class="fa fa-user fa-fw"></span><?php echo $_SESSION['fullName'] . "&nbsp;"; ?></a>
 				<ul>
 						<li><a href="profile_edit.php"><span class="fa fa-male fa-fw"></span> Update Profile</a></li>  <!-- End Account Submenu -->
-						<li><a href="change_accent.php"><span class="fa fa-magic fa-fw"></span>Accent color</a></li>
+						<!-- <li><a href="change_accent.php"><span class="fa fa-magic fa-fw"></span>Accent color</a></li> -->
 						<li><a href="../logout.php"><span class="fa fa-sign-out fa-fw"></span>Logout</a></li>
 				</ul>
 			</li> <!-- End User Submenu -->

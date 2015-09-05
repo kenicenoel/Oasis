@@ -24,11 +24,10 @@
 			
 			// Get the images for the listing
 			$imageCollection = array();
-			for($i = 1; $i <= 10; $i++)
+			for($i = 1; $i <= 5; $i++)
 			{
-				$sql = "SELECT listing.image{$i} FROM listing WHERE listingNumber = ?";
-			
-		  
+				$sql = "SELECT listing.image".$i." FROM listing WHERE listingNumber = ?";
+						  
 			  	$stmt = $connection->prepare($sql);
 				$stmt->bind_param('i', $listingNumber);
 				$stmt->execute();
