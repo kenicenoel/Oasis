@@ -1,6 +1,6 @@
 <b>This section Reserved for notices</b><br />
 | <br />
-I am now officially sanctioned by Student Advisory Services to work on OASIS.
+Due to issues presented by Campus IT, this project has been placed on hold for the foreseable future.
 | <br />
 |<br />
 
